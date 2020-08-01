@@ -1,476 +1,419 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="font/Noto_Sans/NotoSans-Bold.ttf" rel="stylesheet">
-    <link href="font/Noto_Sans/NotoSans-Regular.ttf" rel="stylesheet">
-    <link href="font/Noto_Sans_KR/NotoSansKR-Light.otf" rel="stylesheet">
-    <link href="font/Noto_Sans_KR/NotoSansKR-Regular.otf" rel="stylesheet">
-    <link href="font/Noto_Sans_KR/NotoSansKR-Bold.otf" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon_io/favicon.ico">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <title>HYEONJEONG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,700;1,900&display=swap');
+        @font-face { font-family: 'NEXON Lv1 Gothic OTF'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'NEXON Lv1 Gothic OTF Light'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff') format('woff'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'NEXON Lv2 Gothic Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+        }
+        .wrap{
+            width: calc(1200px + 5%);
+            padding: 0 5% 0;
+            margin: 0 auto;
+        }
+        header{
+            line-height: 50px;
+            padding-top: 10px;
+            /* margin: 0 5% 0; */
+            /* border:1px solid red; */
+        }
+        nav{
+            /* border:1px solid yellow; */
+            font-size: 0;
+            vertical-align: middle;
+            position: relative;
+        }
+        nav > .typelogo_wrap{
+            display: inline-block;
+        }
+        nav > .typelogo_wrap h1{
+            display: inline-block;
+            font-size: 28px;
+            /* font-family: 'NEXON Lv2 Gothic Bold'; */
+        }
+        .typelogo{
+            width: 12px;
+            height: 19px;
+            position: relative;
+            display: inline-block;
+            margin-left: 6px;
+            margin-bottom: 1px;
+        }
+        .typelogo span:not(.col_e){
+            display: inline-block;
+            width: 12px;
+            height: 3px;
+            background-color: black;
+            position: absolute;
+        }
+        .typelogo span:nth-child(1){
+            top:0;
+            left: 0;
+        }
+        .typelogo span:nth-child(2){
+            top:8px;
+            left: 0;
+        }
+        .typelogo span:nth-child(3){
+            bottom:0;
+            left: 0;
+        }
+        .typelogo span:nth-child(4){
+            display: inline-block;
+            background-color: #0af;
+            position: absolute;
+            width: 3px;
+            height: 19px;
+            left: 0;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scaleX(0); /*x방향으로 트랜지션이 0*/
+            transform: scaleX(0); /*x방향은 width방향.*/
+            transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)
+        }
+        .typelogo_wrap:hover .col_e{
+            transform: scaleX(1);
+        }
+        .main_menu_bar{
+            width: 22px;
+            height: 18px;
+            position: absolute;
+            top:50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: inline-block;
+            margin-left: 6px;
+            margin-bottom: 1px;
+        }
+        .main_menu_bar span{
+            display: inline-block;
+            width: 22px;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+        }
+        .main_menu_bar span:nth-child(1){
+            top:0;
+            left: 0;
+        }
+        .main_menu_bar span:nth-child(2){
+            top:8px;
+            left: 0;
+        }
+        .main_menu_bar span:nth-child(3){
+            bottom:0;
+            left: 0;
+        }
+        .main_hero{
+            /* width: fit-content; */
+            padding-top: 140px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .main_hero img{
+            width: 250px;
+            height: 280px;
+        }
+        .main_hero img, .main_info{
+            float: left;
+        }
+        .main_info h1, .main_info span{
+            font-family: 'Jost', sans-serif;
+            color: white;
+        }
+        .main_info h1{
+            font-weight: 700;
+            font-style: italic;
+            font-size: 45px;
+        }
+        .main_info span:nth-child(2){
+            font-size: 22px;
+            margin-left: 3px;
+        }
+        .main_info span:nth-child(4){
+            font-size: 16px;
+            float: right;
+            margin-top: 20px;
+            text-align: end;
+        }
+        .main_info span:nth-child(4) > span{
+            font-size: 14px;
+        }
+        .main_info {
+            width: 350px;
+            height: 260px;
+            box-shadow: 0 2px 30px rgba(black, .2);
+            background: lighten(#f0f4c3, 10%);
+            position: relative;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+            padding: 20px 20px 0;
+            }
+        .wave {
+            opacity: .4;
+            position: absolute;
+            top: -40%;
+            left: 25%;
+            background: #0af;
+            width: 500px;
+            height: 500px;
+            margin-left: -250px;
+            /* margin-top: -250px; */
+            transform-origin: 50% 48%;
+            border-radius: 43%;
+            animation: drift 3000ms infinite linear;
+            }
+        .wave.-three {
+            animation: drift 5000ms infinite linear;
+            }
+        .wave.-two {
+            animation: drift 7000ms infinite linear;
+            opacity: .1;
+            background: yellow;
+            }
+        .box:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(250,128,217);
+            background: linear-gradient(90deg, rgba(250,128,217,1) 0%, rgba(148,237,251,0.2) 65%, rgba(255,255,255,0.5) 100%);
+            z-index: 11;
+            transform: translate3d(0, 0, 0);
+            }
+        .main_info-text{
+                width: fit-content;
+                position: absolute;
+                z-index: 100;
+                margin-top: 20px;
+                margin-left: 10px;
+            }
+        @keyframes drift {
+            from { transform: rotate(0deg); }
+            /* from { transform: rotate(180deg); } */
+            from { transform: rotate(360deg); }
+            }
+        .content_1{
+            display: flex;
+            justify-items: center;
+        }
+        .content_2{
+            margin-top: 120px;/* 임시 */
+            padding-top:60px;/* 임시 */
+            position: relative;
+        }
+        .content_3{
+            padding-top:60px;
+            position: relative;
+        }
+        .content_2::before, .content_3::before{
+            content: '';
+            width: 100px;
+            height: 4px;
+            background-color: rgb(63, 63, 63);
+            position: absolute;
+            top:60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .clone_coding, .html_css{
+            width: 100%;
+            margin: 0 auto;
+            padding:0 0 60px;
+            text-align: center;
+            font-family: 'NEXON Lv1 Gothic OTF Light';
+            /* border: 1px solid black; */
+        }
+        
+        .clone_coding h3, .html_css h3{
+            font-size: 24px;
+            margin: 30px 0 60px
+        }
+        .content_2 > .clone_coding > ul, .content_3 > .html_css > ul{
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .content_2 > .clone_coding > ul::after, .content_3 > .html_css > ul::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .content_2 > .clone_coding > ul > li, .content_3 > .html_css > ul > li{
+            float: left;
+            /* text-align: start; */
+        }
+        .content_2 > .clone_coding > ul > li:nth-child(2){
+            margin: 0 30px 0;
+        }
+        .content_3 > .html_css > ul > li+li{
+            margin-left: 30px;
+        }
+        .content_2 > .clone_coding > ul > li > a, .content_3 > .html_css > ul > li > a{
+            display: block;
+            width: 200px;
+            height: 200px;
+            border:1px solid rgba(211, 211, 211, .5);
+            transition: all .4s ease;
+        }
+        .content_2 > .clone_coding > ul > li:nth-child(1) > a{
+            background: url(images/RE1Mu3b.png) no-repeat;
+            background-size: 80%;
+            background-position: center center;
+        }
+        .content_2 > .clone_coding > ul > li:nth-child(2) > a{
+            /* 미들 */
+            background: url(images/header_logo.png) no-repeat;
+            background-position: center center;
+        }
+        .content_2 > .clone_coding > ul > li:nth-child(3) > a{
+            background: url(images/logo_kakao.png) no-repeat;
+            background-position: center center;
+        }
+        .content_2 > .clone_coding > ul > li > span{
+            display: block;
+            margin-top: 16px;;
+        }
+        .content_2 > .clone_coding > ul > li > a:hover,
+        .content_3 > .html_css > ul > li > a:hover {
+            border-radius: 20px;
+            -webkit-box-shadow: 0px 0px 6px 4px rgba(148,148,148,0.2);
+            -moz-box-shadow: 0px 0px 6px 4px rgba(148,148,148,0.2);
+            box-shadow: 0px 0px 6px 4px rgba(148,148,148,0.2);    
+        }
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    
-    <title>KakaoCorp</title>
-    
+        .content_3 > .html_css > ul > li:nth-child(1) > a{
+            background: url(htmlNcss/practice01/imges/preview.JPG) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .content_3 > .html_css > ul > li:nth-child(2) > a{
+            /* 미들 */
+            background: url(htmlNcss/practice02/preview.JPG) no-repeat;
+            background-size: cover;
+            background-position: top center;
+        }
+        .content_3 > .html_css > ul > li:nth-child(3) > a{
+            background: url(htmlNcss/practice03/img/preview.JPG) no-repeat;
+            background-size: cover;
+            background-position: 30% center;
+        }
+        .content_3 > .html_css > ul > li:nth-child(4) > a{
+            background: url(htmlNcss/practice04/img/preview.JPG) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .content_3 > .html_css > ul > li:nth-child(5) > a{
+            background: url(htmlNcss/practice05/images/preview.JPG) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        footer{
+            text-align: center;
+            margin-top: 200px;
+            font-size: 12px;
+            color: rgb(185, 185, 185);
+            padding-bottom: 60px;
+        }
+        footer i {
+            margin: 0 10px 0;
+        }
+    </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="header_wrap">
-        <header class="main_header">
-            <div class="logo">
-                <h1 class="blind">카카오 코퍼레이션</h1>
-                <img src="images/logo_kakao.png" alt="kakao 로고">
-            </div>
+        <header>
             <nav>
-                <ul class="main_menu">
-                    <li class="main_menu-list">
-                        <a href=""><h2>카카오</h2></a>
-                        <ul class="menu_lnb">
-                            <li><a href=""><strong>카카오 소개</strong></a>
-                                <ul>
-                                    <li><a href=""><span>비전</span></a></li>
-                                    <li><a href=""><span>카카오 문화</span></a></li>
-                                    <li><a href=""><span>걸어온 길</span></a></li>
-                                    <li><a href=""><span>CI</span></a></li>
-                                    <li><a href=""><span>윤리규정</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>카카오 AI</strong></a>
-                                <ul>
-                                    <li><a href=""><span>소개</span></a></li>
-                                    <li><a href=""><span>알고리즘 윤리</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>자회사</strong></a></li>
-                            <li><a href=""><strong>비즈니스</strong></a>
-                                <ul>  
-                                    <li><a href=""><span>광고 안내</span></a></li>
-                                    <li><a href=""><span>제휴 안내</span></a></li>
-                                    <li><a href=""><span>Kakao for Business</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>홍보채널</strong></a>
-                                <ul>
-                                    <li><a href=""><span>보도자료</span></a></li>
-                                    <li><a href=""><span>브랜드</span></a></li>
-                                    <li><a href=""><span>영상 미디어 행사</span></a></li>
-                                    <li><a href=""><span>Kakao Travel Day</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>오시는 길</strong></a></li>
-                        </ul>
-                    </li> <!-- 카카오 -->
-                    <li class="main_menu-list">
-                        <a href="">
-                            <h2>투자정보</h2>
-                        </a>
-                        <ul class="menu_lnb">
-                            <li><a href=""><strong>경영정보</strong></a>
-                                <ul>
-                                    <li><a href=""><span>주주구성</span></a></li>
-                                    <li><a href=""><span>이사회</span></a></li>
-                                    <li><a href=""><span>정관</span></a></li>
-                                    <li><a href=""><span>기업지배구조</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>공시정보</strong></a></li>
-                            <li><a href=""><strong>주가정보</strong></a></li>
-                            <li><a href=""><strong>재무정보</strong></a>
-                                <ul>
-                                    <li><a href=""><span>연결재무제표</span></a></li>
-                                    <li><a href=""><span>별도재무제표</span></a></li>
-                                    <li><a href=""><span>신용등급</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>IR 일정</strong></a>
-                                <ul>
-                                    <li><a href=""><span>IR 행사</span></a></li>
-                                    <li><a href=""><span>주주총회</span></a></li>
-                                    <li><a href=""><span>IR 미팅예약</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>IR 자료실</strong></a>
-                                <ul>
-                                    <li><a href=""><span>실적발표</span></a></li>
-                                    <li><a href=""><span>정가보고서</span></a></li>
-                                    <li><a href=""><span>IR FAQ</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>증권사커버리지</strong></a></li>
-                            <li><a href=""><strong>공고</strong></a>
-                                <ul>
-                                    <li><a href=""><span></span>배달정보</a></li>
-                                    <li><a href=""><span></span>공고사항</a></li>
-                                    <li><a href=""><span></span>주제제안권</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="main_menu-list">
-                        <a href="">
-                            <h2>서비스</h2>
-                        </a>
-                        <ul class="menu_lnb">
-                            <li><a href=""><strong>포털</strong></a>
-                                <ul>
-                                    <li><a href=""><span>Daum</span></a></li>
-                                    <li><a href=""><span>Daum 뉴스</span></a></li>
-                                    <li><a href=""><span>Daum 검색</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>커뮤니케이션</strong></a>
-                                <ul>
-                                    <li><a href=""><span>카카오톡</span></a></li>
-                                    <li><a href=""><span>카카오스토리</span></a></li>
-                                    <li><a href=""><span>카카오톡 치즈</span></a></li>
-                                    <li><a href=""><span>Daum 메일</span></a></li>
-                                    <li><a href=""><span>Daum 카페</span></a></li>
-                                    <li><a href=""><span>아지트</span></a></li>
-                                    <li><a href=""><span>티스토리</span></a></li>
-                                    <li><a href=""><span>브런치</span></a></li>
-                                    <li><a href=""><span>멜론 아지톡</span></a></li>
-                                    <li><a href=""><span>카카오메일</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>콘텐츠</strong></a>
-                                <ul>
-                                    <li><a href=""><span>카카오페이지</span></a></li>
-                                    <li><a href=""><span>카카오TV</span></a></li>
-                                    <li><a href=""><span>카카오뮤직</span></a></li>
-                                    <li><a href=""><span>카카오프렌즈</span></a></li>
-                                    <li><a href=""><span>Daum 웹툰</span></a></li>
-                                    <li><a href=""><span>1boon</span></a></li>
-                                    <li><a href=""><span>멜론</span></a></li>
-                                    <li><a href=""><span>멜론티켓</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>커머스</strong></a>
-                                <ul>
-                                    <li><a href=""><span>카카오톡</span></a></li>
-                                    <li><a href=""><span>선물하기</span></a></li>
-                                    <li><a href=""><span>카카오스타일</span></a></li>
-                                    <li><a href=""><span>카카오톡</span></a></li>
-                                    <li><a href=""><span>쇼핑하기</span></a></li>
-                                    <li><a href=""><span>쇼핑하우</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>게임</strong></a>
-                                <ul>
-                                    <li><a href=""><span>카카오게임즈</span></a></li>
-                                </ul>
-                            
-                            </li>
-                            <li><a href=""><strong>핀테크</strong></a>
-                                <ul>
-                                    <li><a href=""><span>카카오페이</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>모빌리티&라이프</strong></a>
-                                <ul>
-                                    <li><a href=""><span>카카오 T</span></a></li>
-                                    <li><a href=""><span>카카오 T 대리</span></a></li>
-                                    <li><a href=""><span>카카오내비</span></a></li>
-                                    <li><a href=""><span>카카오맵</span></a></li>
-                                    <li><a href=""><span>카카오버스</span></a></li>
-                                    <li><a href=""><span>카카오지하철</span></a></li>
-                                    <li><a href=""><span>카카오헤어샵</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>소셜임팩트</strong></a>
-                                <ul>
-                                    <li><a href=""><span>카카오같이가치</span></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="main_menu-list">
-                        <a href="">
-                            <h2>소셜임팩트</h2>
-                        </a>
-                        <ul class="menu_lnb">
-                            <li><a href=""><strong>소셜임팩트 서비스</strong></a>
-                                <ul>
-                                    <li><a href=""><span>카카오같이가치</span></a></li>
-                                    <li><a href=""><span>카카오메이커스</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>사회공헌</strong></a>
-                                <ul>
-                                    <li><a href=""><span>Next</span></a></li>
-                                    <li><a href=""><span>Connect</span></a></li>
-                                    <li><a href=""><span>Kakao Krew</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>상생</strong></a>
-                                <ul>
-                                    <li><a href=""><span>상생센터</span></a></li>
-                                    <li><a href=""><span>상생서포터즈</span></a></li>
-                                    <li><a href=""><span>Kakao 클래스</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>제주지역협력</strong></a>
-                                <ul>
-                                    <li><a href=""><span>교육 산학</span></a></li>
-                                    <li><a href=""><span>지역 상생</span></a></li>
-                                    <li><a href=""><span>문화 교류</span></a></li>
-                                    <li><a href=""><span>제주창조경제혁신센터</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href=""><strong>Partners with Kakao</strong></a></li>
-                        </ul>
-                    </li>
-                    <li class="main_menu-list">
-                        <a href="">
-                            <h2>고객지원</h2>
-                        </a>
-                    </li>
-                    <li class="main_menu-list">
-                        <a href="">
-                            <h2>인재영입</h2>
-                            <span></span>
-                        </a>
-                    </li>
-                </ul>
+                <a href="#" class="typelogo_wrap">
+                    <h1>L E E H J</h1>
+                    <div class="typelogo">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="col_e"></span>
+                    </div>
+                </a>
+                <div class="main_menu_bar"><!-- 버튼이나 a태그 -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
-            <div class="header_util-lang">
-                <h2 class="blind">고객지원 메뉴 언어 선택</h2>
-                <ul class="lang">
-                    <li class="lang_ko"><a href="">KOR</a></li>
-                    <li class="lang_en"><a href="">ENG</a></li>
-                </ul>
-            </div>
         </header>
-        </div> <!-- header_wrap -->
-        <div class="content_container">
-            <section class="main_slide">
-                <ul class="slide"><!-- 필요없을 수도 있으니 css하면서 확인 할 것 -->
-                    <li class="slide_item_1 white">
-                        <a href="">
-                            <img src="images/1652.png" alt="두 사람이 함께 이야기나누고 있는 이미지">
-                            <div class="slide_info">
-                                <p>일상에 필요한 모든 것들을 연결해주는<br>
-                                    당신과 가장 가까운 인공지능을 만나보세요.
-                                </p>
-                                <button>자세히 보기</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="slide_item_2 black">
-                        <a href="">
-                            <img src="images/1657.png" alt="사람들이 오고 가는 길의 전경">
-                            <div class="slide_info">
-                                <p>카카오는 새로운 연결을 통해<br>
-                                더 편리하고 즐거운 세상을 꿈꿉니다.
-                                </p>
-                                <button>자세히 보기</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="slide_item_3 white">
-                        <a href="">
-                            <img src="images/2928.png" alt="순환로 도로 이미지">
-                            <div class="slide_info">
-                                <p>끊임없이 이동하는 우리의 삶 속 카카오는 어떤 모습일까요?<br>
-                                이동에 대한 카카오의 모든 이야기들을 담았습니다.
-                                </p>
-                                <button>자세히 보기</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="slide_item_4 black">
-                        <a href="">
-                            <img src="images/3189.png" alt="책상에 앉아 디지털 그림을 그리는 사람 이미지">
-                            <div class="slide_info">
-                                <p>카카오로 연결된 수많은 파트너들과, <br>
-                                그들과 함께 더 나은 세상을 만들어나가고자 하는 <br>
-                                카카오의 진심을 전합니다.
-                                </p>
-                                <button>자세히 보기</button>
-                            </div>
-                        </a>
-                    </li>
-                </ul><!-- slide -->
-            </section><!-- main_slide -->
-            <section class="summary">
-                <ul class="summary_list">
-                    <li class="summary_press-release">
-                        <h3>PRESS RELEASE</h3>
-                        <a href="">
-                            <strong>카카오톡 선물하기, ‘샤넬’ 브랜드 전문관 오픈</strong>
-                            <p>- 향수-립스틱 등 다양한 샤넬 베스트셀러 뷰티 제품 라인업 선보여- 프리미엄 선물군 지속 확대해 고객에게 다양한 가치 제공[2020.07.08] ‘카카오톡 선물하기’에서 ‘샤넬’의 다양한 뷰티 제품을 선보이고 있습니다.</p>
-                        </a>
-                    </li>
-                    <li class="summary_stock">
-                            <h3>STOCK</h3>
-                            <strong class="blind">실시간 현재 주식가</strong>
-                            <div class="stock_box">
-                                <span class="stock-price">32,500 <span class="blind">원</span></span>
-                                <div class="des-stock"> 
-                                    <span class="blind">전일대비</span>
-                                    <span class="stock_up-down-icon"></span>
-                                    3,000 
-                                    <span class="blind up_down">상승</span>
-                                </div>
-                                <span class="stock-date"></span>
-                            </div>
-                    </li>
-                    <li class="summary_privacy-policy">
+        <section class="content_1">
+            <div class="main_hero">
+                <img src="images/HJLOGO.png" alt="이현정 프론트엔드 포트폴리오 웹 사이트 로고입니다.">
+                <div class="main_info box">
+                    <div class="main_info-text">
+                        <h1>The Portfolio</h1>
+                        <span>Live Colorfully In Flow Of Life</span><br/>
+                        <span>Lee HyeonJeing.<br/><span>Github Id arinary5959</span></span>
                         
-                            <h3>PRIVACY POLICY</h3>
-                        <a href="">
-                            <strong>카카오는 데이터의 연결과 보호의 균형을 위해
-                                언제나 최선을 다 하겠습니다.</strong>
-                        </a>
-                    </li>
-                </ul>
-            </section><!-- summary -->
 
-            <section class="primary">
-                <ul class="primary_list">
-                    <li class="primary_service">
-                        <a href="">
-                            <h3>SERVICE</h3>
-                            <img src="images/4518.jpg" alt="">
-                            <strong>언제 어디서나 무료로 간편하게! 사람과 세상, 그 이상을 연결하는 카카오</strong>
-                            <p>채팅은 물론 일정 관리, 송금, #검색 등 다양한 기능을 제공하는 카카오톡은 우리의 생활을 보다 편리하게 만들어 주고 있습니다. 카카오톡을 통해 세상의 정보와 즐길거리에 보다 가까이에서 함께 하실 수 있습니다.</p>
-                        </a>
+                    </div>
+                    <div class='wave -one'></div>
+                    <div class='wave -two'></div>
+                    <div class='wave -three'></div>
+                </div>
+            </div>
+        </section>
+        <section class="content_2">
+            <article class="clone_coding">
+                <h3>웹 페이지 클론 코딩</h3>
+                <ul>
+                    <li class="clone_web-microsoft">
+                        <a href="microsoft/index.html"></a>
+                        <span><a href="microsoft/microsoft365.html">서브 페이지_1</a></span>
+                        <span><a href="microsoft/windows.html">서브 페이지_2</a></span>
                     </li>
-                    <li class="primary_tech">
-                        <a href="">
-                            <h3>TECH</h3>
-                            <img src="images/4540.jpg" alt="">
-                            <strong>새로워진 kakao Tech를 소개합니다.</strong>
-                            <p>
-                                기술 행사와 오픈소스, 후원, 채용 등 카카오의 기술 관련 종합적인 정보를 제공할 수 있도록 개편했습니다.</p>
-                        </a>
+                    <li class="clone_web-kakaocorp">
+                        <a href="navercorp/index.html"></a>
+                        <span><a href="">서브 페이지_1</a></span>
+                        <span><a href="">서브 페이지_2</a></span>
                     </li>
-                    <li class="primary_social-impact">
-                        <a href="">
-                            <h3>SOCIAL IMPACT</h3>
-                            <img src="images/3254.png" alt="">
-                            <strong>세계 행복의 날 기념, 같이가치 ‘안녕하세요’ 캠페인을 소개합니다!</strong>
-                            <p>'세계 행복의 날'이라는 기념일을 들어보신 적 있나요? 2012년 국제연합(UN)이 모든 사람들이 행복하게 살 수 있도록 전 세계가 함께 노력하자는 취지로 매년 3월 20일을 '세계 행복의 날'을 지정하여 세계인의 행복 증진을 위해 노력하고 있습니다. </p>
-                        </a>
-                    </li>
+                    <li class="clone-web-navercorp"><a href="kakaocorp/index.html"></a></li>
                 </ul>
-            </section><!-- primary -->
-        </div><!-- content_container -->
+            </article>
+        </section>
+        <section class="content_3">
+            <article class="html_css">
+                <h3>이미지로 HTML & CSS 연습하기</h3>
+                <ul>
+                    <li><a href="htmlNcss/practice01/index.html"></a></li>
+                    <li><a href="htmlNcss/practice02/index.html"></a></li>
+                    <li><a href="htmlNcss/practice03/index.html"></a></li>
+                    <li><a href="htmlNcss/practice04/index.html"></a></li>
+                    <li><a href="htmlNcss/practice05/index.html"></a></li>
+                </ul>
+            </article>
+        </section>
+            <!-- 
+            <article class="apps">
+                <div class="apps_weather"></div>
+                <div class="apps_kakao-des"></div>
+            </article>
+            <article class="javascript_ui_practice">
 
-        <footer class="footer">
-            <div class="footer_wrap">
-            <ul class="footer_menu">
-                <li class="footer_menu-list">
-                    <a href="">
-                        <span>이용약관</span>
-                        <span class="footer_drop-icon"></span>
-                    </a>
-                    <ul class="footer_lnb-menu">
-                        <li><a href=""><span>카카오계정 서비스</span></a></li>
-                        <li><a href=""><span>카카오 서비스</span></a></li>
-                        <li><a href=""><span>Daum 서비스</span></a></li>
-                        <li><a href=""><span>Melon 서비스</span></a></li>
-                    </ul>
-                </li>
-                <li class="footer_menu-list">
-                    <a href="">
-                        <span>위치기반서비스이용약관</span>
-                        <span class="footer_drop-icon"></span>
-                    </a>
-                    <ul class="footer_lnb-menu">
-                        <li><a href=""><span>카카오 서비스</span></a></li>
-                        <li><a href=""><span>Daum 서비스</span></a></li>
-                        <li><a href=""><span>Melon 서비스</span></a></li>
-                    </ul>
-                </li>
-                <li class="footer_menu-list">
-                    <a href="">
-                        <span>개인정보처리방침</span>
-                        <span class="footer_drop-icon"></span>
-                    </a>
-                    <ul class="footer_lnb-menu">
-                        <li><a href="" class="exceptional_icon"><span>기업사이트</span></a></li>
-                        <li><a href=""><span>카카오 서비스</span></a></li>
-                        <li><a href=""><span>Daum 서비스</span></a></li>
-                        <li><a href=""><span>Melon 서비스</span></a></li>
-                    </ul>
-                </li>
-                <li class="footer_menu-list">
-                    <a href="">
-                        <span>운영정책</span>
-                    </a>
-                </li>
-                <li class="footer_menu-list">
-                    <a href="">
-                        <span>청소년보호정책</span>
-                        <span class="footer_drop-icon"></span>
-                    </a>
-                    <ul class="footer_lnb-menu">
-                        <li><a href=""><span>카카오 서비스</span></a></li>
-                        <li><a href=""><span>Daum 서비스</span></a></li>
-                        <li><a href=""><span>Melon 서비스</span></a></li>
-                    </ul>
-                </li>
-                <li class="footer_menu-list">
-                    <a href="">
-                        <span>권리침해신고안내</span>
-                    </a>
-                </li>
-                <li class="footer_menu-list">
-                    <a href="">
-                        <span>공지사항</span>
-                        <span class="footer_drop-icon"></span>
-                    </a>
-                    <ul class="footer_lnb-menu">
-                        <li><a href="" class="exceptional_icon"><span>기업사이트</span></a></li>
-                        <li><a href=""><span>카카오 서비스</span></a></li>
-                        <li><a href=""><span>Daum 서비스</span></a></li>
-                        <li><a href=""><span>Melon 서비스</span></a></li>
-                    </ul>
-                </li>
-                <li class="footer_menu-list">
-                    <a href="">
-                        <span>사이버윤리실</span>
-                    </a>
-                </li>
-            </ul>
-            <ul class="footer_util">
-                <li class="footer_util-list"><a href=""><span>관련사이트</span></a>
-                    <ul class="footer_util-lnb-menu">
-                        <li>
-                            <a href=""><span>카카오 AI</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span>카카오 프라이버시</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span>카카오 디벨로퍼스</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span>다음 포털 사이트</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span>동반성장 사이트</span></a>
-                        </li>
-                        <li>
-                            <a href=""><span>제주 with kakao</span></a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="copyright">
-                <span>Copyright © <a href="">Kakao Corp.</a> All rights reserved.</span></div>
-        </div>
+            </article> -->
+        <footer>
+            <span><i class="em em-blush" aria-role="presentation" aria-label="SMILING FACE WITH SMILING EYES"></i>GoodBye, See U soon and I hope we can work together. Have a nice day!<i class="em em-blush" aria-role="presentation" aria-label="SMILING FACE WITH SMILING EYES"></i></span>
         </footer>
-        <aside><a href="#" class="link-top"></a></aside>
-    </div> <!-- wrap -->
-    <script src="js/index.js"></script>
+    </div>
 </body>
 </html>

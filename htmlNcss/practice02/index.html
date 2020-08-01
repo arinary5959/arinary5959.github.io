@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mobile UI Practice</title>
+    <style>
+      .signin_user-id,
+      .singin_user-password {
+        display: block;
+        width: 300px;
+        height: 40px;
+        margin-top: 30px;
+        border: 1px solid rgba(233, 233, 233, 0.8);
+        border-radius: 5px;
+      }
+      .signin_outline {
+        width: 304px;
+        height: 620px;
+        border-radius: 20px;
+        border: 2px solid rgb(233, 233, 233);
+        padding: 50px 34px 0;
+        margin:0 auto;
+      }
+      .signin_title {
+        margin-bottom: 50px;
+      }
+      a.signin_forgot {
+        float: right;
+        margin-top: 25px;
+      }
+      .signin_outline a {
+        text-decoration: none;
+        color: gray;
+      }
+      .remember-me_box {
+        float: left;
+        padding-top: 50px;
+        color: gray;
+      }
+      .signin_outline h3 {
+        font-size: 25px;
+        text-align: center;
+      }
+      .signin_btn {
+        margin-top: 56px;
+        border: none;
+        background-color: red;
+        border-radius: 20px;
+        width: 300px;
+        height: 40px;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        clear: both;
+      }
+      span.signin_or {
+        margin: 30px 0;
+        display: block;
+        font-weight: 900;
+      }
+      .signin_or-facebook,
+      .signin_or-twitter {
+        width: 140px;
+        height: 40px;
+        border: none;
+        margin: 0;
+        /* padding: 0; */
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .signin_or-facebook {
+        margin-right: 10px;
+        background-color: #5b5bdc;
+        color: white;
+      }
+      .signin_or-twitter {
+        background-color: rgb(103, 194, 230);
+      }
+      .signin_utill {
+        margin-top: 40px;
+        font-size: 14px;
+      }
+      .signin_utill span {
+        color: red;
+      }
+      .signin_utill > a {
+        cursor: default;
+      }
+      .signin_utill span:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="signin_outline">
+      <h3 class="signin_title">Sign in</h3>
+      <div class="signin_inputelement">
+        <input type="text" class="signin_user-id" name="user-id" placeholder="e-mail" />
+        <input type="text" class="singin_user-password" name="user-password" placeholder="password"/>
+        <a href="" class="signin_forgot"><span>Forgot password?</span></a>
+        <div class="remember-me_box">
+          <input type="checkbox" id="remember-me" />
+          <label for="remember-me">Remember me</label>
+        </div>
+        <button class="signin_btn">Sign in</button>
+      </div>
+      <span class="signin_or">OR</span>
+      <button class="signin_or-facebook">Facebook</button>
+      <button class="signin_or-twitter">Twitter</button>
+      <div class="signin_utill">
+        <a href=""><p>need am account? <span>Sign Up</span></p></a>
+        <a href=""><p>forgot your password? <span>Retrive</span></p></a>
+      </div>
+    </div>
+  </body>
+</html>
