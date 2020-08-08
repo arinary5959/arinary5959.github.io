@@ -5,7 +5,9 @@ const bar3 = menuBarBtnDiv.querySelector('bar_3')
 const hiddenNav = document.querySelector('.hidden_nav')
 const headerUtilDiv = document.querySelector('.header_util_wrap')
 const headerElem = document.querySelector('header')
+const htmlElem = document.querySelector('html')
 menuBarBtnDiv.addEventListener('click', dropMenu)
+window.addEventListener('scroll', scrollWork)
 
 function dropMenu(){
     if(menuBarBtnDiv.classList.contains('on')){
@@ -19,4 +21,15 @@ function dropMenu(){
         headerUtilDiv.classList.add('on');
         headerElem.classList.add('on')
     }
+}
+console.log(headerElem)
+var set = 0;
+function scrollWork (){
+    console.log(1)
+    if( htmlElem.scrollTop > set && htmlElem.scrollTop > 200){
+        headerElem.classList.add('hide')
+    }else{
+        headerElem.classList.remove('hide')
+    }
+    set = htmlElem.scrollTop;
 }

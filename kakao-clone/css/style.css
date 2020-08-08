@@ -1,0 +1,79 @@
+@import "reset.css";
+@import "status-bar.css";
+@import "variable.css";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.welcome-header{
+    margin: 90px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* font-weight: 600; */
+}
+.welcome-header_titile{
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+.welcome-header_text{
+    /* width: 60%; */
+    /* color: 7c7c7c; */
+    opacity: .7;
+    font-size: 14px;
+    line-height: 1.2;
+}
+#login-form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 40px;/* 30px에서 수정 */
+}
+#login-form input{
+    border:none;
+    padding: 15px 0;
+    font-size: 18px;
+}
+.btn-sign-up{
+    width: 100%;
+    display: block;
+}
+#login-form input:not([type="submit"]){
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    transition: border-color .3s ease-in-out;
+}/* #login-form input:not(:nth-child(3)) */
+#login-form input[type="submit"]{
+    cursor: pointer;
+    margin-bottom: 20px;
+    /* padding: 20px 0; */
+    font-size: 16px;
+    border-radius: 5px;
+}
+.btn-sign-up{
+    border:none;
+    border-color: black;
+    /* padding: 20px 0; */
+    padding: 15px 0;
+    font-size: 16px;
+    border-radius: 5px;   
+    margin-bottom: 39px;                      
+}
+#login-form input[type="submit"]:focus, .btn-sign-up:focus, 
+.btn-sign-up:active{
+    border: 1px solid black;
+}
+#login-form input:nth-child(2){
+    margin-bottom: 59px;
+}
+
+#login-form input::placeholder{
+    color:rgba(0, 0, 0, .4);
+}
+#login-form input:focus{
+    border-color:var(--yellow);
+}
+#login-form a{
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}

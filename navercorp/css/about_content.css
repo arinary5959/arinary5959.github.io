@@ -2,6 +2,7 @@
 
 .container{
 	margin-bottom: 120px;
+	padding: 83px 0 0; /* 3px 오차 */
 }
 
 /**/
