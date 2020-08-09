@@ -338,6 +338,10 @@ nav > .typelogo_wrap h1{
     width: fit-content;
     padding: 20px 30px;
     background-color: white;
+    text-align: left;
+}
+.content_2 > .clone_coding > ul > li:nth-child(4) > div > ul > li:not(:last-child){
+    margin-bottom: 10px;
 }
 .content_2 > .clone_coding > ul > .clone-web-kakaoapp.on > div{
     display: block;
