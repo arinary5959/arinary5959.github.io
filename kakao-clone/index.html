@@ -29,9 +29,9 @@
         <h1 class="welcome-header_titile">Welcome to KakaoTalk</h1>
         <p class="welcome-header_text">If you have a Kakao Account,<br/> log in with your email or phone number.</p>
     </header>
-    <form id="login-form">
-        <input type="text" placeholder="Eamil or phone number" />
-        <input type="password" placeholder="Password" />
+    <form id="login-form" action="friends.html" method="GET"><!-- 서버없으므로 get. -->
+        <input name="username" type="text" placeholder="Eamil or phone number" />
+        <input name="password" type="password" placeholder="Password" />
         <input type="submit" value="Log In">
         <button class="btn-sign-up">Sign Up</button>
         <a href="#">Find Kakao Account of Password</a>

@@ -1,0 +1,44 @@
+nav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9fa;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(121,121,121,.1)
+}
+nav a{
+    color: #2e353e;
+    display: block;
+}
+nav > ul{
+    display: flex;
+    justify-content: space-between;
+}
+nav > ul > li:nth-child(2) > a, nav > ul > li:nth-child(4) > a{
+    position: relative;
+}
+nav > ul > li:nth-child(2) > a > span{
+    font-weight: 600;
+    color: white;
+    background-color: tomato;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:-8px;
+    right: -10px;
+}
+nav > ul > li:nth-child(4) > a > span{
+    display: block;
+    background-color: tomato;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    position: absolute;
+    top: -2px;
+    right: -6px;
+}

@@ -1,0 +1,13 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:var(--horizental-space);
+}
+header > h1{
+    font-size: 28px;
+    font-weight: 600;
+}
+header > div > span {
+    margin-left: 25px;
+}
