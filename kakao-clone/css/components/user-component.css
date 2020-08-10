@@ -1,6 +1,7 @@
 
 .user-component{
     justify-content: space-between;
+    margin-bottom: 25px; /* 프렌즈의 경우 마진 겹침 */
 }
 .user-component, 
 .user-component_column:first-child{

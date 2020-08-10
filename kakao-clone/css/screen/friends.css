@@ -1,6 +1,4 @@
-.container{
-    padding: 0 var(--horizental-space);
-}
+
 .container > a{
     display: block;
     width: 100%;

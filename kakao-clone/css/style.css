@@ -16,3 +16,6 @@ body{
     /* height: 1000vh; */
     color: #2e353e;
 }
+.container{
+    padding: 0 var(--horizental-space);
+}
