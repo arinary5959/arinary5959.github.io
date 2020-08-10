@@ -270,7 +270,7 @@ header.on .header_logo{background-image: url(../img/header_logo_v2.png);}
 	width: 1280px;
     margin: 0 auto;
 	padding: 35px 35px 150px;
-	border:1px solid purple;
+	/* border:1px solid purple; */
 	font-size: 0;
 	text-align: center;
 }
@@ -421,11 +421,10 @@ UL.hidden_nav-dropmenu >li+li{
     bottom: -9px;
 }
 */
-.menu-trigger:hover .navbar{
+/* .menu-trigger:hover .navbar{
 	background-color: #03C75A;
 }
-
-
+ */
 .content_summary{
 	max-width: 1600px;
 	margin: 0 auto;
