@@ -1,6 +1,11 @@
 /* .user-component{
     position: relative;
 } */
+.user-component > .user-component_column:last-child{
+display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
 .user-component > .user-component_column:nth-child(2) > span:nth-child(1){
     display: block;
     font-size: 12px;
@@ -20,7 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    /* position: absolute; */
     /* right: 0; */
     right: var(--horizental-space);
 }

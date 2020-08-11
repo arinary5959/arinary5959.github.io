@@ -1,53 +1,12 @@
-
+@import "Find-components.css";
 *{
-	margin:0;
 	box-sizing: border-box;
-	/*font-family: 'Segoe UI',SegoeUI,'Malgun Gothic',Gulim,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+	font-family: 'Segoe UI',SegoeUI,'Malgun Gothic',Gulim,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	color: #000;
 }
-ul{
-	list-style: none;
-	padding: 0;
-}
-
 .wrap{
 	width: 100%;
-	/*border: 1px solid lime;*/
 }
-
-.header_wrap{
-	/*border: 1px solid black;*/
-	max-width: calc(1600px + 10%);
-	padding: 0 5%;
-	margin: 0 auto;
-	height: 54px;
-}
-.logo_box{
-	/*border: 1px solid red;*/
-}
-
-/* header layout adjustment ... float*/
-
-.logo_box, .back_to_windows, .gnb_menu{
-	float:left;
-}
-.gnb_util{
-	float: right;
-}
-nav div[class^="gnb_"], nav a{
-	font-family: 'Segoe UI',SegoeUI,'Malgun Gothic',Gulim,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	color: #262626;
-	text-decoration: none;	
-}
-ul.gnb_menu_list, ul.gnb_util_list{
-	font-size: 0;
-}
-ul.gnb_menu_list li, ul.gnb_util_list li{
-	display: inline-block;
-	font-size: 13px !important;
-	color: #262626;
-}
-
 i.fa-search{
 	transform: rotate(90deg);
 	padding-right: 5px;
@@ -55,31 +14,8 @@ i.fa-search{
 i.fa-shopping-cart, .fa-user{
 	padding-left: 5px;
 }
-/* logo img adjustment */
-
-a.logo{
-	/*border: 1px solid blue;*/
-	display: block;
-	width: 137px;
-	height: 54px;
-	padding: 16px 6px 16px 10px;
-	position: relative;
-}
-a.logo img{
-	display: block;
-	width: 108px;
-	position: absolute;
-	top:50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-
-/* header layout adjustment ... box size*/
 
 .back_to_windows{
-	/*border: 1px solid green;*/
-
 	padding: 16px 6px 16px 10px;
 	margin-top:-1px;
 	margin-left: 32px;
@@ -111,18 +47,6 @@ i.fa-chevron-up{
 	padding-right: 5px;
 }
 /*main intro*/
-.gnb_menu_list a, .gnb_util_list a{
-	padding: 16px 8px 10px;
-}
-a.spacing{
-	display: inline-block;
-	padding: 16px 14px 16px 16px;/*30-14로 수정 아이콘 자리 다시 잡기*/
-}
-.gnb_menu_list li:last-child a{
-	padding: 8px 8px 8px;
-	border: 2px solid #000;
-	border-radius: 3px;
-}
 
 .main_intro_wrap{
 	width: 100%;

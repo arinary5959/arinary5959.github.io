@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<link rel="stylesheet" type="text/css" href="css/index0713.css">
+	<link rel="stylesheet" type="text/css" href="css/index0810.css">
     <script src="https://kit.fontawesome.com/c8d24dec70.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -17,10 +17,6 @@
 			var target = document.querySelector('header')
 			var aElem = document.querySelector('.bx-pager-item > a.active')
 			var opt = {
-				onSlideBefore: function(){
-					var num = this.getCurrentSlide();
-					console.log(num);
-				},
 				auto:true,
 				autoControls: true,
 				stopAutoOnClick: true
@@ -28,15 +24,19 @@
 			$('.slider').bxSlider(opt);
 		} );
 	</script>
-	
 </head>
 <body>
 	<div id="wrap">
-		<header class="header_wrap">
+		<header>
 			<div class="logo_box">
 				<h1 class="blind">마이크로소프트</h1>
-				<a href="" class="logo"><img src="imges/RE1Mu3b.png" alt="마이크로소프트 로고"></a>
+				<a href="" class="logo"><img src="imges/RE1Mu3b.png"></a>
 			</div><!-- logo_box -->
+			<div class="gnbmenu_bar-box">
+				<span class="gnbmenu_bar1"></span>
+				<span class="gnbmenu_bar2"></span>
+				<span class="gnbmenu_bar3"></span>
+			</div>
 			<nav><!--핵심 네비게이션 메뉴-->
 				<h2 class="blind">메인 메뉴</h2>
 				<ul class="gnb_menu">
@@ -166,14 +166,20 @@
 							<li><a href="" class="nonedrop">사이트맵 보기</a></li>
 						</ul><!--lnb-->
 					</li>		
-					<li><button class="lnb_drop_btn"><span>검색</span><i class="fas fa-search fa-flip-horizontal"></i></button></li><!--form태그, input태그-->
-					<li class="lnb_search-hide">
-						<form action="">
-							<input type="text" placeholder="Microsoft.com 검색"></input>
-							<button type ="button" class="lnb_search-iconbtn"><i class="fas fa-search fa-flip-horizontal"></i></button>
-							<button class="lnb_search-cancel"><span class="spanoff">취소</span></button>
-						</form>
-					</li>
+					<li>
+						<button class="lnb_drop_btn">
+							<span>검색</span>
+							<i class="fas fa-search fa-flip-horizontal"></i>
+						</button>
+						<div class="lnb_search-hide">
+							<form action="">
+								<input type="text" placeholder="Microsoft.com 검색"></input>
+								<button type ="button" class="lnb_search-iconbtn"><i class="fas fa-search fa-flip-horizontal"></i></button>
+								<button class="lnb_search-cancel"><span class="spanoff">취소</span></button>
+							</form>
+						</div>
+					</li><!--form태그, input태그-->
+					
 					<li><a href=""><span>쇼핑카트</span><i class="fas fa-shopping-cart"></i></a></li>
 					<li><a href=""><span>로그인</span><i class="far fa-user"></i></a></li>	
 				</ul><!--gnb_util-->
@@ -457,7 +463,7 @@
 			        </div>   <!-- mainfooter_util -->
 			    </div><!-- mainfooter_wrap -->
 			</footer>
-		<script src="js/main0713.js"></script>
+			<script src="js/main0810.js"></script>
 </body>
 </html>
 

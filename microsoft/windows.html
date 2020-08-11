@@ -15,40 +15,106 @@
 </head>
 <body>
 	<div class="wrap">
-		<header>
-			<div class="header_wrap">
-				<div class="logo_box">
-					<h1 class="blind">마이크로소프트</h1>
-					<a href="" class="logo"><img src="imges/RE1Mu3b.png"></a>
-				</div> <!-- logo box -->
-				<div class="back_to_windows">
-					<a href=""><span>Windows</span></a>
-				</div><!-- return_menu_micro365 -->
-				
-				<nav>
-					<h2 class="blind">메인 메뉴</h2>
-					<div class="gnb_menu">
-						<ul class="gnb_menu_list">
-							<li> <a href="" class="spacing">Windows 10<i class="fas fa-chevron-up"></i></a></li>
-							<li> <a href="" class="spacing">컴퓨터<i class="fas fa-chevron-up"></i></a></li>
-							<li> <a href="">앱</a> </li>
-							<li> <a href="">게임</a> </li>
-							<li> <a href="">기업용</a> </li>
-							<li> <a href="">지원</a> </li>
-							<li><button>WINDOWS 10 구매하기</button></li>
-						</ul>		
-					</div><!-- gnb_menu -->
-					<h2 class="blind">메인 보조 메뉴</h2>
-					<div class="gnb_util">
-						<ul class="gnb_util_list">
-							<li> <a href="" class="spacing">Microsoft 전체</a> </li>
-							<li> <a href="">검색<i class="fas fa-search"></i></a> </li>
-							<li> <a href="">카트<i class="fas fa-shopping-cart"></i></a> </li>
-							<li> <a href="">로그인<i class="far fa-user"></i></a></li>
-						</ul>
-					</div><!-- gnb_util -->
-				</nav>
-			</div><!-- header_wrap -->
+		<header class="header_sub">
+			<div class="logo_box">
+				<h1 class="blind">마이크로소프트</h1>
+				<a href="" class="logo"><img src="imges/RE1Mu3b.png"></a>
+			</div> <!-- logo box -->
+			<div class="back_to_windows">
+				<a href="#"><span>Windows</span></a>
+			</div><!-- return_menu_micro365 -->
+			<nav>
+				<h2 class="blind">메인 메뉴</h2>
+				<div class="gnb_menu">
+					<ul class="gnb_menu_list">
+						<li> <a href="" class="spacing"><span>Windows 10</span><i class="fas fa-chevron-up"></i></a></li>
+						<li> <a href="" class="spacing"><span>컴퓨터</span><i class="fas fa-chevron-up"></i></a></li>
+						<li> <a href=""><span>앱</span></a></li>
+						<li> <a href=""><span>게임</span></a></li>
+						<li> <a href=""><span>기업용</span></a></li>
+						<li> <a href=""><span>지원</span></a></li>
+						<li><a href=""><span>WINDOWS 10 구매하기</span></a></li>
+					</ul>		
+				</div><!-- gnb_menu -->
+			</nav>
+			<div class="gnb_util_box">
+				<h2 class="blind">메인 보조 메뉴</h2>
+				<ul class="gnb_util">
+					<li><button class="lnb_drop_btn"><span>Microsoft 전체</span><i class="fas fa-chevron-up"></i></button><!--클릭 드롭다운 메뉴/꺽쇠 이미지 -->
+						<ul>
+							<li><a href=""><strong>소프트웨어</strong></a>
+								<ul>
+									<li><a href="">Windows 앱</a></li>
+									<li><a href="">OneDrive</a></li>
+									<li><a href="">Outlook</a></li>
+									<li><a href="">Skype</a></li>
+									<li><a href="">OneNote</a></li>
+									<li><a href="">Microsoft Teams</a></li>
+								</ul>
+									
+							</li>
+							<li><a href=""><strong>PC 및 장치</strong></a>
+								<ul>
+									<li><a href="">Xbox 쇼핑</a></li>
+									<li><a href="">PCs & tablets</a></li>
+									<li><a href="">주변 기기</a></li>
+								</ul>
+							</li>
+							<li><a href=""><strong>엔터테인먼트</strong></a>
+								<ul>
+									<li><a href="">Xbox Game Pass Ultimate</a></li>
+									<li><a href="">Xbox Live Gold</a></li>
+									<li><a href="">Xbox 및 게임</a></li>
+									<li><a href="">PC 게임</a></li>
+									<li><a href="">Windows 게임</a></li>
+								</ul>
+							</li>
+							<li><a href=""><strong>기업 고객용</strong></a>
+								<ul>
+									<li><a href="">Microsoft Azure</a></li>
+									<li><a href="">Microsoft Dynamics 365</a></li>
+									<li><a href="">Microsoft 365</a></li>
+									<li><a href="">Microsoft Industry</a></li>
+									<li><a href="">데이터 플랫폼</a></li>
+									<li><a href="">볼륨 라이선싱</a></li>
+									<li><a href="">비즈니스 쇼핑</a></li>
+								</ul>
+							</li>
+							<li><a href=""><strong>Developer & IT</strong></a>
+								<ul>
+									<li><a href="">.NET</a></li>
+									<li><a href="">Visual Studio</a></li>
+									<li><a href="">Windows Server</a></li>
+									<li><a href="">Windows 앱 개발</a></li>
+									<li><a href="">문서</a></li>
+								</ul>
+							</li>
+							<li><a href=""><strong>기타</strong></a>
+								<ul>
+									<li><a href="">무료 다운로드 및 보안</a></li>
+									<li><a href="">교육</a></li>
+								</ul>
+							</li>
+							<li><a href="" class="nonedrop">사이트맵 보기</a></li>
+						</ul><!--lnb-->
+					</li>		
+					<li>
+						<button class="lnb_drop_btn">
+						<span>검색</span>
+						<i class="fas fa-search fa-flip-horizontal"></i>
+						</button>
+						<div class="lnb_search-hide">
+							<form action="">
+								<input type="text" placeholder="Microsoft.com 검색"></input>
+								<button type ="button" class="lnb_search-iconbtn"><i class="fas fa-search fa-flip-horizontal"></i></button>
+								<button class="lnb_search-cancel"><span class="spanoff">취소</span></button>
+							</form>
+						</div>
+					</li><!--form태그, input태그-->
+					<li><a href=""><span>쇼핑카트</span><i class="fas fa-shopping-cart"></i></a></li>
+					<li><a href=""><span>로그인</span><i class="far fa-user"></i></a></li>	
+				</ul><!--gnb_util-->
+			</div><!-- gnb_util_box -->
 		</header>
 		<div class="container">
 			<section class="main_intro">
@@ -517,11 +583,7 @@
 			        </div>   <!-- mainfooter_util -->
 			    </div><!-- mainfooter_wrap -->
 			</footer>
-
-
 	</div> <!-- wrap -->
-
-	
-
+	<script src="js/main0810.js"></script>
 </body>
 </html>

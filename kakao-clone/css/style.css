@@ -9,6 +9,8 @@
 /* screen_login */
 @import "screen/login.css";
 @import "screen/friends.css";
+@import "screen/chats.css";
+@import "screen/find.css";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 body{
@@ -18,4 +20,7 @@ body{
 }
 .container{
     padding: 0 var(--horizental-space);
+}
+li{
+    list-style: none;
 }
