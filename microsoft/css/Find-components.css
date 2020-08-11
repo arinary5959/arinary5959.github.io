@@ -178,6 +178,7 @@ ul.gnb_util > li:nth-child(1).on .fa-chevron-up{
 	padding: 6px;
 	border: 1px solid black;
 }
+.gnb_menu > li > a > span:hover,
 .gnb_menu_list > li > a > span:hover, .gnb_util > li span:hover:not(.spanoff){
 	border-bottom: 2px solid black;
 }
