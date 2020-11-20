@@ -253,7 +253,7 @@ nav > .typelogo_wrap h1 {
 }
 .content_1 {
   max-width: 100%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* display: flex; */
   /* justify-items: center; */
 }
@@ -355,7 +355,8 @@ nav > .typelogo_wrap h1 {
   background-position: center center;
   cursor: pointer;
 }
-.content_2 > .clone_coding > ul > li > span {
+.content_2 > .clone_coding > ul > li > span,
+.content_3 > article > ul > li > span {
   display: block;
   margin-top: 16px;
 }
@@ -439,16 +440,20 @@ footer i {
   margin: 0 10px 0;
 }
 
-@media screen and (max-width: 539px) {
+/* @media screen and (max-width: 539px) {
 }
 @media screen and (max-width: 768px) {
 }
 @media screen and (max-width: 859px) {
-  /* 750px쯤부터 메인이 깨짐 */
 }
 @media screen and (min-width: 860px) and (max-width: 1083px) {
+} */
+/* @media screen and (max-width: 1049px) {
+  .wrap {
+    width: calc(100% - 10%);
+  }
 }
-@media screen and (max-width: 1399px) {
+@media screen and (min-width: 1050px) and (max-width: 1399px) {
   .wrap {
     width: calc(100% - 10%);
   }
@@ -457,7 +462,4 @@ footer i {
     display: flex;
     border: 1px solid red;
   }
-  section.content_1 > div {
-    max-width: 100%;
-  }
-}
+} */
