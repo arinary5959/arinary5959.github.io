@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H_slider</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            /* box-sizing: border-box; */
+            list-style: none;
+        }
+        .slider-box {
+            width: 1000px;
+            height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid green;
+        }
+        .slider {
+            overflow: hidden; 
+            /* transform: translateX(-1000px);*/
+        }
+        .slider > li {
+            float: left;
+        }
+        .slider > li > img{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .wrap { margin:0 auto; width:100%; max-width: 1000px; position: relative;}
+        .arrow{
+            width: 100%; 
+            /* border:1px solid slateblue;  */
+            position: absolute; 
+            top:50%; 
+            transform: translateY(-50%)}
+        
+        .arrow > button {
+            border: none;
+            display: inline-block;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color:white;
+        }
+        .prevBtn{
+            position: absolute;
+            left: 5%;
+        }
+        .nextBtn{
+           position: absolute;
+           right: 5%;
+           
+        }
+        .roundBtn-box {
+            display: flex;
+            justify-content: center;
+        }
+        .roundBtn {
+            cursor: pointer;
+            margin: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: aquamarine;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="slider-box">
+            <ul class="slider">
+            <li><img src="https://via.placeholder.com/1000x600" alt="" /></li>
+            <li>
+                <img src="https://via.placeholder.com/1000x600/FF0000" alt="" />
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/1000x600/FFF000" alt="" />
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/1000x600/FFFFF0" alt="" />
+            </li>
+            </ul>
+        </div>
+      <!-- Q ul/li 고려하기, 이미지 변동(업데이트(이미지바꿈)/ 추가/ 삭제) 시 자동화 어떻게 -->
+        <div class="arrow">
+            <button class="prevBtn">Prev</button>
+            <button class="nextBtn">Next</button>
+        </div>
+      <div class="roundBtn-box">
+        <div class="roundBtn"></div>
+        <div class="roundBtn"></div>
+        <div class="roundBtn"></div>
+        <div class="roundBtn"></div>
+      </div>
+    </div>
+    <script>
+        window.onload = function() {
+            const sliderUl = document.querySelector('.slider')
+            const buttons = document.querySelectorAll('button')
+            let lists = sliderUl.querySelectorAll('li')
+            sliderUl.style.width=`${lists[0].clientWidth * lists.length}px`
+            console.dir(sliderUl)
+
+            sliderUl.prepend(lists[lists.length - 1].cloneNode(true));
+            sliderUl.append(lists[0].cloneNode(true));
+            const slideLists = sliderUl.querySelectorAll('li') // lists갱신
+            slideLists[0].classList.add('last')
+            slideLists[slideLists.length - 1].classList.add('first')
+            sliderUl.style.width=`${slideLists[0].clientWidth * slideLists.length}px`
+          
+            let counter = 1;
+            let size = slideLists[0].clientWidth;
+            sliderUl.style.transform = `translateX(${-(size * counter)}px)`
+            buttons.forEach(buttons => {
+                buttons.addEventListener('click', (e)=>{
+                if(e.target.classList.contains('prevBtn')){
+                    prevslide()
+                }else if (e.target.classList.contains('nextBtn'))
+                    nextslide()
+            })
+            });
+            
+            function prevslide(){
+                console.log('prev')
+                console.log(counter)
+                if (counter <= 0 ) return; // 6-1 =5
+                let size = slideLists[0].clientWidth;
+                console.log(size)
+                sliderUl.style.transition = "transform .5s ease-in-out";
+                sliderUl.style.transform = `translateX(${-(size * (counter - 1))}px)`
+                counter--
+            }
+            function nextslide(){
+                console.log('next')
+                // console.log(slideLists.length)
+                if (counter >= slideLists.length - 1) return; // 6-1 =5
+                let size = slideLists[0].clientWidth;
+                console.log(size);
+                sliderUl.style.transition = "transform .5s ease-in-out";
+                sliderUl.style.transform = `translateX(${-(size * (counter + 1))}px)`;
+                counter++
+            }
+            sliderUl.addEventListener('transitionend', ()=>{
+                if(slideLists[counter].classList.contains('last')){
+                    console.log('last')
+                    let size =slideLists[0].clientWidth;
+                    counter = slideLists.length - 2; //6-2 = 4 (진짜 중 마지막// length에서 1빼준 값에서 더해진 0번 )
+                    sliderUl.style.transition = "none";
+                    sliderUl.style.transform = `translateX(${-(size * counter)}px)`
+                }
+                if (slideLists[counter].classList.contains('first')){
+                    console.log('first')
+                    let size =slideLists[0].clientWidth;
+                    counter = slideLists.length - counter; //6-5 = 1 (진짜 중 첫번째 마지막 카운터의 값이 5이고 배열의 마지막 인덱스값)
+                    sliderUl.style.transition = "none";
+                    sliderUl.style.transform = `translateX(${-(size * counter)}px)`
+                }
+            })
+        }
+    </script>
+</body>
+</html>

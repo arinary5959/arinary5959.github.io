@@ -1,0 +1,41 @@
+@import url("variable.css");
+#app {
+  border: 1px solid green;
+  max-width: calc(100% - 10%);
+  padding: 5% 5% 0;
+}
+
+#app > div > div > ul > li > i.fa-check-circle {
+  color: rgb(68, 176, 209);
+}
+#app > div > div > ul > li.done > *:not(i) {
+  color: #8f8f8f;
+}
+#app > div > div > ul > li > span {
+  text-decoration: none;
+}
+#app > div > div > ul > li.done > span {
+  text-decoration: line-through;
+}
+#app > div > div > ul > li {
+  display: table;
+  width: fit-content;
+}
+#app > div > div > ul > li > i:last-child {
+  margin-left: 20px;
+}
+h1 {
+  font-size: 30px;
+  /* color: var(--main-color); */
+}
+h2 {
+  font-size: 26px;
+  /* color: var(--main-color); */
+}
+footer {
+  border: 1px solid red;
+  width: calc(100% - 10%);
+  padding: 5% 0 5%;
+  position: absolute;
+  bottom: 0;
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Making A ToDoList APP!</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-view v-bind:propsdata="todo"></router-view>
+      <router-view name="content" v-bind:propsdata="todo">{{ todo }}</router-view>
+      <router-view name="userShowList" v-on:pass="passData"></router-view>
+      <footer>
+        <router-link to="/"><i class="fas fa-check-square fa-lg"></i></router-link>
+        <router-link to="/calendar"><i class="fas fa-calendar-alt fa-lg"></i></router-link>
+        <!-- <router-link to="/statistic"></router-link>
+            <router-link to="/share"></router-link> -->
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script> -->
+    <!-- npm moment// 페이지 로딩시 날짜 안 뿌려줌, 요소검사 vue탭 클릭해주면 뜬다. 바닐라 자바스크립트로 만들어도 그렇다 cdn문제 아니고, 왜 그런지 모름
+    10.02.금
+    -->
+    <script>
+      console.log(new Date().getDay())
+      //<i class="fas fa-check-circle"></i>
+      //v-on:click.self="complement" 리스너를 달아 놓은 본인 li가 선택되었을때만.
+     
+      const mainHeaderInfo = {
+        template: `
+        <header>
+          <h3>
+            <span>{{ CrrMonth }}월</span>
+            <span>{{ Crrdate }}일</span>
+            <span>{{ CrrDayOfWeek }}</span>
+          </h3>
+          <h3>Today</h3>
+        </header>
+        `,
+        props: ["propsdata"],
+        data() {
+          return {
+            today: new Date(),
+            Crrdate: "",
+            CrrMonth: "",
+            CrrYear: "",
+            CrrDayOfWeek: "",
+          };
+        },
+        mounted(){
+          this.Crrdate = this.today.getDate()
+          this.CrrMonth = this.today.getMonth() + 1
+          this.CrrYear = this.today.getFullYear()
+          (function(){
+            let dayText = "요일";
+            let dayOfWeeks = [
+              `일${dayText}`,
+              `월${dayText}`,
+              `화${dayText}`,
+              `수${dayText}`,
+              `목${dayText}`,
+              `금${dayText}`,
+              `토${dayText}`,
+            ];
+            return (this.CrrDayOfWeek = dayOfWeeks[this.today.getDay()]);
+          })
+        }
+      };
+      const todoList = {
+        template: `
+          <main>
+            <div class="progress">
+                <span class="progress_info"></span>
+                <span class="progress_bar"></span>
+            </div>
+            <div class="today-tasks">
+              <ul>
+                  <li v-for="item in propsdata" class="item_list" v-on:click="complement($event)" v-if= "list">
+                      <i class="checkicon far fa-circle fa-xs"></i>
+                      <span>{{ item }}</span>
+                      <i class="far fa-trash-alt" v-on:click="abandon($event)"></i>
+                  </li>
+              </ul>
+            </div>
+          </main>
+            `,
+        props: ["propsdata"],
+        data() {
+          return { doneLists: [] };
+        },
+        watch: {
+          $route: "fetchData",
+        },
+        methods: {
+          list: function () {
+            console.log(1);
+          },
+          useLocalstorage: function () {
+            console.log("제발요여긴 하위메서드");
+
+            this.donelists.push(localStorage.getItem("doneList").split(","));
+            console.log(this.donelists);
+            let liElems = document.querySelectorAll["li"];
+
+            console.log(liElems);
+
+            donelists.forEach((donelists) => {
+              console.log(liElems.textContent === donelists);
+            });
+          },
+          complement: function (event) {
+            console.log(event.target);
+            let targetList = event.target.parentNode;
+            console.dir(targetList);
+            if (
+              targetList.children[0].className ===
+              "checkicon far fa-circle fa-xs"
+            ) {
+              targetList.classList.add("done");
+              targetList.children[0].className =
+                "checkicon fas fa-check-circle fa-xs";
+              console.dir(targetList);
+              this.doneLists.push(targetList.textContent);
+              let targetLists = this.doneLists;
+              localStorage.setItem("doneList", targetLists);
+            } else if (targetList.classList.contains("done")) {
+              targetList.classList.remove("done");
+              targetList.children[0].className =
+                "checkicon far fa-circle fa-xs";
+              let text = targetList.textContent;
+              console.dir(this.doneLists);
+              let Crrindex = this.doneLists.findIndex(
+                (doneLists) => doneLists === text
+              );
+              this.doneLists.splice(Crrindex, 1);
+              console.log(this.doneLists);
+              let targetLists = this.doneLists;
+              localStorage.setItem("doneList", targetLists);
+            }
+          },
+          abandon: function (ev) {
+            console.dir(ev.target.parentNode);
+            let listItem = ev.target.parentNode;
+            listItem.parentNode.removeChild(listItem);
+          },
+        },
+        // be: (to, from, next) => {
+        //   console.log(localStorage.getItem("doneList"));
+        // },
+      };
+      const writeList = {
+        template: `
+            <form>
+                <input type="text" placeholder="Add a to do list" v-model="lists" v-on:keyup.enter="addEvent($event)"/>
+                <input v-on:click.prevent="addEvent" type="submit" value="Add" />
+            </form>
+          `,
+        data() {
+          return { lists: "", showlist: [] };
+        },
+        methods: {
+          addEvent: function () {
+            if (this.lists === null || this.lists.trim() === "") {
+              return (this.lists = null);
+            }
+            let showlist = this.showlist;
+            this.showlist.push(this.lists.trim());
+            this.lists = null;
+            this.$emit("pass", showlist);
+          },
+        },
+      };
+      const calHeaderInfo = {
+        template: `<p>캘린더 헤더. 월별 donelist의 length. 수행한 리스트의 개수 뿌려주기 + %(todolist 대비 donelist의 비율)-대체(월별 달성률 / 월의 일 수로 백분율)</p>`,
+      };
+      const calendar = {
+        template: `<p>calendar 달력 만드세요</p>`,
+      };
+      const doneList = {
+        template: `<p>doneList 지난 날짜는 done리스트를 보여주고, 오늘 날짜는 to do list를 보여줍니다</p>`,
+      };
+      var router = new VueRouter({
+        routes: [
+          {
+            path: "/",
+            components: {
+              default: mainHeaderInfo,
+              content: todoList,
+              userShowList: writeList,
+            },
+          },
+          {
+            path: "/calendar",
+            components: {
+              default: calHeaderInfo,
+              content: calendar,
+              userShowList: doneList,
+            }, //투데이리스트는 현재 리스트 반영(done포함/ 안한거 포함)
+          },
+        ],
+      });
+
+      new Vue({
+        el: "#app",
+        router: router,
+        data: {
+          todo: [],
+        },
+        components: {
+          // "app-todo": todoList,
+          // "app-wirte": writeList,
+        },
+        methods: {
+          fetchData: function () {
+            console.log(localStorage.getItem("doneList"));
+            console.log(
+              this.$route.matched[0].components.content.methods.useLocalstorage()
+            );
+            // this.todoList.useLocalstorage();
+          },
+          passData: function (showlist) {
+            this.todo = showlist;
+            let savingList = this.todo;
+            localStorage.setItem("todolistAll", savingList);
+            console.log(this.todo);
+          },
+        },
+        watch: {
+          $route: "fetchData",
+        },
+      });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/c8d24dec70.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

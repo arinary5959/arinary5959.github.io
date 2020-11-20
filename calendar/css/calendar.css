@@ -1,0 +1,88 @@
+/* .calendar {
+  padding: 20px;
+  border: 1px solid black;
+}
+table > tbody > tr > td {
+  padding: 30px;
+  border: 1px solid black;
+}
+table.calendar > caption {
+  border: 1px solid black;
+}
+table.calendar > caption > i:nth-child(1) {
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+table.calendar > caption > i:nth-child(3) {
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+} */
+/* tablecele */
+/* * {
+  border: 1px solid black;
+  box-sizing: border-box;
+} */
+.calendar {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* width: 50rem; */
+  width: calc(60% - 10%);
+  padding: 5% 5%;
+  margin: 5% auto 0;
+}
+.calendar-head {
+  background-color: aquamarine;
+  padding: 5%;
+}
+.calendar-head > .calendar_info {
+  /* border: 1px solid red; */
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+}
+.calendar-head::after,
+.calendar_info::after,
+.weekday::after,
+.monthdays::after {
+  content: "";
+  display: block;
+  clear: both;
+  /* border: 1px solid purple; */
+}
+.calendar_info > i {
+  /* border: 1px solid lime; */
+  vertical-align: middle;
+  line-height: 48px;
+  margin: 0 20px 0;
+  cursor: pointer;
+}
+.date {
+  text-align: center;
+  display: inline-block;
+}
+.date > span {
+  display: block;
+}
+.calendar-head > .calendar_info > i,
+.calendar-head > .calendar_info > div.date {
+  float: left;
+}
+.calendar-body {
+  padding: 2% 0 0;
+}
+.calendar-body > .weekday > div,
+.calendar-body > .monthdays > div {
+  width: calc(100% / 7 - 4%);
+  float: left;
+  text-align: center;
+  /* border: 1px solid green; */
+  padding: 1% 2%;
+}
+.prevmonth,
+.nextmonth {
+  opacity: 0.3;
+}
+.today {
+  background-color: aquamarine;
+}
