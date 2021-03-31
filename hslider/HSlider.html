@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <title>H-Slider</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            display: inline-block;
+            vertical-align: top;
+        }
+        /* .slider01{
+            text-align: center;
+        } */
+        .slider01 {
+            /* width: 100%; */
+            /* border:2px solid black; */
+            /* overflow: hidden; */
+        }
+        .slider01 > ul {
+            /* transform: translate(); */
+            /* overflow: hidden; */
+            /* height: 600px; */
+        }
+        .slider01 > ul > li {
+            /* box-sizing: ; */
+            /* float: left; */
+            
+            /* border: 1px solid green; */
+        }
+        /* .pagerWrap > .pager_1{
+            background-color: blue !important;
+        } */
+    </style>
+</head>
+<body>
+    <div class="slider01">
+        <div>
+            <ul>
+                <li class="first"><a><img src="https://www.fillmurray.com/1000/600" alt="" /></a></li>
+                <li>
+                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                </li>
+                <li>
+                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                </li>
+                <li class="last">
+                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="slider02">
+        <div>
+            <ul>
+                <li class="first"><a><img src="https://www.fillmurray.com/1000/600" alt="" /></a></li>
+                <li>
+                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                </li>
+                <li>
+                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                </li>
+                <li class="last">
+                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="./H-Slider.js"></script>
+    <script>
+
+        // 슬라이더의 이용 규칙
+            // 1. div > ul > li의 구조를 html로 빌드한다. (html // div>div>div도 괜찮다. 태그는 관계없고 구조의 뎁스가 중요하다.)
+            // 2. HSlicer(obj) // HSlider를 실행하며 객체정보를 파라미터로 전달한다.
+            // 3. 복수의 슬라이드를 한 페이지에 삽입하는 경우 html구조를 한번 더 삽입하고 함수 실행문을 하나 더 생성하여 객체정보를 전달한 후 실행한다.
+            // 4. 3번 수행시 반드시 슬라이드로 만들고자하는 엘리먼트의 클래스명을 다르게 설정한다. obj1 = {el:'클래스명01'} obj2 = {el:'클래스명02'} 
+            // 5. 반드시 el:'.클래스명'을 필수로 전달하여야 한다. id로 전달하는 경우 #id로 전달. (선택자 형태로)
+
+
+        // 페이지에 슬라이더가 한 개인 경우 혹은 복수인 경우 -> 함수 내부에서 생성.
+        
+        // const obj = {
+        //     el:'',
+        //     mode:'',                // horizontal, vertical, fade, --horizontal(여러개보이는경우)
+        //     auto: true,             // boolean
+        //     pause: true,    // boolean
+        //     pager: true,            // boolean
+        //     Infinity: true,         // boolean
+        //     speed: 2000,
+        // }
+
+        window.onload = () => {
+            HSlider({
+                el:'.slider01',
+                mode:'horizontal',                // horizontal, vertical, fade, --horizontal(여러개보이는경우)
+                // mode:'vertical',                // horizontal, vertical, fade, --horizontal(여러개보이는경우)
+                auto: true,             // boolean
+                pause: true,    // boolean
+                pager: true,            // boolean
+                Infinity: true,         // boolean
+                speed: 3000,
+            });
+            HSlider({
+                el:'.slider02',
+                mode:'vertical',                // horizontal, vertical, fade, --horizontal(여러개보이는경우)
+                auto: true,             // boolean
+                autoControler: true,    // boolean
+                pager: true,            // boolean
+                Infinity: true,         // boolean
+                speed: 2000,
+            })
+            console.dir(HSlider);
+        }
+
+
+        class Person{
+            constructor(name, age, job) {
+                this.name = name;
+                this.age = age;
+                this.job = job;
+                this.str = this.introduce();
+                this.introduce();
+                console.log(str)
+            }
+            introduce() {
+                console.log('이름은' + ' ' + this.name + ' ' + '나이는 ' + this.age + '직업은 ' + this.job)
+                return '이름은' + ' ' + this.name + ' ' + '나이는 ' + this.age + '직업은 ' + this.job
+            }
+        }
+        let gom = Person('gome', 33, 'programmer');
+        console.log(gom)
+    </script>
+</body>
+</html>

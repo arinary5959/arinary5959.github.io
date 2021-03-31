@@ -1,7 +1,0 @@
-a.thumbnail_dimmed:first-child{
-	display: inline-block;
-	width: 100%;
-
-	background: url(../img/img_main_content1.png) no-repeat;
-	border:1px solid black;
-}
