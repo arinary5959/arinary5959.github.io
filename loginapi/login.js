@@ -13,7 +13,7 @@ function init() {
             scope: 'profile email'
         });
         // googleAuth를 잘 가져왔음.
-        // console.log(GoogleAuth)
+        console.log(GoogleAuth)
         // 새로고침시 구글 로그인상태 확인
         // GoogleAuth.then(function (){
         //     if(GoogleAuth.isSignedIn.get()){
