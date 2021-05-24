@@ -158,7 +158,6 @@ function HSlider(obj) {
               }, this.speed);
             } else if (this.auto === false) return;
         }
-
         start() {
             // this.getElment(); get대체
             this.cloneItem();
@@ -249,7 +248,7 @@ function HSlider(obj) {
            
             // subBtn(page, pause)
             if(this.subBtn){
-                this.subBtn.style.border = '1px solid blue'
+                // this.subBtn.style.border = '1px solid blue'
             // this.pagerWrap.style.border = '1px solid black'
                 let subBtnSize = 10
                 // this.subBtnSize = 10
@@ -289,8 +288,8 @@ function HSlider(obj) {
             this.pause.style.height = `${subBtnSize}px`
             // this.pause.style.backgroundColor = '#ACABA7'
             this.pause.style.boxSizing = 'border-box'
-            this.pause.style.borderLeft = '3px solid #ACABA7'
-            this.pause.style.borderRight = '3px solid #ACABA7'
+            this.pause.style.borderLeft = '4px solid #ACABA7'
+            this.pause.style.borderRight = '4px solid #ACABA7'
             this.pause.style.marginRight = '10px'
             this.pause.style.cursor = 'pointer'
         }
@@ -301,8 +300,8 @@ function HSlider(obj) {
             // this.slideItems li*
             // this.slideItemsCloned licloned
             this.elWrap.style.textAlign = 'center'
-            this.elWrap.style.border = '1px solid black'
-            this.sliderWrap.style.border = '1px solid red'
+            // this.elWrap.style.border = '1px solid black'
+            // this.sliderWrap.style.border = '1px solid red'
             // ul
             // console.log(this.slideItemsCloned);
             // slideItemsCloned으로 진행
@@ -387,18 +386,35 @@ function HSlider(obj) {
                 let pagerName = ev.target.classList;
                 console.log(typeof pagerName) //obj
                 let crrNameIndex;
-                for(let i = 0; i < pagerName.length; i++ ){
-                    console.log(1)
-                    pagerName[i].includes('H-pager_') ? crrNameIndex = i: false;
-                    console.log(pagerName[i].includes('H-pager_'))
+                if(this.mode == 'horizontal' ){
+                    for(let i = 0; i < pagerName.length; i++ ){
+                        console.log(1)
+                        pagerName[i].includes('H-pager_') ? crrNameIndex = i: false;
+                        console.log(pagerName[i].includes('H-pager_'))
+                    }
+                    console.log(pagerName[crrNameIndex].split('_'))
+                    let nameArr = pagerName[crrNameIndex].split('_')
+                    this.crrPage = nameArr[nameArr.length - 1]
+                    console.log(this.crrPage)
+                    this.sliderWrap.style.transform = `translateX(-${(this.itemWidth * this.crrPage + 1)}px)`
+                    console.log(`페이져슬라이드(-${(this.itemWidth * this.crrPage + 1)}px)`)
+                    this.counter = this.crrPage++;
+                }else if( this.mode == 'vertical' ){
+                    for(let i = 0; i < pagerName.length; i++ ){
+                        console.log(1)
+                        pagerName[i].includes('H-pager_') ? crrNameIndex = i: false;
+                        console.log(pagerName[i].includes('H-pager_'))
+                    }
+                    console.log(pagerName[crrNameIndex].split('_'))
+                    let nameArr = pagerName[crrNameIndex].split('_')
+                    this.crrPage = nameArr[nameArr.length - 1]
+                    console.log(this.crrPage)
+                    this.sliderWrap.style.transform = `translateY(-${(this.itemHeight * this.crrPage + 1)}px)`
+                    console.log(`페이져슬라이드(-${(this.itemHeight * this.crrPage + 1)}px)`)
+                    this.counter = this.crrPage++;
                 }
-                console.log(pagerName[crrNameIndex].split('_'))
-                let nameArr = pagerName[crrNameIndex].split('_')
-                this.crrPage = nameArr[nameArr.length - 1]
-                console.log(this.crrPage)
-                this.sliderWrap.style.transform = `translateX(-${(this.itemWidth * this.crrPage + 1)}px)`
-                console.log(`페이져슬라이드(-${(this.itemWidth * this.crrPage + 1)}px)`)
-                this.counter = this.crrPage++;
+               
+                
             })
         }
         nextSlide() {
@@ -445,9 +461,6 @@ function HSlider(obj) {
                     }
                 })
                 // console.log(this.counter)
-
-
-
             }else if( this.mode == 'horizontal-triple'){
                 console.log('triple')
 

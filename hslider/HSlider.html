@@ -4,55 +4,191 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="shortcut icon" href="#">
     <title>H-Slider</title>
     <style>
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         *{
             margin: 0;
             padding: 0;
             list-style: none;
+            font-family: 'GmarketSansMedium';
         }
         img {
             display: inline-block;
             vertical-align: top;
+            width: 100%;
         }
-        /* .slider01{
-            text-align: center;
-        } */
-        .slider01 {
-            /* width: 100%; */
-            /* border:2px solid black; */
-            /* overflow: hidden; */
+        div[class*='slider0'] {
+            margin-bottom: 50px;
         }
-        .slider01 > ul {
-            /* transform: translate(); */
-            /* overflow: hidden; */
-            /* height: 600px; */
+        div[class*='slider0'] > div > ul > li{
+            width: 1000px;
+            height: 600px;
         }
-        .slider01 > ul > li {
-            /* box-sizing: ; */
-            /* float: left; */
-            
-            /* border: 1px solid green; */
+       h1{
+           text-align: center;
+           margin:20px 0
+       }
+       .summary{
+            transition: all 0.5s linear;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: -340px;
+            width: 300px;
+            padding: 2% 20px 0;
+            background-color: rgba(238, 238, 238, 0.9);;
+            z-index: 10000;
+       }
+       .summary.on{
+            transition: all 0.5s linear;
+            left: 0;
         }
-        /* .pagerWrap > .pager_1{
-            background-color: blue !important;
-        } */
+       .summarybtn{
+           width: 45px;
+           height: 120px;
+           background-color: rgba(238, 238, 238, 0.9);
+           position: absolute;
+           right: -45px;
+           top: 50%;
+           transform: translateY(-50%);
+           border-radius: 0 10px 10px 0;
+       }
+       .summarybtn i{
+           font-size: 30px;
+           color: rgb(87, 87, 87);
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           transform-origin: center;
+       }
+       .blinktxt {
+            position: absolute;
+            top: calc(50% - 60px);
+            left: calc(340px + 8px);
+            transform: translateY(calc(-100% - 8px));
+            width: max-content;
+            animation: blinkAni 2s infinite;
+       }
+       @keyframes blinkAni {
+           0%{
+               opacity: 1;
+           }
+           50%{
+               opacity: 0.5;
+           }
+           100%{
+               opacity: 0;
+           }
+       }
+       .summary h2{
+           font-size: 18px;
+           margin-bottom: 10px;
+       }
+       .summary p{
+           text-indent: 5px;
+           margin-bottom: 20px;
+       }
+       .summary strong{
+           text-indent: 5px;
+           margin-bottom: 20px;
+       }
+       .summary dt{
+           text-indent: 5px;
+           margin: 18px 0 5px 0;
+       }
+       .htmlstructure {
+           width: 200px;
+       }
+       .htmlstructure img{
+           width: 100%;
+       }
     </style>
 </head>
 <body>
-    <div class="slider01">
+    <h1>MINI SLIDER</h1>
+    <!-- <div class="options">
+        <div class="slider_type_option">
+            <form action="">
+                <input type="radio" name="slidertype" id="horizontal" value="horizontal">
+                <label for="horizontal">horizontal</label><br>
+                <input type="radio" name="slidertype" id="vertical" value="vertical">
+                <label for="vertical">vertical</label><br>
+            </form>
+        </div>
+    </div> -->
+    <div class="summary">
+        <h2>슬라이더 미니 라이브러리</h2>
+        <p>객체 정보를 파라미터로 전달하여 함수를 실행하면 생성자함수가 실행되고 정의된 로직에 따라 슬라이드가 만들어집니다.</p>
+        <strong>슬라이더 이용 기본 정보</strong>
+        <dl>
+            <dt>객체 정보</dt>
+            <dd>
+                <pre>
+    {
+        el: '.slider01',
+        mode: 'horizontal' or 'vertical',                
+        auto: true(boolean),            
+        pause: boolean,           
+        pager: boolean,
+        Infinity: boolean,         
+        speed: 3000
+    }</pre>
+            </dd>
+            <dt>html 구조</dt>
+            <dd>
+                <div class="htmlstructure">
+                    <img src="./img/htmlstructure.jpg" alt="" />
+                </div>
+                <!-- <pre>
+    &lt;div&gt;
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;a/&gt;
+                &lt;/li&gt;  
+            &lt;/ul&gt;   
+        &lt;/div&gt;   
+    &lt;/div&gt; 
+                </pre>   -->
+            </dd>
+        </dl>
+        <div class="blinktxt">Read More!</div>
+        <div class="summarybtn">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+        <div class="slider01">
         <div>
             <ul>
-                <li class="first"><a><img src="https://www.fillmurray.com/1000/600" alt="" /></a></li>
-                <li>
-                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                <!-- a태그 -->
+                <li class="first">
+                    <a href="#">
+                        <img src="./img/01.jpg" alt="" />
+                    </a>
+                </li>
+                <li class="second">
+                    <a href="#">
+                        <img src="./img/02.jpg" alt="" />
+                    </a>
                 </li>
                 <li>
-                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                    <a href="#">
+                        <img src="./img/03.jpg" style="width: 120%;" alt="" />
+                    </a>
                 </li>
                 <li class="last">
-                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                    <a href="#">
+                        <img src="./img/04.jpg" alt="" />
+                    </a>
                 </li>
             </ul>
         </div>
@@ -60,15 +196,18 @@
     <div class="slider02">
         <div>
             <ul>
-                <li class="first"><a><img src="https://www.fillmurray.com/1000/600" alt="" /></a></li>
-                <li>
-                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                <li class="first">
+                    <!-- <img src="https://www.fillmurray.com/1000/600" alt="" /> -->
+                    <img src="./img/1.jpg" alt="" />
                 </li>
                 <li>
-                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                    <img src="./img/2.jpg" alt="" />
+                </li>
+                <li>
+                    <img src="./img/3.jpg" alt="" />
                 </li>
                 <li class="last">
-                    <img src="https://www.fillmurray.com/1000/600" alt="" />
+                    <img src="./img/4.jpg" alt="" />
                 </li>
             </ul>
         </div>
@@ -77,15 +216,11 @@
     <script>
 
         // 슬라이더의 이용 규칙
-            // 1. div > ul > li의 구조를 html로 빌드한다. (html // div>div>div도 괜찮다. 태그는 관계없고 구조의 뎁스가 중요하다.)
+            // 1. div > div > ul > li의 구조를 html로 빌드한다. (html // div>div>div도 괜찮다. 태그는 관계없고 구조의 뎁스가 중요하다.)
             // 2. HSlicer(obj) // HSlider를 실행하며 객체정보를 파라미터로 전달한다.
             // 3. 복수의 슬라이드를 한 페이지에 삽입하는 경우 html구조를 한번 더 삽입하고 함수 실행문을 하나 더 생성하여 객체정보를 전달한 후 실행한다.
             // 4. 3번 수행시 반드시 슬라이드로 만들고자하는 엘리먼트의 클래스명을 다르게 설정한다. obj1 = {el:'클래스명01'} obj2 = {el:'클래스명02'} 
             // 5. 반드시 el:'.클래스명'을 필수로 전달하여야 한다. id로 전달하는 경우 #id로 전달. (선택자 형태로)
-
-
-        // 페이지에 슬라이더가 한 개인 경우 혹은 복수인 경우 -> 함수 내부에서 생성.
-        
         // const obj = {
         //     el:'',
         //     mode:'',                // horizontal, vertical, fade, --horizontal(여러개보이는경우)
@@ -97,12 +232,29 @@
         // }
 
         window.onload = () => {
+            const summary = document.querySelector('.summary')
+            const summaryBtn = document.querySelector('.summarybtn')
+            const btnIcon = document.querySelector('.summarybtn > i')
+            const blinkTxt = document.querySelector('.blinktxt')
+            summaryBtn.addEventListener('click', openSummary)
+            console.dir(btnIcon)
+            function openSummary(e){
+                console.log(e.target)
+                if(summary.classList.contains('on')){
+                    summary.classList.remove('on')
+                    btnIcon.style.transform = `translate(-50%, -50%) rotate(0deg)`
+                    blinkTxt.style.visibility = 'visible'
+                }else{
+                    summary.classList.add('on')
+                    btnIcon.style.transform = `translate(-50%, -50%) rotate(180deg)`
+                    blinkTxt.style.visibility = 'hidden'
+                }
+            }
             HSlider({
                 el:'.slider01',
                 mode:'horizontal',                // horizontal, vertical, fade, --horizontal(여러개보이는경우)
-                // mode:'vertical',                // horizontal, vertical, fade, --horizontal(여러개보이는경우)
                 auto: true,             // boolean
-                pause: true,    // boolean
+                pause: true,            // boolean
                 pager: true,            // boolean
                 Infinity: true,         // boolean
                 speed: 3000,
@@ -116,26 +268,8 @@
                 Infinity: true,         // boolean
                 speed: 2000,
             })
-            console.dir(HSlider);
         }
-
-
-        class Person{
-            constructor(name, age, job) {
-                this.name = name;
-                this.age = age;
-                this.job = job;
-                this.str = this.introduce();
-                this.introduce();
-                console.log(str)
-            }
-            introduce() {
-                console.log('이름은' + ' ' + this.name + ' ' + '나이는 ' + this.age + '직업은 ' + this.job)
-                return '이름은' + ' ' + this.name + ' ' + '나이는 ' + this.age + '직업은 ' + this.job
-            }
-        }
-        let gom = Person('gome', 33, 'programmer');
-        console.log(gom)
+        
     </script>
 </body>
 </html>

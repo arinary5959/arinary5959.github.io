@@ -1,0 +1,10 @@
+/* :root{ */
+    /* --yellow: #fae100;
+    --horizental-space:25px;
+    --main-border:1px solid rgba(0, 0, 0, .2); */
+    /* 사용 -> right: var(--horizental-space); */
+/* } */
+:root {
+    --col_1: 109px;
+    --gutter_1:12px;
+}

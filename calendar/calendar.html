@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/reset.css">
+    <title>Calendar</title>
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
     <link rel="stylesheet" href="css/calendar.css">
+    <link rel="shortcut icon" href="#">
 </head>
 <body>
     <div id="app">
         <app-calendar v-on:pass="changeMonth" v-bind:propsdata = "lists" v-bind:propsclassname = "className" ></app-calendar>
     </div>
+    <div class="summary">
+        <h2>만년 달력_Calendar!</h2>
+        <p>VUE CDN을 활용하여 날짜 정보를 제공합니다. 오늘 일자를 기준으로 달력을 보여주며 이벤트 발생에 따라 지난 달, 지난 해, 다음 달, 다음 해 정보를 순차적으로 보여줍니다.</p>
+        <strong>프롭스, 이벤트버스 활용: 컴포넌트 간 정보를 전달</strong>
+        <!-- <strong>프롭스 활용: 컴포넌트 간 데이터를 전달</strong><br/> -->
+        <!-- <strong>템플릿, 이벤트버스 활용</strong> -->
+        <div class="blinktxt">Read More!</div>
+        <div class="summarybtn">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://kit.fontawesome.com/c8d24dec70.js" crossorigin="anonymous"></script>
+
     <script>
         // 양수와 음수를 활용 math.abs() 음수의 절대값구하기
         const appCalendar = {
@@ -22,7 +35,7 @@
                     <div class="calendar_info" v-on:click="passEv($event)">
                         <i class="fas fa-caret-left prev"></i>
                         <div class="date">
-                            <span> {{ propsdata.view_month }}월 </span>
+                            <span> {{ propsdata.view_month }}월, {{ propsdata.view_year }}년</span>
                             <span> {{ propsdata.dateText }} </span>
                         </div>
                         <i class="fas fa-caret-right next"></i>
@@ -51,10 +64,9 @@
                     }else{return}
                 },
             },
-            updated(){
-                console.log('updated')
-
-            }
+            // updated(){
+            //     console.log('updated')
+            // }
         }
         new Vue({
             el:'#app',
@@ -74,7 +86,6 @@
             },
             updated(){
                 console.log('updated root')
-                
             },
             mounted(){
                 let self = this.lists
@@ -82,7 +93,6 @@
                 self.view_month = this.lists.today.getMonth() + 1
                 self.view_today = self.today.getDate()
                 // self.view_day = self.today.getDay() //0번 일요일
-                //
                 self.dateText = self.today.toDateString()
                 // console.log(new Date(2020, 11, 0)) //11->12월이고 그 앞의 날짜이므로 11월의 마지막 날
                 // console.log(new Date(2020, 11, 0)) //11월의 첫째날은 11-1 (10(index) == 11월)
@@ -107,12 +117,12 @@
                 }
                 this.$nextTick(function () {
                     // 모든 화면이 렌더링된 후 실행합니다.
-                    console.dir(this.$children[0].$refs.days)
-                    console.dir(this.divsIndexfirst)
-                    console.dir(this.DivsIndexLast)
+                    // console.dir(this.$children[0].$refs.days)
+                    // console.dir(this.divsIndexfirst)
+                    // console.dir(this.DivsIndexLast)
                     let divElems = this.$children[0].$refs.days;
-                    console.dir(divElems)
-                    console.dir(this.divsIndexfirst == 0)
+                    // console.dir(divElems)
+                    // console.dir(this.divsIndexfirst == 0)
                     if(!this.divsIndexfirst == 0){ //배열의 첫번째 1일의 인덱스가 0번이 아니면,
                         for(let i = 0; i <= this.divsIndexfirst; i++ ){
                             divElems[i].classList.add('prevmonth')
@@ -124,9 +134,9 @@
                         }
                     }
                     //오늘 날짜에 css적용하기
-                    console.log(Array.isArray(divElems))
-                    console.log(self.view_today)
-                    console.log(divElems[0].innerText)
+                    // console.log(Array.isArray(divElems))
+                    // console.log(self.view_today)
+                    // console.log(divElems[0].innerText)
                     let indexNum
                     for(let i =this.divsIndexfirst; i < this.divsIndexLast; i++){
                         if(divElems[i].innerText == self.view_today){
@@ -134,7 +144,7 @@
                         }
                     }
                     divElems[indexNum].classList.add('today')
-                    console.log(indexNum)
+                    // console.log(indexNum)
                    // 
                 })
             },
@@ -219,14 +229,9 @@
                 },
                 getClassName(){
                     console.log('getClassName')
-                    console.dir(this.$children[0].$refs.days)
-                    console.dir(this.divsIndexfirst)
-                    console.dir(this.divsIndexLast)
                     let divElems = this.$children[0].$refs.days;
-                    console.dir(divElems)
-                    console.log(this.divsIndexLast > 6)
                     for(let i = 0; i < divElems.length; i++){
-                        console.dir('클래스네임지우기')
+                        // console.dir('클래스네임지우기')
                         // divElems[i].className = ''
                         if(divElems[i].classList.contains('prevmonth')){
                             divElems[i].classList.remove('prevmonth')
@@ -236,13 +241,13 @@
                         }
                     }
                     if(!this.divsIndexfirst == 0){ //배열의 첫번째 1일의 인덱스가 0번이 아니면,
-                        console.log('클래스네임주기pre')
+                        // console.log('클래스네임주기pre')
                         for(let i = 0; i <= this.divsIndexfirst -1 ; i++ ){
                             divElems[i].classList.add('prevmonth')
                         }
                     }
                     if(this.divsIndexLast > 6){ //배열의 뒤에서 첫번째 1일의 인덱스값이 7보다 클 때
-                        console.log('네임주기next')
+                        // console.log('네임주기next')
                         for(let i = this.divsIndexLast; i < 42; i++ ){
                             divElems[i].classList.add('nextmonth')
                         }
@@ -251,6 +256,26 @@
             },
             
         })
+    </script>
+    <script>
+        const summary = document.querySelector('.summary')
+        const summaryBtn = document.querySelector('.summarybtn')
+        const btnIcon = document.querySelector('.summarybtn > i')
+        const blinkTxt = document.querySelector('.blinktxt')
+        summaryBtn.addEventListener('click', openSummary)
+        // console.dir(btnIcon)
+        function openSummary(e){
+            console.log(e.target)
+            if(summary.classList.contains('on')){
+                summary.classList.remove('on')
+                btnIcon.style.transform = `translate(-50%, -50%) rotate(0deg)`
+                blinkTxt.style.visibility = 'visible'
+            }else{
+                summary.classList.add('on')
+                btnIcon.style.transform = `translate(-50%, -50%) rotate(180deg)`
+                blinkTxt.style.visibility = 'hidden'
+            }
+        }
     </script>
 </body>
 </html>

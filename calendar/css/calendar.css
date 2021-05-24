@@ -24,6 +24,17 @@ table.calendar > caption > i:nth-child(3) {
   border: 1px solid black;
   box-sizing: border-box;
 } */
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: 'GmarketSansMedium';
+  padding: 0;
+  margin: 0;
+}
 .calendar {
   border: 1px solid rgba(0, 0, 0, 0.1);
   /* width: 50rem; */
@@ -85,4 +96,73 @@ table.calendar > caption > i:nth-child(3) {
 }
 .today {
   background-color: aquamarine;
+}
+/* 서머리 */
+.summary{
+  transition: all 0.5s linear;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -340px;
+  width: 300px;
+  padding: 10% 20px 0;
+  background-color: rgba(238, 238, 238, 0.9);;
+  z-index: 10000;
+}
+.summary.on{
+  transition: all 0.5s linear;
+  left: 0;
+}
+.summarybtn{
+  width: 45px;
+  height: 120px;
+  background-color: rgba(238, 238, 238, 0.9);
+  position: absolute;
+  right: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0 10px 10px 0;
+}
+.summarybtn i{
+  font-size: 30px;
+  color: rgb(87, 87, 87);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+}
+.blinktxt {
+  position: absolute;
+  top: calc(50% - 60px);
+  left: calc(340px + 8px);
+  transform: translateY(calc(-100% - 8px));
+  width: max-content;
+  animation: blinkAni 2s infinite;
+}
+@keyframes blinkAni {
+ 0%{
+     opacity: 1;
+ }
+ 50%{
+     opacity: 0.5;
+ }
+ 100%{
+     opacity: 0;
+ }
+}
+.summary h2{
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.summary p{
+  text-indent: 5px;
+  margin-bottom: 20px;
+}
+.summary strong{
+  text-indent: 5px;
+  margin-bottom: 20px;
+  font-weight: bold;
+
 }

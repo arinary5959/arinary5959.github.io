@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 구글 -->
+    <!-- <meta name="google-signin-client_id" content="126508767249-438g3lig10tl2btavufc3npkjp75pt9k.apps.googleusercontent.com"> -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/variable.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <title>LoginAPi</title>
+</head>
+<body>
+    <div class="summary">
+        <h2>로그인 API 실습</h2>
+        <p>로그인 API활용 예제입니다. SDK방식을 활용하여 사용자가 자신의 SNS계정으로 가입 및 로그인 할 수 있습니다. 해당 SNS로 개인정보를 요청합니다.</p>
+        <dl>
+            <dt>
+                <strong>로그인 API</strong>
+            </dt>
+            <dd>
+                1) 기본 예제 실습을 위한 UI 구성<br />
+                2) 메뉴 Log-In 클릭시 모달창<br />
+                3) 로그인과 로그아웃 <br />
+            </dd>
+        </dl>
+        
+        <div class="blinktxt">Read More!</div>
+        <div class="summarybtn">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+    <div class="content-wrap">
+    <!-- <div class="grid-width"></div> -->
+        <header>
+            <div class="overlay"></div>
+            <div class="inner_wrap">
+                <div class="logo">
+                    <a href="">
+                        <img src="./images/logo_hj.png" alt="HJLEE 로고 이미지입니다">
+                    </a>
+                </div>
+                <div class="header_title">
+                    <a href="">
+                        <h1>LOG-IN API EXAMPLE</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href=""><h2>Home</h2></a></li>
+                        <li><a href=""><h2>Product</h2></a></li>
+                        <li><a href=""><h2>Drawing book</h2></a></li>
+                        <li>
+                            <a href="" class="menu-login"><h2>Log-In</h2></a>
+                            <div class="modal">
+                                <div>
+                                    <span>SNS로 회원가입 및 로그인 하기</span>
+                                    <i class="fas fa-times modal-close"></i>
+                                </div>
+                                <ul>
+                                    <li class="naverlogin">
+                                        <a href="">
+                                            <div id="naver_id_login">
+                                            </div>
+                                            <div class="naverlogin_txt">
+                                                <img class="login_logo" src="./images/loginbtn_customized/nloginlogo.png" alt="">
+                                                <span>네이버로 로그인하기</span>
+                                            </div>
+                                        </a> 
+                                    </li>
+                                    <li class="googlelogin">
+                                        <a href="">
+                                            <div id="goolgeloginbtn">
+                                                <img class="login_logo" src="./images/loginbtn_customized/gloginlogo.png" alt="">
+                                                <span>구글로 로그인하기</span>
+                                            </div>
+                                            <!-- <div id="my-signin2" class="g-signin2" data-onsuccess="onSignIn" data-width="300" data-height="45" data-longtitle="true"></div> -->
+                                        </a> 
+                                    </li>
+                                    <li class="kakaologin">
+                                        <a href="">
+                                            <div class="kakaologinbtn">
+                                                <img class="login_logo" src="./images/loginbtn_customized/kloginlogo.png" alt="">
+                                                <span>카카오로 로그인하기</span>
+                                            </div>
+                                        </a> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="nav-utility">
+                    <ul>
+                        <li class="cart_btn">
+                            <a href=""><i class="fas fa-shopping-bag cart_open"></i></a>
+                            <div class="cart_content">
+                                <div class="inner_wrap">
+                                    <p>장바구니</p>
+                                    <i class="fas fa-times cart_close"></i>
+                                    <!-- 장바구니 목록 생성 기본 UI -->
+                                    <form action="">
+                                        <ol>
+                                            <li>
+                                                <input type="checkbox" name="product" id="">
+                                                <span>상품 1</span>                                        
+                                                <span>10000</span>                                        
+                                                <span>원</span>                                        
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" name="product" id="">
+                                                <span>상품 2</span>                                       
+                                                <span>10000</span>                                       
+                                                <span>원</span>                                       
+                                            </li>
+                                        </ol>
+                                    </form>
+                                    <hr>
+                                    <p class="price_sum"><span>20000</span><span>원</span></p>
+                                    <div class="cart_item_btn">
+                                        <a href="" class="moreitem">더둘러보기</a>
+                                        <a href="" class="buyitem">구매하기</a>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+                        </li>
+                        <li><a href=""><i class="far fa-user"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!-- 메인, 히어로이미지 -->
+        <section class="primary-01">
+            <div class="primary_wrap">
+                <div class="mainvisual">
+                    <img src="./images/draw_main.jpg" alt="메인 이미지입니다.">
+                </div>
+                <div class="inner_wrap">
+                    <div class="mainslogan_wrap">
+                        <span>Draw memories and moment,</span>
+                        <h2>나만의 추억을 그리다.</h2>
+                        <span>행복하고 즐거운 순간들, 나만의 그림을 그려 기념하고 기억하세요!</span>
+                        <a class ="viewmore_btn"  href=""><span>나만의 인생지도 만들기</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 제품소개 -->
+        <section class="primary-02_product">
+            <div class="primary_wrap">
+                <div class="title">
+                    <h3>Product</h3>
+                    <div class="deco_bar"></div>
+                </div>
+                <div class="product_info">
+                    <div class="product_visual">
+                        <img src="./images/draw_01.jpg" alt="">
+                    </div>
+                    <div class="product_txt">
+                        <span>Product_01</span>
+                        <h4>Draw Memories</h4>
+                        <p>제품을 소개 섹션입니다. 이곳에 제품 설명이 자리합니다<br/>
+                            제품을 설명하는 간단한 글귀들을 이곳에 적습니다....<br />
+                            소개하는 글귀 넣기....
+                        </p>
+                        <a class="viewmore_btn" href=""><span>View More Items</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="primary-03_product">
+            <div class="primary_wrap">
+                <div class="title">
+                    <h3>Product</h3>
+                    <div class="deco_bar"></div>
+                </div>
+                <div class="product_info">
+                    <div class="product_visual">
+                        <img src="./images/draw_02.jpg" alt="">
+                    </div>
+                    <div class="product_txt">
+                        <span>Product_02</span>
+                        <h4>Draw Moment</h4>
+                        <p>제품을 소개 섹션입니다. 이곳에 제품 설명이 자리합니다<br/>
+                             제품을 설명하는 간단한 글귀들....<br />
+                             제품을 설명하는 간단한 글귀들....
+                        </p>
+                        <a class="viewmore_btn" href=""><span>View More Items</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer_inner_wrap">
+                <div class="logo_info">
+                    <div class="footer_logo">
+                        <img src="./images/logo_hj.png" alt="">
+                    </div>
+                    <h5>HJ.LEE</h5>
+                </div>
+                <div class="footer_menu">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Product</a></li>
+                        <li><a href="">Drawing Book</a></li>
+                        <!-- <li><a href="">Log-in</a></li> -->
+                    </ul>
+                    <div class="copyright">
+                        <p>이곳에 저작권 및 기타 권리사항에 대한 안내문구를 적습니다. <br/>
+                            <span>대표자: 0 0 0</span>
+                            <span>주소: 경기도 용인시 00구 00로 Good빌딩 7층 000호</span>
+                            <span>연락처: 000-000-000</span>
+                            <span>보안책임: 0 0 0</span>
+                        </p>
+                        <strong>&copy; 2021. HJLEE. All rigths reserved.</strong>
+                    </div>
+                </div>
+            </div>
+            
+        </footer>
+    </div>
+    <!-- 스크립트 -->
+    <!-- 로그인 -->
+        <!-- 네이버 -->
+    <!-- <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script> -->
+
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <!-- 구글 -->
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+    <!-- 카카오 -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    
+    <script src="./main.js"></script>
+    <script src="./login.js"></script>
+    
+</body>
+</html>
