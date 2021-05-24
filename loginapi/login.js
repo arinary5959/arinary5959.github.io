@@ -78,7 +78,6 @@ console.log(kakaoLoginBtn)
 kakaoLoginBtn.addEventListener('click', kakaoLogIn);
 function kakaoLogIn(e){
     e.preventDefault();
-    console.log('카카오 로그인');
     Kakao.Auth.login({
         scope: "profile, account_email",
         success: function(authOb){
@@ -89,6 +88,7 @@ function kakaoLogIn(e){
                     const kakao_account = response.kakao_account;
                     console.log(kakao_account);
                     console.dir(kakaoLoginBtn);
+                    console.log('카카오 로그인');
                     logInBtn.innerHTML = "<h2>Log-out</h2>";
                     logInBtn.classList.add('logged');
                 },
