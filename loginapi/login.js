@@ -3,7 +3,7 @@ const goolgeloginBtn = document.querySelector('#goolgeloginbtn')
 console.log(goolgeloginBtn)
 console.log(logInBtn)
 // var googleAuth
-init()
+// init()
 function init() {
     console.log('init')
     gapi.load('auth2', function() {
