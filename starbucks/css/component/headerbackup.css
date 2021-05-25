@@ -1,0 +1,342 @@
+/* body{
+    width: 100vw;
+} */
+header {
+    width: 100%;
+    background-color:#F6F5EF;
+    border-top: 2px solid black;
+    border-bottom: 1px solid transparent;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 10000;
+    /* overflow: hidden; */
+}
+/* header > div 기능: wrap */
+header > div{
+    /* border: 1px solid green; */
+    margin: 0 auto;
+    height: 120px;
+    max-width: 1100px;
+    /* 포지션 */
+    position: relative;
+}
+/* 헤더 로고 */
+header > div > div.header_logo {
+    display: inline-block; 
+    /* 포지션 */
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+}
+header > div > div.header_logo > a {
+    /* border: 1px solid red; */
+    display: inline-block;
+}
+header > div > div.header_logo > a > h1{
+    visibility: hidden;
+    text-indent: -10000px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+header > div > div.header_logo > a > img {
+    /* border: 1px solid black; */
+    display: block;
+    vertical-align: top;
+}
+
+/* 보조 네비게이션 */
+header > div > nav:nth-child(2){
+    /* border:1px solid red; */
+    padding-top:15px;
+}
+
+header > div > nav:nth-child(2) > ul {
+    float: right;
+    margin-right: 53px;
+}
+header > div > nav:nth-child(2)::after{
+    content: "";
+    display: inline-block;
+    clear: both;
+}
+/* 보조 네비게이션 개별 조정 */
+header > div > nav:nth-child(2) > ul > li:not(:last-child){
+    line-height: 20px;
+    text-align: center;
+    position: relative;
+}
+
+header > div > nav:nth-child(2) > ul > li > a{
+    color: rgb(85, 85, 85);
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(3)::before,
+header > div > nav:nth-child(2) > ul > li:nth-child(4)::before,
+header > div > nav:nth-child(2) > ul > li:nth-child(5)::before{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 11px;
+    background-color: rgba(85, 85, 85, .1);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(1){
+    width: 76px;
+    display: none;
+    
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(2){
+    width: 76px;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(3){
+    width: 107px;
+    margin-left: 1px;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(4){
+    width: 181px;
+    margin-left: 1px;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(5){
+    width: 97px;
+    margin-left: 1px;
+}
+
+    /* 네비게이션 공통 */
+header > div > nav:nth-child(2) > ul > li,
+header > div > nav:nth-child(3) > ul > li {
+    display: inline-block;
+    /* vertical-align: top; */
+    /* 인라인의 경우 상단정렬되는지 확인 */
+}
+
+/* 검색 search */
+header > div > nav:nth-child(2) > ul > li:nth-child(6){
+    border: 1px solid rgba(0, 0, 0, .4);
+    border-radius: 6px;
+    /* padding: 6px; */
+    margin-top: -6px;
+    max-width: 34px;
+    height: 34px;
+    overflow: hidden;
+    transform-origin: right;
+    vertical-align: middle;
+    position: relative;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(6) > form{
+    line-height: 20px;
+    /* height: 34px; */
+    background-color: white;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(6) > form > input{
+    margin: 6px 40px 6px 3px;
+    padding: 3px 0 3px 8px;
+    /* display: none; */
+    width: 123px;
+    visibility: hidden;
+    border:transparent;
+    font-size: 12px;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(6) > form > a{
+    display: inline-block;
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: 6px;
+    background-color: white;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(6).on{
+    max-width: 1000px;
+    transition: all 3s linear;
+}
+header > div > nav:nth-child(2) > ul > li:nth-child(6).on > form > input{
+    /* z-index: -1; */
+    visibility: visible;
+}
+/* 메인 네비게이션 */
+header > div > nav:nth-child(3){
+    /* border: 1px solid greenyellow; */
+    /* 포지션 */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+header > div > nav:nth-child(3) > ul {
+    /* border:1px solid black; */
+    height: 66px;
+    width: 750px;
+    /* display: table; */
+    float: right ;
+    text-align: center;
+}
+header > div > nav:nth-child(3) > ul > li {
+    /* display: table-cell; */
+    height: 100%;
+}
+header > div > nav:nth-child(3) > ul > li > a{
+    display: inline-block;
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+}
+/* 메인 네비게이션 개별 크기 조정 */
+header > div > nav:nth-child(3) > ul > li:nth-child(1){
+    width: 89px;
+}
+header > div > nav:nth-child(3) > ul > li:nth-child(2){
+    width: 73px;
+}
+header > div > nav:nth-child(3) > ul > li:nth-child(3){
+    width: 79px;
+}
+header > div > nav:nth-child(3) > ul > li:nth-child(4){
+    width: 153px;
+}
+header > div > nav:nth-child(3) > ul > li:nth-child(5){
+    width: 225px;
+}
+header > div > nav:nth-child(3) > ul > li:nth-child(6){
+    width: 131px;
+}
+
+/* lnb 조정*/
+
+header > div > nav:nth-child(3) > ul > li > div > ul.lnb_text-menu {
+    padding: 30px 0 20px 0;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul.lnb_text-menu > li > span {
+    display: block;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul:first-child > li > a{
+    display: inline-block;
+    margin: 3px 0 12px 0;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul > li > ul > li {
+    padding-bottom:  6px;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul.lnb_text-menu > li:not(:first-child) > a > h3 {
+    margin-top: 9px;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul > li > ul > li > a {
+    display: inline-block;
+    /* border: 1px solid red; */
+}
+header > div > nav:nth-child(3) > ul > li > div > ul.lnb_text-menu > li > a.lnb_text-menu-new{
+    /* border:1px solid white; */
+
+}
+header > div > nav:nth-child(3) > ul > li > div > ul.lnb_text-menu > li > a.lnb_text-menu-new::after{
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 15px;
+    background: url('../../images/header/icon_gnb_new.png');
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-left: 3px;
+}
+/* 호버 효과 */
+header > div > nav:nth-child(2) > ul > li:not(:last-child):hover a {
+    text-decoration: underline;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul > li > a:hover,
+header > div > nav:nth-child(3) > ul > li > div > ul > li > ul > li > a:hover,
+header > div > nav:nth-child(3) > ul > li > div > ul > li > a:hover h3 {
+    text-decoration: underline;
+}
+header > div > nav:nth-child(3) > ul > li > div{
+    /* border:1px solid blue; */
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    background-color: #2C2A29;
+    text-align: left;
+    max-height: 0;
+    overflow: hidden;
+    /* border:2px solid red; */
+}
+header > div > nav:nth-child(3) > ul > li.on > div{
+    max-height: 1000px;
+    transition: all .8s linear;
+    /* border: 1px solid red; */
+}
+header > div > nav:nth-child(3) > ul > li > div > ul:first-child{
+    padding: 20px 0 20px 0;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul:first-child, 
+header > div > nav:nth-child(3) > ul > li > div > ul:last-child > li{
+    margin: 0 auto;
+    width: 1100px;
+}
+header > div > nav:nth-child(3) > ul > li.on > div > ul:last-child {
+    background: url('../../images/header/gnb_sub_txbg.jpg'), no-repeat;
+}
+
+header > div > nav:nth-child(3) > ul > li > div > ul:nth-child(1) > li{
+    display: inline-block;
+    vertical-align: top;
+    width: 220px;
+    /* border: 1px solid white; */
+}
+/* header > div > nav:nth-child(3) > ul > li{
+    transition: background-color .1s ease-in-out;
+} */
+header > div > nav:nth-child(3) > ul > li.on{
+    background-color: #2C2A29;
+}
+header > div > nav:nth-child(3) > ul > li.on a.main_menu-list{
+    color:#66990D;
+    text-decoration: underline;
+}
+    /* 메인메뉴 목록의 H2태그 이벤트 막음 */
+header > div > nav:nth-child(3) > ul > li > a > h2 {
+    pointer-events: none;
+}
+
+/* 네비게이션 폰트 조정 */
+header > div > nav:nth-child(2) > ul,
+header > div > nav:nth-child(3) > ul,
+header > div > nav:nth-child(3) > ul > li > div > ul {
+    font-size: 0;
+}
+header > div > nav:nth-child(2) > ul > li,
+header > div > nav:nth-child(3) > ul > li,
+header > div > nav:nth-child(3) > ul > li > a > h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+}
+header > div > nav:nth-child(2) > ul{
+    color: #555;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul > li{
+    font-family: 'NanumBarunGothic';
+    font-size: 12px;
+}
+
+header > div > nav:nth-child(3) > ul > li > div > ul:nth-child(1) > li > a{
+    color:#EBFFFF;
+    font-size: 14px;
+    font-weight: 400;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul:nth-child(1) > li > ul > li > a,
+header > div > nav:nth-child(3) > ul > li > div > ul:nth-child(2) > li > a  {
+    color:#999999;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul.lnb_text-menu{
+    color:#64A70B;
+}
+header > div > nav:nth-child(3) > ul > li > div > ul.lnb_text-menu > li > a > h3 {
+    font-size: 12px;
+    line-height: 18px;
+    display: inline-block;
+}
