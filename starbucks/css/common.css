@@ -1,6 +1,6 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body,
 html {
@@ -8,12 +8,20 @@ html {
   font-style: normal;
   line-height: 1.4;
   -webkit-text-size-adjust: none;
+  /* font-family: 'NanumBarunGothic'; */
 }
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+ }
 /* @font-face{
   src: url("../font/arial_ce/ArialCE.ttf");
   font-family: "arial_CE";
 } */
-@font-face {
+/* @font-face {
   font-family: 'NanumBarunGothic';
   font-style: normal;
   font-weight: 400;
@@ -39,4 +47,11 @@ html {
  
  .nanumbarungothic * {
   font-family: 'NanumBarunGothic', sans-serif;
+ } */
+ .nanumbarungothic * {
+  font-family: 'NanumBarunGothic', sans-serif;
  }
+
+ /* body {
+  font-family: 'NanumBarunGothic', sans-serif;
+ } */

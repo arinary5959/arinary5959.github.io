@@ -53,35 +53,37 @@ header > div > div.header_logo > a > img {
 }
 
 /* 보조 네비게이션 */
-header > div > .mobile-menu-i{
-    display: none;
-}
-header > div > .nav_wrap > nav:nth-child(1){
+
+header > div > div > nav.header_sub-menu{
     /* border:1px solid red; */
     padding-top:15px;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul {
+
+header > div > div > nav.header_sub-menu > ul {
     float: right;
     margin-right: 53px;
 }
-/* header > div > .nav_wrap > nav:nth-child(1)::after{
+header > div > div > nav.header_sub-menu::after{
     content: "";
     display: inline-block;
     clear: both;
-} */
+}
 /* 보조 네비게이션 개별 조정 */
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:not(:last-child){
+header > div > div > nav.header_sub-menu > ul > li:not(:last-child){
     line-height: 20px;
     text-align: center;
     position: relative;
 }
 
-header > div > .nav_wrap > nav:nth-child(1) > ul > li > a{
+header > div > div > nav.header_sub-menu > ul > li > a{
     color: rgb(85, 85, 85);
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(3)::before,
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(4)::before,
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(5)::before{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(3) > ul {
+    display: none;
+}
+header > div > div > nav.header_sub-menu > ul > li:nth-child(3)::before,
+header > div > div > nav.header_sub-menu > ul > li:nth-child(4)::before,
+header > div > div > nav.header_sub-menu > ul > li:nth-child(5)::before{
     content: "";
     display: inline-block;
     width: 1px;
@@ -92,46 +94,43 @@ header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(5)::before{
     transform: translateY(-50%);
     left: 0;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(1){
+header > div > div > nav.header_sub-menu > ul > li:nth-child(1){
     width: 76px;
     display: none;
     
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(2){
+header > div > div > nav.header_sub-menu > ul > li:nth-child(2){
     width: 76px;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(3){
+header > div > div > nav.header_sub-menu > ul > li:nth-child(3){
     width: 107px;
     margin-left: 1px;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(3) > .mystarbucks-submenu{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(3) > a > i{
     display: none;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(3) > a > i{
-    display: none;
-}
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(4){
+header > div > div > nav.header_sub-menu > ul > li:nth-child(4){
     width: 181px;
     margin-left: 1px;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(5){
+header > div > div > nav.header_sub-menu > ul > li:nth-child(5){
     width: 97px;
     margin-left: 1px;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6) >form > a > span{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(6) >form > a > span{
     display: none;
 }
 
     /* 네비게이션 공통 */
-header > div > .nav_wrap > nav:nth-child(1) > ul > li,
-header > div > .nav_wrap > nav:nth-child(2) > ul > li {
+header > div > div > nav.header_sub-menu > ul > li,
+header > div > div > nav.header_main-menu > ul > li {
     display: inline-block;
     /* vertical-align: top; */
     /* 인라인의 경우 상단정렬되는지 확인 */
 }
 
 /* 검색 search */
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6){
+header > div > div > nav.header_sub-menu > ul > li:nth-child(6){
     border: 1px solid rgba(0, 0, 0, .4);
     border-radius: 6px;
     /* padding: 6px; */
@@ -143,12 +142,12 @@ header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6){
     vertical-align: middle;
     position: relative;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6) > form{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(6) > form{
     line-height: 20px;
     /* height: 34px; */
     background-color: white;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6) > form > input{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(6) > form > input{
     margin: 6px 40px 6px 3px;
     padding: 3px 0 3px 8px;
     /* display: none; */
@@ -157,7 +156,7 @@ header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6) > form > inpu
     border:transparent;
     font-size: 12px;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6) > form > a{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(6) > form > a{
     display: inline-block;
     position: absolute;
     top:0;
@@ -165,19 +164,19 @@ header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6) > form > a{
     padding: 6px;
     background-color: white;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6).on{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(6).on{
     max-width: 1000px;
     transition: max-width 3s linear;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6).on > form > input{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(6).on > form > input{
     /* z-index: -1; */
     visibility: visible;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:nth-child(6) > a > span{
+header > div > div > nav.header_sub-menu > ul > li:nth-child(6) > a > span{
     display: none;
 }
 /* 메인 네비게이션 */
-header > div > .nav_wrap > nav:nth-child(2){
+header > div > div > nav.header_main-menu{
     /* border: 1px solid greenyellow; */
     /* 포지션 */
     position: absolute;
@@ -185,7 +184,7 @@ header > div > .nav_wrap > nav:nth-child(2){
     bottom: 0;
     max-width: 100%;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul {
+header > div > div > nav.header_main-menu > ul {
     /* border:1px solid black; */
     height: 66px;
     width: 750px;
@@ -193,66 +192,66 @@ header > div > .nav_wrap > nav:nth-child(2) > ul {
     float: right ;
     text-align: center;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li {
+header > div > div > nav.header_main-menu > ul > li {
     /* display: table-cell; */
     height: 100%;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > a > i{
+header > div > div > nav.header_main-menu > ul > li > a > i{
     display: none;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > a{
+header > div > div > nav.header_main-menu > ul > li > a{
     display: inline-block;
     padding-top: 10px;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 10px);
 }
 /* 메인 네비게이션 개별 크기 조정 */
-header > div > .nav_wrap > nav:nth-child(2) > ul > li:nth-child(1){
+header > div > div > nav.header_main-menu > ul > li:nth-child(1){
     width: 89px;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li:nth-child(2){
+header > div > div > nav.header_main-menu > ul > li:nth-child(2){
     width: 73px;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li:nth-child(3){
+header > div > div > nav.header_main-menu > ul > li:nth-child(3){
     width: 79px;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li:nth-child(4){
+header > div > div > nav.header_main-menu > ul > li:nth-child(4){
     width: 153px;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li:nth-child(5){
+header > div > div > nav.header_main-menu > ul > li:nth-child(5){
     width: 225px;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li:nth-child(6){
+header > div > div > nav.header_main-menu > ul > li:nth-child(6){
     width: 131px;
 }
 
 /* lnb 조정*/
 
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul.lnb_text-menu {
+header > div > div > nav.header_main-menu > ul > li > div > ul.lnb_text-menu {
     padding: 30px 0 20px 0;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul.lnb_text-menu > li > span {
+header > div > div > nav.header_main-menu > ul > li > div > ul.lnb_text-menu > li > span {
     display: block;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul:first-child > li > a{
+header > div > div > nav.header_main-menu > ul > li > div > ul:first-child > li > a{
     display: inline-block;
     margin: 3px 0 12px 0;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul > li > ul > li {
+header > div > div > nav.header_main-menu > ul > li > div > ul > li > ul > li {
     padding-bottom:  6px;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul.lnb_text-menu > li:not(:first-child) > a > h3 {
+header > div > div > nav.header_main-menu > ul > li > div > ul.lnb_text-menu > li:not(:first-child) > a > h3 {
     margin-top: 9px;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul > li > ul > li > a {
+header > div > div > nav.header_main-menu > ul > li > div > ul > li > ul > li > a {
     display: inline-block;
     /* border: 1px solid red; */
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul.lnb_text-menu > li > a.lnb_text-menu-new{
+header > div > div > nav.header_main-menu > ul > li > div > ul.lnb_text-menu > li > a.lnb_text-menu-new{
     /* border:1px solid white; */
 
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul.lnb_text-menu > li > a.lnb_text-menu-new::after{
+header > div > div > nav.header_main-menu > ul > li > div > ul.lnb_text-menu > li > a.lnb_text-menu-new::after{
     content: "";
     display: inline-block;
     width: 34px;
@@ -263,15 +262,15 @@ header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul.lnb_text-menu >
     margin-left: 3px;
 }
 /* 호버 효과 */
-header > div > .nav_wrap > nav:nth-child(1) > ul > li:not(:last-child) > a:hover {
+header > div > div > nav.header_sub-menu > ul > li:not(:last-child):hover {
     text-decoration: underline;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul > li > a:hover,
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul > li > ul > li > a:hover,
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul > li > a:hover h3 {
+header > div > div > nav.header_main-menu > ul > li > div > ul > li > a:hover,
+header > div > div > nav.header_main-menu > ul > li > div > ul > li > ul > li > a:hover,
+header > div > div > nav.header_main-menu > ul > li > div > ul > li > a:hover h3 {
     text-decoration: underline;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div{
+header > div > div > nav.header_main-menu > ul > li > div{
     /* border:1px solid blue; */
     position: fixed;
     left: 0;
@@ -282,80 +281,85 @@ header > div > .nav_wrap > nav:nth-child(2) > ul > li > div{
     overflow: hidden;
     /* border:2px solid red; */
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li.on > div{
+header > div > div > nav.header_main-menu > ul > li.on > div{
     max-height: 1000px;
     transition: all .8s linear;
     /* border: 1px solid red; */
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul:first-child{
+header > div > div > nav.header_main-menu > ul > li > div > ul:first-child{
     padding: 20px 0 20px 0;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul:first-child, 
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul:last-child > li{
+header > div > div > nav.header_main-menu > ul > li > div > ul:first-child, 
+header > div > div > nav.header_main-menu > ul > li > div > ul:last-child > li{
     margin: 0 auto;
     width: 1100px;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li.on > div > ul:last-child {
+header > div > div > nav.header_main-menu > ul > li.on > div > ul:last-child {
     background: url('../../images/header/gnb_sub_txbg.jpg'), no-repeat;
 }
 
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul:nth-child(1) > li{
+header > div > div > nav.header_main-menu > ul > li > div > ul:nth-child(1) > li{
     display: inline-block;
     vertical-align: top;
     width: 220px;
     /* border: 1px solid white; */
 }
-/* header > div > .nav_wrap > nav:nth-child(2) > ul > li{
+/* header > div > div > nav.header_main-menu > ul > li{
     transition: background-color .1s ease-in-out;
 } */
-header > div > .nav_wrap > nav:nth-child(2) > ul > li.on{
+header > div > div > nav.header_main-menu > ul > li.on{
     background-color: #2C2A29;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li a.main_menu-list:hover,
-header > div > .nav_wrap > nav:nth-child(2) > ul > li.on > a.main_menu-list{
+header > div > div > nav.header_main-menu > ul > li a.main_menu-list:hover {
     color:#66990D;
     text-decoration: underline;
 }
     /* 메인메뉴 목록의 H2태그 이벤트 막음 */
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > a > h2 {
+header > div > div > nav.header_main-menu > ul > li > a > h2 {
     pointer-events: none;
 }
 
 /* 네비게이션 폰트 조정 */
-header > div > .nav_wrap > nav:nth-child(1) > ul,
-header > div > .nav_wrap > nav:nth-child(2) > ul,
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul {
+header > div > div > nav.header_sub-menu > ul,
+header > div > div > nav.header_main-menu > ul,
+header > div > div > nav.header_main-menu > ul > li > div > ul {
     font-size: 0;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul > li,
-header > div > .nav_wrap > nav:nth-child(2) > ul > li,
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > a > h2{
+header > div > div > nav.header_sub-menu > ul > li,
+header > div > div > nav.header_main-menu > ul > li,
+header > div > div > nav.header_main-menu > ul > li > a > h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     font-weight: 100;
 }
-header > div > .nav_wrap > nav:nth-child(1) > ul{
+header > div > div > nav.header_sub-menu > ul{
     color: #555;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul > li{
+header > div > div > nav.header_main-menu > ul > li > div > ul > li{
     font-family: 'NanumBarunGothic';
     font-size: 12px;
 }
 
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul:nth-child(1) > li > a{
+header > div > div > nav.header_main-menu > ul > li > div > ul:nth-child(1) > li > a{
     color:#EBFFFF;
     font-size: 14px;
     font-weight: 400;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul:nth-child(1) > li > ul > li > a,
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul:nth-child(2) > li > a  {
+header > div > div > nav.header_main-menu > ul > li > div > ul:nth-child(1) > li > ul > li > a,
+header > div > div > nav.header_main-menu > ul > li > div > ul:nth-child(2) > li > a  {
     color:#999999;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul.lnb_text-menu{
+header > div > div > nav.header_main-menu > ul > li > div > ul.lnb_text-menu{
     color:#64A70B;
 }
-header > div > .nav_wrap > nav:nth-child(2) > ul > li > div > ul.lnb_text-menu > li > a > h3 {
+header > div > div > nav.header_main-menu > ul > li > div > ul.lnb_text-menu > li > a > h3 {
     font-size: 12px;
     line-height: 18px;
     display: inline-block;
+}
+
+/* 모바일 메뉴 버튼 */
+
+.mobile_menu_btn_wrap{
+    display: none;
 }

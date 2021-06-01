@@ -21,28 +21,65 @@
                         <img class="header_logo-main" src="./images/header/logo/logo.png" alt="스타벅스 메인 로고 이미지">
                     </a>
                 </div>
-                <div class="nav_wrap">
+                <div class="nav_wrap">  <!-- 05.27 추가// overflow-auto -->
                     <nav class="header_sub-menu">
                         <ul>
                             <li><a href="" class="sub-menu-login">Sign out</a></li>
                             <li><a href="" class="sub-menu-login">Sign In</a></li>
-                            <li>
-                                <a href="" class="sub-menu-mystar">My Starbucks<i class="fas fa-chevron-down sub-menu-mystar-i"></i></a>
-                                <ul class="mystarbucks-submenu">
-                                    <li><a href="">한눈에 보기</a></li>
-                                    <li><a href="">MY 리워드<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="">My 스타벅스 카드<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="">My 스타벅스 e-Gift Card<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="">My 쿠폰<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="">My 캘린더</a></li>
-                                    <li><a href="">My 메뉴</a></li>
-                                    <li><a href="">My 매장</a></li>
-                                    <li><a href="">My 고객의 소리</a></li>
-                                    <li><a href="">전자영수증</a></li>
-                                    <li><a href="">개인컵 리워드 설정</a></li>
-                                    <li><a href="">My DT Pass</a></li>
-                                    <li><a href="">인박스</a></li>
-                                    <li><a href="">개인정보관리<i class="fas fa-chevron-down"></i></a></li>
+                            <li class="mystar"><a href="">My Starbucks<i class="fas fa-chevron-down"></i></a>
+                                <ul>
+                                    <li>
+                                        <a href="">한눈에 보기</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY 리워드<i class="fas fa-chevron-down"></i></a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY 스타벅스카드<i class="fas fa-chevron-down"></i></a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY 스타벅스 e-Gift Card<i class="fas fa-chevron-down"></i></a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY 쿠폰<i class="fas fa-chevron-down"></i></a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY 캘린더</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY 메뉴</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY e-프리퀀시<i class="fas fa-chevron-down"></i></a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY 고객의 소리</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">전자영수증</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">개인컵 리워드 설정</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">MY DT Pass</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="">개인정보관리<i class="fas fa-chevron-down"></i></a>
+                                        
+                                    </li>
                                 </ul>
                             </li>
                             <li><a href="">Customer Service & Ideas</a></li>
@@ -372,15 +409,32 @@
                                 </div>
                             </li>
                         </ul>
-                    </nav> 
-                </div><!-- main nav menu -->
-                <div class="mobile-menu-i">
-                    <ul>
-                        <li><a href=""><img src="./images/header/icon_user_m.png" alt=""></a></li>
-                        <li><a href=""><img src="./images/header/icon_spot_m.png" alt=""></a></li>
-                        <li class="mob-gnb-menu"><a href=""><img src="./images/header/btn_berger_m.png" alt=""></a></li>
-                    </ul>
+                    </nav> <!-- main nav menu -->
                 </div>
+                <div class="mobile_menu_btn_wrap">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="blind">마이메뉴 바로가기</span>
+                                <!-- <img src="./images/header/icon_user_m.png" alt="마이메뉴 바로가기"> -->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="blind">매장 위치 정보 바로가기</span>
+                                <!-- <img src="./images/header/icon_spot_m.png" alt="매장 위치 정보 바로가기"> -->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="blind">메뉴 보기</span>
+                                <!-- <img src="./images/header/btn_berger_m.png" alt="메뉴 보기"> -->
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <div class="mobile_close_btn"><a href=""><span class="blind">메뉴 닫기</span></a></div>
             </div>
         </header>
         <section class="primary_01">
@@ -388,7 +442,8 @@
                 <div>
                     <div class="primary_01-text">
                         <picture>
-                            <source>
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_slogan.png">
+                            <source media="(min-width: 641px)" srcset="./images/section01/2021_newyear_slogan.png">
                             <img src="./images/section01/2021_newyear_slogan.png" alt="">
                         </picture>
                         <a class="text-link" href="">자세히 보기</a>
@@ -396,34 +451,54 @@
                     <div class="primary_01-material">
                         <a href="" title="더블 에스프레소 크림 라떼">자세히보기</a>
                         <picture>
-                            <source media="" srcset="./images/section01/m_2021_newyear_cream_latte.png">
-                            <img src="./images/section01/2021_newyear_cream_latte.png" alt="더블 에스프레서 크림 라떼">
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_cream_latte.png">
+                            <source media="(min-width: 640px)" srcset="./images/section01/2021_newyear_cream_latte.png">
+                            <img src="./images/section01/2021_newyear_cream_latte.png" alt="더블 에스프레소 크림 라떼 이미지">
                         </picture>
-                        <img src="./images/section01/2021_newyear_cream_latte_tit.png" alt="">
+                        <picture class="intron_product_name">
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_cream_latte_tit.png">
+                            <source media="(min-width: 640px)" srcset="./images/section01/2021_newyear_cream_latte_tit.png">
+                            <img src="./images/section01/2021_newyear_cream_latte_tit.png" alt="더블 에스프레소 크림 라떼입니다">
+                        </picture>
                     </div>
                     <div class="primary_01-material">
                         <a href="" title="홀 그레인 오트 라떼">자세히 보기</a>
                         <picture>
-                            <source media="(min-width: )" srcset="">
-                            <img src="./images/section01/2021_newyear_oat_latte.png" alt="">
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_oat_latte.png">
+                            <source media="(min-width: 640px)" srcset="./images/section01/2021_newyear_oat_latte.png">
+                            <img src="./images/section01/2021_newyear_oat_latte.png" alt="홀 그레인 오트 라떼 이미지">
                         </picture>
-                        <img src="./images/section01/2021_newyear_oat_latte_tit.png" alt="">
+                        <picture class="intron_product_name">
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_oat_latte_tit.png">
+                            <source media="(min-width: 640px)" srcset="./images/section01/2021_newyear_oat_latte_tit.png">
+                            <img src="./images/section01/2021_newyear_oat_latte_tit.png" alt="홀 그레인 오트 라떼 이미지입니다.">
+                        </picture>
                     </div>
                     <div class="primary_01-material">
                         <a href="" title="">자세히 보기</a>
                         <picture>
-                            <source media="(min-width: )" srcset="">
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_oat_blended.png">
+                            <source media="(min-width: 640px)" srcset="./images/section01/2021_newyear_oat_blended.png">
                             <img src="./images/section01/2021_newyear_oat_blended.png" alt="">
                         </picture>
-                        <img src="./images/section01/2021_newyear_oat_blended_tit.png" alt="">
+                        <picture class="intron_product_name">
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_oat_blended_tit.png">
+                            <source media="(min-width: 640px)" srcset="./images/section01/2021_newyear_oat_blended_tit.png">
+                            <img src="./images/section01/2021_newyear_oat_blended_tit.png" alt="">
+                        </picture>
                     </div>
                     <div class="primary_01-material">
                         <a href="" title="">자세히 보기</a>
                         <picture>
-                            <source media="(min-width: )" srcset="">
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_malcha_latte.png">
+                            <source media="(min-width: 640px)" srcset="./images/section01/2021_newyear_malcha_latte.png">
                             <img src="./images/section01/2021_newyear_malcha_latte.png" alt="">
                         </picture>
-                        <img src="./images/section01/2021_newyear_malcha_latte_tit.png" alt="">
+                        <picture class="intron_product_name">
+                            <source media="(max-width: 640px)" srcset="./images/section01/m_2021_newyear_malcha_latte_tit.png">
+                            <source media="(min-width: 640px)" srcset="./images/section01/2021_newyear_malcha_latte_tit.png">
+                            <img src="./images/section01/2021_newyear_malcha_latte_tit.png" alt="">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -435,13 +510,17 @@
                         <div class="notice-left">
                             <dl>
                                 <dt>
-                                    <img src="./images/section01/notice_ttl.png" alt="공지사항">
+                                    <picture>
+                                        <source media="(max-width: 660px)" srcset="./images/section01/icon_board_speaker.png">
+                                        <source media="(min-width: 661px)" srcset="./images/section01/notice_ttl.png">
+                                        <img src="./images/section01/notice_ttl.png" alt="공지사항">
+                                    </picture>
                                 </dt>
                                 <!-- 데이터받아서 뿌려주는 부분 + 상위 5개씩만 -->
                                 <!-- http://www.json-generator.com/api/json/get/cefouvwrtu?indent=2 -->
                                 <dd class="notice-txt">
                                     <ul>
-                                        <li><a href="">공지사항입니다</a></li>
+                                        <li><a href="">스타벅스 알림, 공지사항입니다</a></li>
                                         <!-- <li><a href=""></a></li>
                                         <li><a href=""></a></li>
                                         <li><a href=""></a></li>
@@ -454,7 +533,8 @@
                         <div class="notice-right">
                             <div>
                                 <a href="" class="open-slide">
-                                    <span><img src="./images/section01/prom_ttl_b.png" alt=""></span>
+                                    <span>
+                                        <img src="./images/section01/prom_ttl_b.png" alt="스타벅스 프로모션"></span>
                                     <span>
                                         <img src="./images/section01/btn_prom_down.png" alt="스타벅스 프로모션 더보기">
                                     </span>
@@ -494,9 +574,9 @@
                             <div>
                                 <h2>스타벅스만의 특별한 혜택, <br class="mobile"/><strong>스타벅스 리워드</strong></h2>
                                 <p>
-                                    <strong>스타벅스 회원이세요?</strong>
+                                    <strong>스타벅스 회원이세요?</strong><br class="mobile"/>
                                     
-                                    로그인을 통해 나만의 <br class="mobile"/>리워드를 확인해보세요.
+                                    로그인을 통해 나만의 리워드를 확인해보세요.
                                     <br />
                                     <strong>스타벅스 회원이 아니세요?</strong>
                                     <br class="mobile"/>
@@ -511,7 +591,8 @@
                         <div>
                             <div>
                                 <p>
-                                    회원 가입 후, 스타벅스 e-Gift Card를 <strong><br class="mobile"/>"나에게 선물하기"로 구매하시고, 편리하게 등록하세요!</strong>
+                                    회원 가입 후, 스타벅스 e-Gift Card를<br class="mobile"/>
+                                    <strong>"나에게 선물하기"로 구매하시고,<br class="mobile"/>편리하게 등록하세요!</strong>
                                     <br />
                                     카드를 등록하여 스타벅스 리워드 회원이 되신 후, <br class="mobile"/>첫 구매를 하시면 무료 음료쿠폰을 드립니다!
                                 </p>
@@ -529,12 +610,17 @@
                 <div>
                     <div class="newyearbean-porduct">
                         <picture>
-                            <source media="" srcset="">
+                            <source media="(max-width: 640px)" srcset="./images/section02-06/m_2021_newyear_bean.png">
+                            <source media="(min-width: 641px)" srcset="./images/section02-06/2021_newyear_bean.png">
                             <img src="./images/section02-06/2021_newyear_bean.png" alt="">
                         </picture>
                     </div>
                     <div class="newyearbean-txt">
-                        <img src="./images/section02-06/2021_newyear_bean_txt.png" alt="">
+                        <picture>
+                            <source media="(max-width: 640px)" srcset="./images/section02-06/m_2021_newyear_bean_txt.png">
+                            <source media="(min-width: 641px)" srcset="./images/section02-06/2021_newyear_bean_txt.png">
+                            <img src="./images/section02-06/2021_newyear_bean_txt.png" alt="">
+                        </picture>
                         <a href="">자세히 보기</a>
                     </div>
                 </div>
@@ -544,7 +630,12 @@
             <div class="primary_03-reserve">
                 <div>
                     <div class="reserve-product">
-                        <img src="./images/section02-06/reserve_hawaii_beans.jpg" alt="">
+                        <picture>
+                            <source media="(max-width: 930px)" srcset="./images/section02-06/m_reserve_hawaii_beans.jpg">
+                            <source media="(min-width: 931px)" srcset="./images/section02-06/reserve_hawaii_beans.jpg">
+                            <img src="./images/section02-06/reserve_hawaii_beans.jpg" alt="">
+                        </picture>
+                        <!-- <img src="./images/section02-06/reserve_hawaii_beans.jpg" alt=""> -->
                     </div>
                     <div>
                         <img src="./images/section02-06/reserve_hawaii_title.png" alt="">
@@ -561,10 +652,20 @@
                     </div>
                     <div class="favorite-txt">
                         <div class="txt-first">
-                            <img src="./images/section02-06/fav_prod_txt01.png" alt="">
+                            <picture>
+                                <source media="(max-width: 960px)" srcset="./images/section02-06/mobile_menu_txt01.png">
+                                <source media="(min-width:961px)" srcset="./images/section02-06/fav_prod_txt01.png">
+                                <img src="./images/section02-06/fav_prod_txt01.png" alt="">
+                            </picture>
+                            <!-- <img src="./images/section02-06/fav_prod_txt01.png" alt=""> -->
                         </div>
                         <div class="txt-second">
-                            <img  src="./images/section02-06/fav_prod_txt02.png" alt="">
+                            <picture>
+                                <source media="(max-width: 960px)" srcset="./images/section02-06/mobile_menu_txt02.png">
+                                <source media="(min-width:961px)" srcset="./images/section02-06/fav_prod_txt02.png">
+                                <img  src="./images/section02-06/fav_prod_txt02.png" alt="">
+                            </picture>
+                            <!-- <img  src="./images/section02-06/fav_prod_txt02.png" alt=""> -->
                         </div>
                         <div class="txt-third">
                             <a href="">자세히 보기</a>
@@ -578,15 +679,23 @@
                 <div>
                     <div>
                         <picture>
-                            <source media="(min-width: )" srcset="">
+                            <source media="(max-width: 960px)" srcset="./images/section02-06/reserve_visual_mobile.png">
+                            <source media="(min-width:961px)" srcset="./images/section02-06/reserve_visual_pc.png">
                             <img src="./images/section02-06/reserve_visual_pc.png" alt="">
                         </picture>
                     </div>
                     <div class="magazin-txt">
-                        <picture class="txt-box">
+                        <div class="txt-box">
+                            <picture>
+                                <source media="(max-width: 960px)" srcset="./images/section02-06/reserve_text_mobile.png">
+                                <source media="(min-width:961px)" srcset="./images/section02-06/reserve_text_pc.png">
+                                <img src="./images/section02-06/reserve_text_pc.png" alt="">
+                            </picture>
+                        </div>
+                        <!-- <picture class="txt-box">
                             <source media="(min-width: )" srcset="">
                             <img src="./images/section02-06/reserve_text_pc.png" alt="">
-                        </picture>
+                        </picture> -->
                         <div class="txt-box">
                             <div class="magazin-txt-link">
                                 <a href="">
@@ -599,7 +708,7 @@
             </div>
         </section>
         <section class="primary_06">
-            <div  class="primary_06-store">
+            <div class="primary_06-store">
                 <div>
                     <div>
                         <img src="./images/section02-06/store_exp_img01.png" alt="">
@@ -609,11 +718,19 @@
                     </div>
                     <div>
                         <div>
-                            <img src="./images/section02-06/store_txt01.png" alt="">
+                            <picture>
+                                <source media="(max-width: 960px)" srcset="./images/section02-06/mobile_store_txt01.png">
+                                <source media="(min-width:961px)" srcset="./images/section02-06/store_txt01.png">
+                                <img src="./images/section02-06/store_txt01.png" alt="">
+                            </picture>
                             <span>스타벅스를 가까이에서 경험해보세요. 고객님과 가장 가까이 있는 매장을 찾아보세요!</span>
                         </div>
                         <div>
-                            <img src="./images/section02-06/store_txt02.png" alt="">
+                            <picture>
+                                <source media="(max-width: 960px)" srcset="./images/section02-06/mobile_store_txt02.png">
+                                <source media="(min-width:961px)" srcset="./images/section02-06/store_txt02.png">
+                                <img src="./images/section02-06/store_txt02.png" alt="">
+                            </picture>
                             <span>차별화된 커피 경험을 누릴 수 있는 리저브 매장, 다양한 방법으로 편리하게 즐길 수 있는 드라이브 스루 매장, 함께해서 더 따뜻할수 있는 지역사회 소통 공간 커뮤니티 매장</span>
                         </div>
                         <div>
@@ -628,10 +745,20 @@
             <div><a href=""><img src="" alt=""></a></div>
         </aside> -->
         <footer class="main-footer">
-                <div>
+                <div class="footer_menu">
                     <ul>
-                        <li>
-                            <a href="">COMPANY</a>
+                        <li class="footer_fist_menu none_margin">
+                            <a href="">CUSTOMER SERVICE & IDEAS<i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="">자주하는 질문</a></li>
+                                <li><a href="">고객의 소리</a></li>
+                                <li><a href="">스타벅스 이용 팁</a></li>
+                                <li><a href="">고객경험 설문조사</a></li>
+                                <li><a href="">비회원 전자영수증 조회</a></li>
+                            </ul>
+                        </li>
+                        <li class="none_margin">
+                            <a href="">COMPANY<i class="fas fa-chevron-down"></i></a>
                             <ul>
                                 <li><a href="">한눈에 보기
                                     </a></li>
@@ -643,20 +770,20 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="">CORPORATE SALES</a>
+                            <a href="">CORPORATE SALES<i class="fas fa-chevron-down"></i></a>
                             <ul>
                                 <li><a href="">단체 및 기업 구매 안내</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="">PARTNERSHIP</a>
+                            <a href="">PARTNERSHIP<i class="fas fa-chevron-down"></i></a>
                             <ul>
                                 <li><a href="">신규 입점 제의</a></li>
                                 <li><a href="">협력 고객사 등록신청</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="">ONLINE COMMUNITY</a>
+                            <a href="">ONLINE COMMUNITY<i class="fas fa-chevron-down"></i></a>
                             <ul>
                                 <li><a href="">페이스북</a></li>
                                 <li><a href="">트위터</a></li>
@@ -666,7 +793,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="">RECRUIT</a>
+                            <a href="">RECRUIT<i class="fas fa-chevron-down"></i></a>
                             <ul>
                                 <li><a href="">채용 소개</a></li>
                                 <li><a href="">채용 지원하기</a></li>
@@ -674,15 +801,24 @@
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div class="footer_quick_menu">
                     <ul>
-                        <li><a href=""><img src="./images/footer/footer_award17_01.jpg" alt=""></a></li>
-                        <li><a href=""><img src="./images/footer/footer_award17_02.jpg" alt=""></a></li>
-                        <li><a href=""><img src="./images/footer/footer_award17_03.jpg" alt=""></a></li>
-                        <li><a href=""><img src="./images/footer/footer_award17_04.jpg" alt=""></a></li>
-                        <li><a href=""><img src="./images/footer/footer_award17_05.jpg" alt=""></a></li>
-                        <li><a href=""><img src="./images/footer/footer_award17_06.jpg" alt=""></a></li>
+                        <li><a href="">HOME</a></li>
+                        <li><a href="">Sign In</a></li>
+                        <li><a href="">Join Us</a></li>
                     </ul>
+                </div>
+                <div class="footer_slide">
+                    <div>
+                        <ul>
+                            <li><a href=""><img src="./images/footer/footer_award17_01.jpg" alt=""></a></li>
+                            <li><a href=""><img src="./images/footer/footer_award17_02.jpg" alt=""></a></li>
+                            <li><a href=""><img src="./images/footer/footer_award17_03.jpg" alt=""></a></li>
+                            <li><a href=""><img src="./images/footer/footer_award17_04.jpg" alt=""></a></li>
+                            <li><a href=""><img src="./images/footer/footer_award17_05.jpg" alt=""></a></li>
+                            <li><a href=""><img src="./images/footer/footer_award17_06.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
                 </div>
                 <aside class="footer_utill">
                     <div>
