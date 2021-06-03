@@ -1,0 +1,438 @@
+#wrap{
+	min-width: 1200px;
+}
+header{
+	min-width: 1100px;
+    background-color: rgba(255,255,255,0.97);
+    -webkit-transition: top .5s ease;
+    transition: top .5s ease;
+}
+.header_wrap{
+	max-width: 1600px;
+	margin:0 auto;/*가운데 정렬*/
+	/*border: 1px solid red;*/
+	overflow: hidden;
+	text-align: center;/*양쪽은 플롯 레프트 플롯 라이트되어 있어서 영향받지 않음(플롯층) 기본 땅 위에 있는 나브만 얼라인됨*/
+}
+/*마우스 오버시 나타나는 서브 메뉴 영역*/
+ul.gnb_dropmenu_wrap{
+	display: none;
+	min-width: 1100px;
+	height: 276px;
+	background-color: rgb(30,197,69);
+	z-index: 999;
+	position: absolute;
+	left:0;
+	right: 0;
+	top:80px;
+	text-align: center;
+	font-size: 0;
+	/*드롭다운 박스 섀도우*/
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.gnb_dropmenu_wrap>li{
+	display: inline-block;
+	font-size: 1rem;
+	width: 190px;
+	height: 276px;
+	vertical-align: top;
+	padding-top: 28px;
+	border-right: 1px solid rgba(255,255,255,0.3)
+}
+.gnb_dropmenu_wrap>li:first-child{
+	border-left: 1px solid rgba(255,255,255,0.3)
+	/*border-right: transparent;*/
+}
+/*.gnb_dropmenu_wrap>li+li::afer{
+	
+} 수직선을 이미지로 넣는 경우*/
+
+.gnb_dropmenu_wrap>li:hover{
+	background-color: #0fb93c;
+}
+/*.gnb_dropmenu_wrap>li:hover{
+	border: transparent;
+}*/
+.gnb_menu_list:hover .gnb_dropmenu_wrap{
+	display: block;
+}
+.gnb_dropmenu>li{
+	margin:0 0 5px;
+	font-size: 15px;
+	text-align: left;
+}
+.gnb_dropmenu a{
+	color:#fff;
+	font-size: 15px;
+}
+.gnb_dropmenu>li.depth_blank{
+	margin-bottom: 14px;
+}
+.classify{
+	margin-top: 25px;
+	padding-top: 17px;
+	border-top: 1px solid rgba(255,255,255,0.3);
+}
+.classify1>li:first-child{
+	border-top: 0;
+	padding-top: 0;
+}
+a.gnb_dropmenu_item{
+	display: block;
+	padding-left: 28px;
+}
+.gnb_dropmenu_item .depth{
+	color:rgba(255,255,255,0.7);	
+}
+.gnb_dropmenu_item .depth:hover{
+	color:rgba(255,255,255,1);
+}
+
+/*헤더 로고*/
+.header_logo{
+	width: 87px;
+	height: 17px;
+	margin:32px 0 0 32px;
+	background-image: url(../img/header_logo.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	float: left;
+}
+.header_logo a{
+	display: block;
+	width: 100%;
+	height:100%;
+}
+nav{
+	/* border: 1px solid lime; */
+	display: inline-block;
+}
+ul.gnb_menu{
+	font-size: 0;
+	text-align: center;
+}
+ul.gnb_menu>[class^="gnb_menu_list"]{
+	display: inline-block;
+	font-size: 1rem;
+}
+a.gnb_menu_item{
+	display: block;
+	margin:0 30px;
+	padding: 30px 0 30px;/*내 공간, 내 몸집 자체를 늘려주어야 css했을때 효과가 있음. 마진은 대상간 사이 거리일 뿐임.예;보더 바텀의 호버시 위치가 달라짐*/
+	font-size: 15px;
+	color:#333;
+	position: relative;/*a링크를 기준으로 비포 트렌지션을 포지션 앱솔리트시켜준다. 바닥에서는 사라지게 해주려고.*/
+}
+/*트렌지션 트랜스폼 a의 길이만큼 없던 효과가 생겨남.(헤더부분) a의 앞에!*/
+a.gnb_menu_item:before{
+	content: '';
+	position:absolute;
+	left:-1px;/*a링크를 기준으로 왼쪽으로 1px만큼 앞으로. 빼줌. 리스트를 기준으로하면 마우스오버시 생겨나는 바의 위치가 달라진다.*/
+	bottom:20px;/*a링크를 기준으로 20px밑.(a링크의 탑에 붙어 있음)*/
+	width: calc(100% + 2px);/*100%는 a의 100% 이고 +2px는 2px만큼 더 해주라는 연산.*/
+	height: 2px;
+	background-color: #1ec545;
+    
+    -webkit-transform-origin: 0 0;
+  	transform-origin: 0 0;
+  	-webkit-transform: scaleX(0); /*x방향으로 트랜지션이 0*/
+  	transform: scaleX(0); /*x방향은 width방향.*/
+  	transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+li.gnb_menu_list:hover .gnb_menu_item:before,
+.gnb_menu_item:focus:before, .gnb_menu_list_recruit:hover .gnb_menu_item:before{
+	-webkit-transform: scaleX(1);
+  	transform: scaleX(1);	
+}
+.gnb_menu_list_recruit > a > span.icon::before{
+	content: '';
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: url(../img/sprite.png) no-repeat;
+	-webkit-background-size:474px 1250px;
+	background-size:474px 1250px;
+	background-position: -59px 0;
+	visibility: hidden;
+}
+.gnb_menu_list_recruit:hover .icon::before,
+.gnb_menu_list_recruit:hover:focus .icon::before{
+	visibility: visible;
+}
+
+/*헤더 유틸*/
+.header_util_wrap{
+	float: right;
+	/* border:1px solid red; */
+}
+.header_util{
+	float: right;
+	margin:30px 25px 0 0;/*헤더랩을 기준으로!*/
+	width: 144px;
+}
+.header_lang{
+	display: inline-block;/*크기값을 주려고*/
+	vertical-align: middle;
+	margin:0 41px 0 0;
+	font-size: 0px;
+}
+.header_lang a{
+	display: inline-block;
+}
+.header_lang a:first-child{
+	padding-right: 7px;
+	border-right: 1px solid rgba(0,0,0,0.3);
+	color:#333;
+	font-size: 13px;
+}
+.header_lang a:last-child{
+	padding-left:7px;
+	color:#333;
+	font-size: 13px;
+}
+.sitemap_box{
+	display: inline-block;
+	width: 24px;
+	height: 23px;
+	vertical-align: middle;
+	cursor: pointer;
+	position: relative;
+}
+.sitemap_box .bar_1, .sitemap_box .bar_2,.sitemap_box .bar_3{
+	display: inline-block;
+	width: 24px;
+	height: 2px;
+	background-color: black;
+	position: absolute;
+	transition: background-color .5s ease;
+}
+.sitemap_box .bar_1{
+	top: 4px;
+	left: 0;
+}
+.sitemap_box .bar_2{
+	top:10px;
+	left: 0;
+}
+.sitemap_box .bar_3{
+	bottom:5px;
+	left: 0;
+}
+.sitemap_box:hover .bar_1,
+.sitemap_box:hover .bar_2,
+.sitemap_box:hover .bar_3{
+	background-color: #1ec545
+}
+.navbar:nth-child(1),.navbar:nth-child(3){
+	display: block;
+	top:0;
+	left: 0;
+	height: 2px;
+}
+header.hide{
+    position: fixed;
+    top:-100%;
+}
+header.on{background-color: #1ec545; position: fixed;}
+header.on .gnb_main-face{visibility: hidden;}
+header.on .header_logo{background-image: url(../img/header_logo_v2.png);}
+.hidden_nav{
+	display: none;
+}
+.hidden_nav.on > ul a{display: block; color: white;}
+.hidden_nav.on{
+	display: block;
+	position: fixed;
+	top: 83px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #1ec545;
+	z-index: 2;
+}
+.hidden_nav.on .hidden_nav-dropmenu{
+	width: 1280px;
+    margin: 0 auto;
+	padding: 35px 35px 150px;
+	/* border:1px solid purple; */
+	font-size: 0;
+	text-align: center;
+}
+.hidden_nav.on ul > .hidden_nav-list{
+	display: inline-block; 
+	font-size: 14px; 
+	vertical-align: top; 
+	/* border:1px solid black; */
+	width: 160px;
+	text-align: left;
+}
+a.hidden_nav_item > strong{
+	/* display: inline-block; */
+	position: relative;
+	display: inline-block;
+}
+a.hidden_nav_item > strong::before{
+	content: '';
+	position:absolute;
+	left:-1px;/*a링크를 기준으로 왼쪽으로 1px만큼 앞으로. 빼줌. 리스트를 기준으로하면 마우스오버시 생겨나는 바의 위치가 달라진다.*/
+	bottom:-1px;/*a링크를 기준으로 20px밑.(a링크의 탑에 붙어 있음)*/
+	width: calc(100% + 2px);/*100%는 a의 100% 이고 +2px는 2px만큼 더 해주라는 연산.*/
+	height: 1px;
+	background-color: white;
+    
+    -webkit-transform-origin: 0 0;
+  	transform-origin: 0 0;
+  	-webkit-transform: scaleX(0); 
+  	transform: scaleX(0); 
+  	transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.hidden_nav_item:hover .hidden_nav_item-info::before{
+	-webkit-transform: scaleX(1); 
+	transform: scaleX(1);
+	transform: scaleY(2);
+}
+.hidden_nav .hidden_nav_depth{
+    font-size: 14px;
+	opacity: .8;
+	position: relative;
+}
+.hidden_nav .hidden_nav_depth::before{
+	content: '';
+	position:absolute;
+	left:-1px;/*a링크를 기준으로 왼쪽으로 1px만큼 앞으로. 빼줌. 리스트를 기준으로하면 마우스오버시 생겨나는 바의 위치가 달라진다.*/
+	bottom:-1px;/*a링크를 기준으로 20px밑.(a링크의 탑에 붙어 있음)*/
+	width: calc(100% + 2px);/*100%는 a의 100% 이고 +2px는 2px만큼 더 해주라는 연산.*/
+	height: 1px;
+	background-color: white;
+    
+    -webkit-transform-origin: 0 0;
+  	transform-origin: 0 0;
+  	-webkit-transform: scaleX(0); 
+  	transform: scaleX(0); 
+  	transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+UL.hidden_nav-dropmenu >li+li{
+	margin-left: 50px;
+}
+.hidden_nav_item:hover .hidden_nav_depth::before{
+	-webkit-transform: scaleX(1); 
+	transform: scaleX(1);
+}
+.hidden_nav-list-text{
+	display: block;
+    padding-bottom: 31px;
+    font-family: "NanumSquare-EB", "나눔고딕", "Dotum", "돋움", "Helvetica", "Arial", "AppleSDGothicNeo", sans-serif;
+	font-size: 20px;
+	padding-bottom: 31px;
+	position: relative;
+}
+.hidden_nav-list-text::after{
+	content: '';
+	display: block;
+	width: 10px;
+	height: 2px;
+	background-color: #fff;
+	position: absolute;
+	bottom: 0;
+}
+
+.hidden_nav_recruit::after{
+	content: '';
+    display: block;
+	position: absolute;
+	top:0;
+	right: -28px;
+    width: 18px;
+    height: 18px;
+    background: url(../img/sprite.png) no-repeat;
+    -webkit-background-size: 474px 1300px;
+    background-size: 474px 1300px;
+    background-position: -81px 0;
+}
+.hidden_nav-list-title{
+	padding: 24px 0 0;
+	font-size: 15px;
+}
+.hidden_nav-list-title, .hidden_nav .depth{
+	font-family: "NanumSquare-B", "나눔고딕", "Dotum", "돋움", "Helvetica", "Arial", "AppleSDGothicNeo", sans-serif;
+}
+
+.sitemap_box.on .bar_1, .sitemap_box.on .bar_3{
+	top:10px;
+	left: 0;
+	background-color: white;
+}
+.sitemap_box.on .bar_1{
+	transform: rotate(45deg);
+}
+.sitemap_box.on .bar_2{display: none}
+.sitemap_box.on .bar_3{transform: rotate(-45deg)}
+.sitemap_box.on{
+	outline:2px solid black;
+	outline-offset: 2px;
+}
+
+.navbar:nth-child(2){
+	display: block;
+	width: 100%;
+	height: 1px;
+}
+.navbar{
+	background-color: #000
+}
+.navbar:nth-child(1){
+	position: absolute;
+	top:4px;
+}
+
+.navbar:nth-child(3){
+	position: absolute;
+	bottom: 4px;
+}
+.content_summary{
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0 0 36px 30px;
+}
+.content_summary::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.content_summary_list a{
+	display: inline-block;
+}
+
+.content_summary_list li a:after{
+	content: '';
+	display: inline-block;
+	width: 5px;
+	height: 6px;
+	background: url(../img/sprite.png) no-repeat;
+	-webkit-background-size:474px 1250px;
+	background-size:474px 1250px;
+	background-position: -103px 0;
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	width: 5px;
+	height: 7px;
+}
+ul.content_summary_list{
+	font-size: 0;
+}
+.content_summary_list li{
+	float: left;
+	padding: 0 25px 0 0;
+	position: relative;
+	font-size: 12px ;
+	color: #878890;
+	font-family: "NanumSquare", "나눔고딕", "Dotum", "돋움", "Helvetica", "Arial", "AppleSDGothicNeo", sans-serif;
+}
+.content_summary_list a{
+	color: #878890;
+}
+.content_summary_list li:hover .content_summary_link{
+	text-decoration: underline;
+}
+
