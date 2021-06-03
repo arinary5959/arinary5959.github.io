@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            font-family: 'GmarketSansMedium';
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            transition: all .2s ease-in-out;
+        }
+        a:visited{
+            color: black;
+        }
+        a:active, a:hover {
+            transform: scale(1.1, 1.1);
+            text-decoration: underline;
+        }
+        .description:hover{
+            color: rgba(0, 0, 0, 0.6);
+        }
+        .description:hover a{
+           color: rgb(31, 31, 199);
+           transform: scale(1.1, 1.1);
+           text-decoration: underline;
+        }
+        .wrap{
+            width: 100%;
+        }
+        .content_wrap{
+            width: 60%;
+            margin: 0 auto;
+        }
+        .content_wrap > div{
+            margin: 80px auto;
+        }
+        .content_wrap > div > h1{
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .content_wrap > div > p{
+           font-size: 18px;
+           line-height: 1.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="content_wrap">
+            <div>
+                <h1>Weather Info</h1>
+                <p class="description">
+                    로컬에서 개발 후,<br />
+                    CLI DEPLOY 후 오류를 발견하고 수정하는 중입니다.<br />
+                    임시방편으로 로컬호스트에 접속할 수 있도록 ngork를 활용해 보았으나 해결되지 않았습니다.<br />
+                    vue에서 랜더링하는 과정에서 데이터 요청이 완료되지 않아서 발생한 오류로 보입니다.<br />
+                    <strong><a href="https://github.com/arinary5959/weather">"Git ID: arinary5959"</a></strong> 에서 오류가 있는 코드를 확인하실 수 있습니다. <br />
+                    배포 후 오류가 있는 URL 입니다. <a href="https://hjweatherweb.herokuapp.com/">https://hjweatherweb.herokuapp.com</a><br />
+                    다음 동영상은 로컬에서 개발중이던 모습입니다.
+                </p>
+            </div>
+            <div>
+                <video controls width="100%" autoplay loop muted>
+                    <source src="./weatherwebapp_local.mp4" type="video/mp4">
+                    <p>Sorry, your browser doesn't support embedded videos.</p>
+                </video>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
