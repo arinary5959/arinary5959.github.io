@@ -390,3 +390,141 @@ li.support_list_box dd{
 	line-height: 1.6;
 }
 
+/* 푸터 */
+
+footer{
+	width: 100%;
+	background-color: #f8f9fa;
+	/*position: static;*/
+}
+.footer_wrap{
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 74px 0 70px;
+	text-align: center;
+	position: relative;
+}
+.footer_logo{
+	display: inline-block;
+	width: 63px;
+	height: 13px;
+	position: absolute;
+	left: 30px;
+	top: 76px;
+	background:url(../img/footer_logo.png) no-repeat;
+	-webkit-background-size: 63px 13px;
+	background-size: 63px 13px;
+}
+.footer_menu{
+	position: absolute;
+	left: 105px;
+	top: 74px;
+	font-size: 0;
+}
+.footer_menu li{
+	display: inline-block;
+	font-size: 14px;
+	margin: 0 10px;
+	position: relative;
+}
+.footer_menu a{
+	color: #878890;
+}
+
+.footer_menu li:before{
+	content: '';
+	display: block;
+	position: absolute;
+	top: 3px;
+	left: -10px;
+	width: 1px;
+	height: 12px;
+	background-color: #878890;
+	/*border: 1px solid red;*/
+}
+.footer_menu li:first-child:before{
+	display: none;
+}
+.footer_copy{
+	position: absolute;
+	left: 50%;
+	top: 76px;
+	transform: translateX(-50%);
+}
+.affiliate_box{
+	position: absolute;
+	right: 30px;
+	top:76px;
+}
+
+.affiliate_box .btn_affiliate{
+	padding-right: 26px;
+	border: 0;
+
+}
+.btn_affiliate:after{
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 0 ;
+	right: 0;
+	width: 16px;
+	height: 16px;
+	background: url(../img/sprite.png) no-repeat;
+	-webkit-background-size:474px 1250px;
+	background-size:474px 1250px;
+	background-position: -222px -26px;
+}
+ul.affiliate_list{
+	position: absolute;
+	left: -81px;
+	bottom: 0px;
+	width: 200px;
+	
+	text-align: left;
+	padding: 27px 0 25px;
+	border:1px solid #dfe0e1;
+	background-color: #fff;
+	display: none;
+	color: #878890;
+}
+ul.affiliate_list a{
+	display: inline-block;
+	padding: 0 24px;
+	color: #878890;
+	font-family: "NanumSquare", "나눔고딕", "Dotum", "돋움", "Helvetica", "Arial", "AppleSDGothicNeo", sans-serif;
+	font-size: 14px;
+}
+.affiliate_item >a span{
+	position: relative;
+}
+.affiliate_item >a span:before, .affiliate_item >a span:before{
+	content: '';
+	position: absolute;
+	right: -25px;
+	top:-2px;
+	width: 18px;
+	height: 18px;
+	background: url(../img/sprite.png) no-repeat;
+	-webkit-background-size:474px 1250px;
+	background-size:474px 1250px;
+	background-position: -104px -68px;
+	display: none;
+}
+.affiliate_item{
+	margin: 13px 0;
+}
+.affiliate_item:first-child{
+	margin-top:0;
+}
+.affiliate_item > a:hover,
+.affiliate_item >a:focus{
+	color:#00b843;
+}
+.affiliate_box:hover .affiliate_list{
+	display: block;
+}
+.affiliate_item > a:hover span:before,
+.affiliate_item > a:focus span:before{
+	display: block;
+}

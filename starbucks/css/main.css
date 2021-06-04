@@ -995,13 +995,13 @@ section.primary_05 > div > div > div:nth-child(2) > .txt-box{
     /* margin-left: 6%; */
     position: relative;
 }
-section.primary_05 > div > div > div:nth-child(2) > .txt-box:first-child.on > img{
+section.primary_05 > div > div > div:nth-child(2) > .txt-box:first-child.on > picture > img{
     transform: translateX(100%);
     right: 100%;
     opacity: 1;
     transition: right 2.5s, opacity 2s ease-in-out;
 }
-section.primary_05 > div > div > div:nth-child(2) > .txt-box:first-child > img,
+section.primary_05 > div > div > div:nth-child(2) > .txt-box:first-child > picture > img,
 section.primary_05 > div > div > div:nth-child(2) > .txt-box:last-child > .magazin-txt-link{
     position: absolute;
     right: -100%;

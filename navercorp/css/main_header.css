@@ -1,6 +1,14 @@
+html{
+	-ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
 #wrap{
 	min-width: 1200px;
 }
+
 header{
 	position: fixed;
 	left: 0;
@@ -14,7 +22,6 @@ header{
 		transition: top; .4s ease-in-out;
 	*/
 }
-
 .header_wrap{
 	max-width: 1600px;
 	margin:0 auto;/*가운데 정렬*/
@@ -249,7 +256,8 @@ li.gnb_menu_list:hover .gnb_menu_item:before,
 	left: 0;
 	height: 2px;
 }
-header.on{background-color: #1ec545; position: fixed;}
+header.on{background-color: #1ec545; position: fixed; top:0; bottom: 0; overflow-y: scroll; min-height: 100vh;}
+header.on > .header_wrap{overflow: visible;}
 header.on .gnb_main-face{visibility: hidden;}
 header.on .header_logo{background-image: url(../img/header_logo_v2.png);}
 .hidden_nav{
@@ -258,11 +266,11 @@ header.on .header_logo{background-image: url(../img/header_logo_v2.png);}
 .hidden_nav.on > ul a{display: block; color: white;}
 .hidden_nav.on{
 	display: block;
-	position: fixed;
-	top: 83px;
+	/* position: fixed; */
+	position: relative;
+	/* top: 83px; */
 	left: 0;
 	right: 0;
-	bottom: 0;
 	background-color: #1ec545;
 	z-index: 2;
 }

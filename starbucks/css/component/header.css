@@ -1,7 +1,3 @@
-body{
-    /* width: 100vw; */
-    /* overflow-x: hidden; */
-}
 header {
     width: 100%;
     background-color:#F6F5EF;
@@ -310,11 +306,13 @@ header > div > div > nav.header_main-menu > ul > li > div > ul:nth-child(1) > li
 header > div > div > nav.header_main-menu > ul > li.on{
     background-color: #2C2A29;
 }
-header > div > div > nav.header_main-menu > ul > li a.main_menu-list:hover {
+header > div > div > nav.header_main-menu > ul > li a.main_menu-list:hover,
+header > div > div > nav.header_main-menu > ul > li.on a.main_menu-list {
     color:#66990D;
     text-decoration: underline;
 }
-    /* 메인메뉴 목록의 H2태그 이벤트 막음 */
+
+/* 메인메뉴 목록의 H2태그 이벤트 막음 */
 header > div > div > nav.header_main-menu > ul > li > a > h2 {
     pointer-events: none;
 }

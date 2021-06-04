@@ -251,8 +251,6 @@ li.gnb_menu_list:hover .gnb_menu_item:before,
 .menu-trigger:hover .navbar{
 	background-color: #03C75A;
 }
-
-
 .content_summary{
 	max-width: 1600px;
 	margin: 0 auto;
@@ -266,7 +264,6 @@ li.gnb_menu_list:hover .gnb_menu_item:before,
 .content_summary_list a{
 	display: inline-block;
 }
-
 .content_summary_list li a:after{
 	content: '';
 	display: inline-block;
