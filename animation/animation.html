@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anymation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding-bottom: 1000px;
+        }
+        h1{
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+        .ani_1{
+            height: 600px;
+        }
+        .ani_1 > h1{
+            margin-top: 50px;
+        }
+        .box1{
+            width:100px;
+            height: 100px;
+            border:2px solid black;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: sample-ani 3s linear forwards infinite;
+            /* animation-play-state: paused; */
+            /* animation-fill-mode: forwards; 마지막지점에서 멈춤 */
+            /* animation: sample-ani 3s linear infinite alternate-reverse; */
+            /* animation: sample-ani 2s linear 3; */
+            /* 반복, 되돌아감 */
+            animation-direction: alternate; 
+            /* animation: reverse; 시작점이 반대지점으로 바뀜 */
+        }
+        .box2{
+            width:100px;
+            height: 100px;
+            border:2px solid black;
+            background-color: rgb(192, 144, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: sample-ani 3s linear infinite alternate-reverse;;
+            /* animation-direction: alternate;  */
+        }
+        /* 애니메이션과 트랜지션과의 차이점은 키프레임의 존재 keyframe 변화가 있는 지점 */
+        @keyframes sample-ani {
+            0%{
+                transform: translate(0,0);
+            }
+            50%{
+                /* background-color: red; */
+                transform: translate(300px, 0);
+            }
+            100%{
+                transform: translate(300px, 300px);
+            }
+        }
+        .box:hover {
+            animation-play-state: paused;
+        }
+
+        /* 2 */
+        .spaceship{
+            width: 150px;
+            height: 150px;
+            background: url('./assets/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
+            animation: spaceship-ani 1S infinite steps(17);
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+        }
+        .spaceship:hover{
+            animation-play-state: paused;
+
+        }
+        @keyframes spaceship-ani {
+            to{
+                background-position: -2550PX 0;
+            }
+            /* 100%{
+                
+            } */
+        }
+        /* GIF는 투명도가 적용이 안된다. 안티엘리어싱처리가 흰색으로 나와서 꺠진것처럼 보인다. 그리고 배경이 검은색인 경우 깔끔하게 나온다! 투명도가 있어서!! 
+            APNG는 가능하지만 지원되지 않는 브라우저가 있다.
+        */
+        .earth{
+            width: 252px;
+            height: 300px;
+            background: url('./assets/Untitled-1.png') no-repeat 0 0;
+            animation: earth-ani 1s infinite steps(16);
+        }
+        @keyframes earth-ani {
+            to{
+                background-position: -4048px 0;
+            }
+        }
+
+        /* 3 */
+
+        .world{
+            width: 50vw;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(26, 26, 26);
+            perspective: 500px;
+            /* perspective: 500px; */
+            /* 값은 보통  px 뷰포트 단위의 vw도 가능 */
+            /* 월드에 원근을 주면 각각의 모브제가 월드 기준점의 소실점으로 수렴되므로 각각의 크기가 다르다 */
+        }
+        .world:hover .obj{
+            /* transform:  perspective(500px) rotateY(180deg);
+            transition: 1s; */
+            /* animation: flip_ani 1s ease-in-out alternate infinite; */
+        }   
+        .world:hover .obj_wrap{
+            /* transform: rotateY(180deg); */
+            animation: flip_ani2 1s ease-in-out alternate infinite;
+        }   
+        .obj{
+            /* width: 100px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1em;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            background-color: pink;
+            perspective: 500px;
+            transform: perspective(500px) rotateY(0deg); */
+            /* backface-visibility: hidden; */
+            /* 자기 자신에게 원근을 줄 경우 자기 내부에 소실점이 있으므로 동일한 크기와 모양의 오브제는 동일한 원근의 모습을 나타낸다. */
+        }
+        .obj_wrap{
+            width: 100px;
+            height: 150px;
+            position: relative;
+            background-color: pink;
+            margin: 1em;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            background-color: pink;
+            /* perspective: 500px; */
+            transform: rotateY(0deg);
+            transition: 1s;
+            /* 인터넷익스플로러는 지원이 안된다. wrap의 속에 있는 애들에게도 3D 적용하기 위해서 */
+            /* 인터넷 익스로러에서는 아예 wrap의 컨테이너를 없애주고 각각 돌려주어야한다. 
+                뒷면은 180도 돌아가서 뒤를 보고 있어야하고 360회전하여 앞을 보여준다., front는 0에서 180도로 간다.
+            */
+            transform-style: preserve-3d;
+        }
+        /* .world:hover .obj_wrap{
+            animation: flip_ani 1s ease-in-out alternate infinite;
+        } */
+        div[class^="obj_side_"]{
+            margin: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: pink;
+            /* 사파리 */
+            -webkit-backface-visibility: hidden;
+            /* 마이크로소프트 */
+            -ms-backface-visibility: hidden;
+            /* 오페라 */
+            -o-backface-visibility: hidden;
+            /* 모질라 */
+            -moz-backface-visibility: hidden;
+            /* 표준, 크롬  webkit // 가장 마지막에 표준을 써준다 웹킷인 테스트버전이 덮어씌우게 된다. 캐스케이딩*/
+            backface-visibility: hidden;
+
+        }
+        div[class^="card_side_"]{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 100px;
+            height: 150px;
+            margin: -75px 0 0 -50px;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            transition: 1s;
+            background-color: pink;
+            /* 사파리 */
+            -webkit-backface-visibility: hidden;
+            /* 마이크로소프트 */
+            -ms-backface-visibility: hidden;
+            /* 오페라 */
+            -o-backface-visibility: hidden;
+            /* 모질라 */
+            -moz-backface-visibility: hidden;
+            /* 표준, 크롬  webkit // 가장 마지막에 표준을 써준다 웹킷인 테스트버전이 덮어씌우게 된다. 캐스케이딩*/
+            backface-visibility: hidden;
+        }
+        .card_side_front{
+            z-index: 10;
+        }
+        .world:hover .card_side_front{
+            transform: rotateY(180deg);
+            /* transform:  translate(-50%, -50%) rotateY(180deg); */
+        }
+        .card_side_back{
+            transform: rotateY(180deg);
+        }
+        .world:hover .card_side_back{
+            transform:  rotateY(360deg);
+            /* transform:  translate(-50%, -50%) rotateY(360deg); */
+        }
+        .obj_side_front{
+            z-index: 10;
+            /* backface-visibility: hidden; */
+        }
+        .obj_side_back{
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+        }
+        @keyframes flip_ani {
+            0%{
+                transform: perspective(500px) rotateY(0deg);
+            }
+            100%{
+                transform:  perspective(500px) rotateY(180deg);
+            }
+        }
+        @keyframes flip_ani2 {
+            0%{
+                transform: rotateY(0deg);
+            }
+            100%{
+                transform:  rotateY(180deg);
+            }
+        }
+        .home{
+            width: 50vw;
+            height: 60vh;
+            background-color: rgb(161, 252, 222);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .room{
+            position: relative;
+        }
+        .door{
+            width: 150px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: pink;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            perspective: none;
+            transform-origin: left;
+            transform: perspective(0);
+            /* 오류생김 */
+            transition: all .8s ease-in-out;
+        }
+        .door:hover{
+            /* perspective-origin: top; */
+            transform-origin: left;
+            transform: perspective(1000px) rotateY(-70deg);
+        }
+        .into_space{
+            width: 150px;
+            height: 200px;
+            background-color: rgb(26, 26, 26);
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            color: white;
+            display: flex;
+            justify-content: center;
+            /* writing-mode: horizontal-tb; */
+            writing-mode: tb-rl;
+            -webkit-writing-mode: tb-rl;
+            -ms-writing-mode: tb-rl;
+        }
+        .font_wrap{
+            transform-style: preserve-3d;
+            perspective: 300px; 
+            
+        }
+        .home p{
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            text-align: center;
+            transform: perspective(80px) rotateX(60deg);
+            margin: 0;
+        }
+        /* 4 wave */
+        .wave_wrap{
+            position: relative;
+            width: 350px;
+            height: 260px;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+            padding: 20px 20px 0;
+            margin-bottom: 20px;
+        }
+        .wave_wrap2{
+            position: relative;
+            width: 1000px;
+            height: 500px;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+            padding: 20px 20px 0;
+        }
+        .wave_wrap2 .wave.-one {
+            background: rgb(85, 110, 255)
+        }
+        .wave {
+            opacity: .4;
+            position: absolute;
+            top: -40%;
+            left: 25%;
+            background: #0af;
+            width: 500px;
+            height: 500px;
+            margin-left: -250px;
+            /* margin-top: -250px; */
+            transform-origin: 50% 48%;
+            border-radius: 43%;
+            animation: drift 3000ms infinite linear;
+        }
+        .wave_wrap2 > .wave{
+            width: 1500px;
+            height: 1500px;
+            top: -200%;
+            left: 0%;
+        }
+        .wave.-three {
+            animation: drift 5000ms infinite linear;
+            }
+        .wave.-two {
+            animation: drift 7000ms infinite linear;
+            opacity: .1;
+            background: yellow;
+            }
+        .wave_wrap:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(250,128,217);
+            background: linear-gradient(90deg, rgba(250,128,217,1) 0%, rgba(148,237,251,0.2) 65%, rgba(255,255,255,0.5) 100%);
+            z-index: 11;
+            transform: translate3d(0, 0, 0);
+            }
+        .wave_text{
+            color: white;
+            z-index: 10000;
+            position: absolute;
+        }
+        .flow_like_wave{
+
+        }
+        .flow_like_wave > img{
+            float: left;
+            width: 250px;
+            height: 280px;
+        }
+
+
+        @keyframes drift {
+            from { transform: rotate(0deg); }
+            /* from { transform: rotate(180deg); } */
+            from { transform: rotate(360deg); }
+        }
+        .parallax_wrap{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(63, 63, 63);
+            display: flex;
+            align-items: center;
+        }
+        .circle1{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+            color: white;
+            font-size: 1.8rem;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+        }
+        .circle2{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 172, 172);
+            color: white;
+            font-size: 1rem;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle3{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(196, 255, 172);
+            color: white;
+            font-size: 1rem;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle4{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(172, 243, 255);
+            color: white;
+            font-size: 1rem;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .parallax_wrap2{
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .parallax_wrap2::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            bottom: 0;
+            background: linear-gradient(to top, #0a2a43, transparent);
+            z-index: 10000;
+        }
+        .parallax_wrap2:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #0a2a43;
+            mix-blend-mode: color;
+        }
+        .parallax_wrap2 img{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .moonlight{
+            position: relative;
+            color: white;
+            font-size: 10rem;
+            /* z-index: -1; */
+        }
+        .mountain{
+            /* z-index: 2; */
+        }
+        .parallax_wrap2 img.moon{
+            width: 90%;
+            left: auto;
+            right:0;
+        }
+      
+    </style>
+</head>
+<body>
+    <h1>SUPER SIMPLE ANI!!!</h1>
+    <!-- <p>add+ we can use.... tweenmax library, scrollmagic library</p> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script> -->
+    
+    <div class="ani_1">
+        <h1>Animation_01 general_movements_등속linear 🚚🚚🚚 </h1>
+        <div class="box1">BOX1</div>
+        <div class="box2">BOX2</div>
+    </div>
+    <div class="ani_2">
+        <h1>Animation_02 Frame_animation // 선결: sprite img 🌎🌎🌎 </h1>
+        <div class="spaceship"></div>
+        <div class="earth"></div>
+    </div>
+    <div class="ani_3">
+        <h1>Animation_03 Perspective_animation // Flip! 🍓🍓🍓</h1>
+        <div class="world">
+            <div class="obj_wrap">
+                <div class="obj_side_front">Woops!</div>
+                <div class="obj_side_back">It'me</div>
+            </div>
+            <div class="obj_wrap">
+                <div class="obj_side_front">Woops!</div>
+                <div class="obj_side_back">It'me</div>
+            </div>
+            <div class="obj_wrap">
+                <div class="obj_side_front">Woops!</div>
+                <div class="obj_side_back">It'me</div>
+            </div>
+            <!-- <div class="obj">Woops!</div>
+            <div class="obj">Woops!</div> -->
+        </div>
+        <div class="world">
+            <h3 style="color: white; margin-top: -200px;">Internet Ex 대응</h3>
+            <div class="card_side_front">Woops!</div>
+            <div class="card_side_back">It'me</div>
+        </div>
+        <h1>Animation_03 - Perspective_animation // Do u want to build a snowman? ⛄⛄⛄ </h1>
+        <div class="home">
+            <div class="room">
+                <div class="door">Knock Knock!</div>
+                <div class="into_space">
+                    Hellooo!
+                </div>
+                <div class="font_wrap">
+                    <p>Here!!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ani_4">
+        <h1>Animation_04 - Wave 원의 축을 바꿔서 원을 로테이션시킴, 박스에 넣어야 안정됨 // 🌊🌊🌊 </h1>
+        <div class="flow_like_wave">
+            <img src="./HJLOGO.png" alt="mylogo">
+            <div class="wave_wrap">
+                <div class="wave_text">
+                    <h2>GREETHINGS! IT'S HJ.LEE!</h2>
+                    <p>Live Colorfully In Flow Of Life!</p>
+                    <p>text,text,text..</p>
+                    <p>love life...</p>
+                </div>
+                <div class='wave -one'></div>
+                <div class='wave -two'></div>
+                <div class='wave -three'></div>
+            </div>
+        </div>
+        <div class="wave_wrap2">
+            <div class='wave -one'></div>
+            <div class='wave -two'></div>
+            <div class='wave -three'></div>
+        </div>
+        
+    </div>
+    <div class="ani_5">
+        <h1>5.Parallax effect1 기술원형_라이브러리활용 TweensMax</h1>
+        <div class="parallax_wrap">
+            <div class="circle1">I'm Circle</div>
+            <div class="circle2">I'm Circle</div>
+            <div class="circle3">I'm Circle</div>
+            <div class="circle4">I'm Circle</div>
+        </div>
+    </div>
+    <div class="ani_5_2">
+        <h1>5.Parallax effect1/ 활용예시</h1>
+        <div class="parallax_wrap2">
+            <img src="./assets/bg.jpg" alt="" class="bg">
+            <img src="./assets/moon.png" alt="" class="moon">
+            <img src="./assets/mountain.png" alt="" class="mountain">
+            <h2 class="moonlight">Moon Light</h2>
+            <img src="./assets/road.png" alt="" class="road">
+        </div>
+    </div>
+    <div class="ani_6">
+        <h1>5.Parallax effect2/ 마우스오버</h1>
+        <div class="parallax_wrap3">
+           
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+    <script>
+
+
+    // [1] ScrollMagic 컨트롤러 생성
+
+    // [2] Animation 오브젝트 생성
+
+    // [3] Scene 오브젝트 생성
+
+    // [4] Animation 오브젝트(2번)를 Scene 오브젝트(3번)에 추가
+
+    // [5] Scene Object(3번)를 ScrollMaig 컨트롤러(1번)에 추가
+
+        let controller = new ScrollMagic.Controller();
+        let timeline = new TimelineMax();
+        let timeline2 = new TimelineMax();
+        // let tween = TweenMax.to('.circle1', 1, {
+        //     backgroundColor: "#333333",
+        //     scale: 2,
+        //     rotation: 360,
+        //     x: 150,
+        // })
+        timeline
+        .to('.circle1', 3, { backgroundColor: 'rgb(0, 140, 255)', scale: 2, rotation: 360,x: 150})
+        .to('.circle2', 3, { y: -300})
+        .to('.circle3', 3, { y: 0 }, { y: -200, duration: 3}, '-=3')
+        .to('.circle4', 3, { y: 200 }, '-=3')
+        timeline2
+        .to('.bg', 3, { y: -200 })
+        .to('.moon', 3, { y: -200, x: - 200}, '-=3')
+        .to('.moonlight', 3, { y: 350}, '-=3')
+        .to('.mountain', 3,{ y: -500}, '-=3')
+        .to('.road', 3, { y: -150 }, '-=3')
+
+        let scene = new ScrollMagic.Scene({
+            triggerElement: ".parallax_wrap",
+            duration: "100%",
+            // triggerHook:0,
+        }).setTween(timeline).addTo(controller);
+
+        let scene2 = new ScrollMagic.Scene({
+            triggerElement: ".parallax_wrap2",
+            duration: "200%",
+            // triggerHook:0,
+        }).setTween(timeline2).addTo(controller)
+        // timeline
+        // .fromTo('.circle1', 3, {backgroundColor: '#ffffff', scale: 1 }, { backgroundColor: 'rgb(0, 140, 255)', scale: 2, rotation: 360,x: 150, repeat: -1, yoyo: true })
+        // .to('.circle2', 3, { y: -300})
+        // .formTo('.circle3', 3, { y: 0 }, { y: -200, duration: 3, repeat: -1, yoyo: true}, '-=3')
+        // .to('.circle4', 3, { y: 200 }, '-=3')
+
+        // let scene = new ScrollMagic.Scene({
+        //     triggerElement: ".parallax_wrap",
+        //     duration: "300%",
+        //     // triggerHook:0, 트리거훅은 지정위치
+        // }).setTween(timeline).addTo(controller).setPin(".parallax_wrap")
+        console.log(controller);
+        console.log(TweenMax);
+    </script>
+</body>
+</html>
