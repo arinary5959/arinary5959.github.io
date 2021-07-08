@@ -36,7 +36,9 @@
             height: 100vh;
             min-height: 960px;
         }
+      
         #primary_01{
+            padding-top: 80px;
             background-color: bisque;
         }
         #primary_02{
@@ -46,7 +48,10 @@
             background-color: rgb(177, 255, 113);
         }
         #primary_04{
-            background-color: rgb(113, 255, 231);
+            background-color: rgb(137, 208, 255);
+        }
+        #primary_05{
+            background-color: rgb(255, 177, 177);
         }
         .skip_nav{
             position: relative;
@@ -57,7 +62,7 @@
             position: absolute;  
             top: -100%;
             left: -100%;
-            background-color: rgb(63, 63, 63);
+            background-color: rgb(255, 160, 160);
             color: rgb(243, 243, 243);
             padding: .5rem;
             border-radius: 0.5rem;
@@ -78,7 +83,7 @@
 
         header > .inner > nav > ul > li > div{
             /* display: none; */
-            background-color: rgb(151, 255, 238);
+            background-color: rgb(105, 105, 105);
             width: 100vw;
             position: absolute;
             /* top: 80px; */
@@ -298,6 +303,344 @@
         transition: all .5s;
     }
 
+    .btns_wrap{
+        width: 100%;
+        padding: 20px;
+        margin-top: 20px;
+        height: fit-content;
+        background-color: rgb(56, 56, 56);
+    }
+
+    .btns_wrap > div[class^="btn_"]{
+        width: fit-content;
+        /* padding: 20px; */
+        width: 150px;
+        height: 40px;
+        border: 1px solid rgba(255,255,255,0.1);
+        color: white;
+        margin-bottom: 20px;
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+    }
+    .btn_1{
+        position: relative;
+    }
+    .btn_1 > a{
+        /* border: 1px solid navy; */
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn_1 > a::after{
+        content: "";
+        display: block;
+        /* border: 1px solid red;; */
+        border-right: 1px solid rgb(255, 255, 255);
+        border-left: 1px solid rgb(255, 255, 255);
+        position: absolute;
+        width: 100%;
+        /* height: 100%; */
+        top: 0;
+        left: -1px;
+        bottom: 0;
+
+        transform-origin: 100% 100%;
+        transform: scaleY(0);
+        transition: transform .5s;
+    }
+    .btn_1 > a::before{
+        content: "";
+        display: block;
+        /* border: 1px solid red;; */
+        border-top: 1px solid rgb(255, 255, 255);
+        border-bottom: 1px solid rgb(255, 255, 255);
+        position: absolute;
+        /* width: 100%; */
+        /* height: 100%; */
+        top: -1px;
+        left: -1px;
+        right: -1px;
+        bottom: -1px;
+
+        transform-origin: 100% 100%;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+
+    .btn_1:hover .btns_ani_1::after{
+        transform: scaleY(1);
+        transition: transform .5s;
+    }
+    .btn_1:hover .btns_ani_1::before{
+        transform: scaleX(1);
+        transition: transform .5s;
+    }
+
+
+    .btn_2::after{
+        content: "";
+        display: block;
+        /* border: 1px solid red;; */
+        border-top: 1px solid rgb(255, 255, 255);
+        /* position: absolute; */
+        width: 100%;
+        height: 100%;
+        transform: translateY(-50%) scaleX(0);
+        
+
+        transform-origin: 0 0;
+        /* transform: scaleX(0); */
+        transition: transform .5s;
+    }
+    .btn_2{
+        position: relative;
+    }
+    .btn_2::before{
+        content: "";
+        display: block;
+        /* border: 1px solid red;; */
+        border-bottom: 1px solid rgb(255, 255, 255);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: scaleX(0);
+        
+
+        transform-origin:100% 100%;
+        transition: transform .5s;
+    }
+
+    .btn_2 > a::after{
+        content: "";
+        display: block;
+        border-left: 1px solid rgb(255, 255, 255);
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: -1px;
+        bottom: 0;
+
+        transform-origin: 0 100%;
+        transform: scaleY(0);
+        transition: transform .5s;
+    }
+    .btn_2 > a::before{
+        content: "";
+        display: block;
+        border-right: 1px solid rgb(255, 255, 255);
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        right: -1px;
+        bottom: -1px;
+
+        transform-origin: 100% 0;
+        transform: scaleY(0);
+        transition: transform .5s;
+    }
+
+    .btn_2:hover .btns_ani_2::after{
+        transform: scaleY(1);
+        transition: transform .5s;
+    }
+    .btn_2:hover .btns_ani_2::before{
+        transform: scaleY(1);
+        transition: transform .5s;
+    }
+
+    .btn_2:hover:after{
+        transform: translateY(-50%) scaleX(1);
+        transition: transform .5s;
+    }
+    .btn_2:hover::before{
+        transform: scaleX(1);
+        transition: transform .5s;
+    }
+    /* .btn_2:hover {
+        background-color: white;
+    } */
+
+    #primary_04 > .inner{
+        /* width: 80%; */
+        width: 100%;
+        height: 100%;
+        /* margin: 0 auto; */
+        border: 1px solid rgb(0, 119, 128);
+        position: relative;
+        overflow: hidden;
+    }
+    #primary_04 > .inner > h3{
+        /* border: 1px solid red; */
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 100px;
+        font-size: 35px;
+        position: relative;
+        z-index: 2;
+    }
+    #primary_04 > .inner > ul{
+        width: 80%;
+        margin: 0 auto;
+        border: 1px solid rgb(0, 60, 255);
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        z-index: 2;
+    }
+    #primary_04 > .inner > ul > li{
+        width: 15vw;
+        height: 15vw;
+        margin-top: 100px;
+        /* border: 1px solid black; */
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 224, 122);
+        -webkit-box-shadow: 6px 6px 9px 0px rgba(0,0,0,.5);
+        -moz-box-shadow: 6px 6px 9px 0px rgba(0,0,0,.5);
+        box-shadow: 6px 6px 9px 0px rgba(0,0,0,.5);
+    }
+    #primary_04 > .inner > ul > li:hover{
+        animation: DDalLang .3s alternate;
+    }
+    #primary_04 > .inner > .left{
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 1;
+    }
+    #primary_04 > .inner > .right{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateX(100%);
+        z-index: 1;
+    }
+    @keyframes DDalLang {
+        0%{
+            transform: rotate(0deg);
+        }
+        30%{
+            transform: rotate(8deg);
+        }
+        70%{
+            transform: rotate(-8deg);
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+    }
+    #primary_05{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    #primary_05 > .inner > ul{
+        /* padding-top: 100px; */
+        padding: 100px 0 200px;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid blue;
+    }
+    #primary_05 > .inner > ul > li{
+        width: 10vw;
+        height: 10vw;
+        opacity: 0;
+        transform: translateY(-100%);
+        /* border: 1px solid black; */
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 224, 122);
+        -webkit-box-shadow: 6px 6px 9px 0px rgba(0,0,0,.5);
+        -moz-box-shadow: 6px 6px 9px 0px rgba(0,0,0,.5);
+        box-shadow: 6px 6px 9px 0px rgba(0,0,0,.5);
+    }
+    /* #primary_05 > .inner > ul > li:nth-child(1){
+        transform: translateY(20%);
+    }
+    #primary_05 > .inner > ul > li:nth-child(2){
+        transform: translateY(10%);
+    }
+    #primary_05 > .inner > ul > li:nth-child(3){
+        transform: translateY(0);
+    }
+    #primary_05 > .inner > ul > li:nth-child(4){
+        transform: translateY(10%);
+    }
+    #primary_05 > .inner > ul > li:nth-child(5){
+        transform: translateY(20%);
+    } */
+    #primary_05 > .inner > h3{
+        margin-top: 250px;
+        text-align: center;
+        font-size: 35px;
+    }
+    section#primary_05{
+            height: fit-content;
+    }
+
+    #primary_05 > .inner > div.bottom_bg{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    	
+    .panel_wrap {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .panel {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        font-size: 60px;
+        text-align: center;
+        color: #fff;
+        display: flex;
+        align-items: center;
+    }
+    
+    .one {
+        background-color: #67D5B5;
+    }
+
+    .two {
+        background-color: #EE7785;
+    }
+
+    .three {
+        background-color: #C89EC4;
+    }
+
+    .four {
+        background-color: #84B1ED;
+    }
+
+    footer{
+        width: 100%;
+        height: 400px;
+        background-color: rgb(41, 41, 41);
+        color: #fff;
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     </style>
 </head>
 <body>
@@ -541,124 +884,316 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="btns_wrap">
+                        <div class="btn_1">
+                            <a href="" class="btns_ani_1">버튼 애니메이션<!--쓸모없이 힘들고 논리적인 사고는 없다--></a>
+                        </div>
+                        <div class="btn_2">
+                            <a href="" class="btns_ani_2">버튼 애니메이션<!--쓸모없이 힘들고 논리적인 사고는 없다--></a>
+                        </div>
+                        <div class="btn_3">
+                            <a href="">버튼 애니메이션<!--쓸모없이 힘들고 논리적인 사고는 없다--></a>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <section id="primary_04">4</section>
+            <section id="primary_04">
+                <div class="inner">
+                    <h3>Wathum's Value Goal</h3>
+                    <ul>
+                        <li class="items">
+                            <a href="">
+                                AAAA
+                            </a>
+                        </li>
+                        <li class="items">
+                            <a href="">
+                                BBBB
+                            </a>
+                        </li>
+                        <li class="items">
+                            <a href="">
+                                CCCC
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="left">
+                        <img src="./asset/img/partners_bg_left.png" alt="">
+                    </div>
+                    <div class="right">
+                        <img src="./asset/img/partners_bg_right.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section id="primary_05">
+                <div class="inner">
+                    <h3>Wathum is aaaawesome!</h3>
+                    <ul>
+                        <li class="items_1">
+                            <a href="">
+                                AAAA
+                            </a>
+                        </li>
+                        <li class="items_2">
+                            <a href="">
+                                BBBB
+                            </a>
+                        </li>
+                        <li class="items_3 center">
+                            <a href="">
+                                CCCC
+                            </a>
+                        </li>
+                        <li class="items_2">
+                            <a href="">
+                                DDDD
+                            </a>
+                        </li>
+                        <li class="items_1">
+                            <a href="">
+                                EEEE
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="bottom_bg">
+                        <img src="./asset/img/center_bg.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <!-- <section id="primary_06">
+                <div class="inner">
+                    
+                </div>
+            </section> -->
+            <!-- <section id="primary_07">
+                <div class="inner panel_wrap">
+                    <div class="panel one">
+                        <b>ONE</b>
+                    </div>
+                    <div class="panel two">
+                        <b>TWO</b>
+                    </div>
+                    <div class="panel three">
+                        <b>THREE</b>
+                    </div>
+                    <div class="panel four">
+                        <b>FOUR</b>
+                    </div>
+                </div>
+            </section> -->
+           
         </main>
         <footer>
-
+            <b>FOOTER</b>
         </footer>
     </div>
 
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    
+    <script>
+        (function(){
+            // 스와이퍼 슬라이더
+            const swiper2 = new Swiper('.mySwiper1', {
+                // Optional parameters
+                direction: 'horizontal',
+                // slidesPerView : 'auto',
+                loop: true,
+                autoplay: {
+                    delay : 3000,
+                    disableOnInteraction : false, 
+                },
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                // And if we need scrollbar
+                // scrollbar: {
+                //     el: '.swiper-scrollbar',
+                // }
+            });
+            const swiper = new Swiper(".mySwiper2", {
+                effect: "cube",
+                loop: true,
+                grabCursor: true,
+                cubeEffect: {
+                shadow: true,
+                slideShadows: true,
+                shadowOffset: 20,
+                shadowScale: 0.94,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                autoplay: {
+                    delay : 3000,
+                    disableOnInteraction : false, 
+                },
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+
+
+            const menu = document.querySelector('header > .inner > nav > ul');
+            // const skipNavBtns = document.querySelectorAll('.skip_nav > a');
+            const lnbMenuEls = document.querySelectorAll('.main_lnb');
+        
+            // Array.prototype.forEach.call(skipNavBtns, skipNavBtns=>{
+            //     skipNavBtns.addEventListener('focus',()=>{
+            //         console.log('포커스')
+            //     })
+            // })
+            let opendeLnb;
+            menu.addEventListener('mouseover', (e)=>{
+                if(e.target.tagName !== 'A')return;
+                console.dir(e.target.parentNode)
+                let nodeLits = e.target.parentNode.children;
+                Array.prototype.forEach.call(nodeLits, nodeLits => {
+                    if(nodeLits.classList.contains('main_lnb')){
+                        opendeLnb = nodeLits.parentNode;
+                        opendeLnb.classList.add('on')
+                    }
+                    console.log(opendeLnb);
+                });
+                // e.target.children.classList.add('on')
+            });
+
+            menu.addEventListener('mouseout', (e)=>{
+                // 시작
+                console.log(e.target);
+                // 도착
+                console.log(opendeLnb);
+                console.log('나간다');
+                let preEl = e.target;
+                let crrEl = e.relatedTarget;
+
+                if(!checkOpened()){
+                    console.log('지워')
+                    opendeLnb.classList.remove('on');
+                }
+
+                function checkOpened(){
+                    if(crrEl == null)return;
+                    while(crrEl.tagName != 'HTML'){
+                        if(crrEl === opendeLnb){
+                            return true;
+                        }
+                        crrEl = crrEl.parentNode;
+                    }
+                    return false;
+                }
+            });
+
+
+            
+
+
+
+
+
+        })();
+       
+    </script>
+
+
     <script>
 
-        // // 스와이퍼 슬라이더
-        const swiper2 = new Swiper('.mySwiper1', {
-            // Optional parameters
-            direction: 'horizontal',
-            // slidesPerView : 'auto',
-            loop: true,
-            autoplay: {
-                delay : 3000,
-                disableOnInteraction : false, 
-            },
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            // And if we need scrollbar
-            // scrollbar: {
-            //     el: '.swiper-scrollbar',
-            // }
-        });
-        const swiper = new Swiper(".mySwiper2", {
-            effect: "cube",
-            loop: true,
-            grabCursor: true,
-            cubeEffect: {
-            shadow: true,
-            slideShadows: true,
-            shadowOffset: 20,
-            shadowScale: 0.94,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            autoplay: {
-                delay : 3000,
-                disableOnInteraction : false, 
-            },
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
 
+    // [1] ScrollMagic 컨트롤러 생성
 
+    // [2] Animation 오브젝트 생성
 
-        const menu = document.querySelector('header > .inner > nav > ul');
-        // const skipNavBtns = document.querySelectorAll('.skip_nav > a');
-        const lnbMenuEls = document.querySelectorAll('.main_lnb');
-     
-        // Array.prototype.forEach.call(skipNavBtns, skipNavBtns=>{
-        //     skipNavBtns.addEventListener('focus',()=>{
-        //         console.log('포커스')
-        //     })
+    // [3] Scene 오브젝트 생성
+
+    // [4] Animation 오브젝트(2번)를 Scene 오브젝트(3번)에 추가
+
+    // [5] Scene Object(3번)를 ScrollMaig 컨트롤러(1번)에 추가
+
+        let controller = new ScrollMagic.Controller();
+        let timeline = new TimelineMax();
+        let timeline2 = new TimelineMax();
+        let timeline3 = new TimelineMax();
+        // let timeline4 = new TimelineMax();
+        // let timeline2 = new TimelineMax();
+        // let tween = TweenMax.to('.circle1', 1, {
+        //     backgroundColor: "#333333",
+        //     scale: 2,
+        //     rotation: 360,
+        //     x: 150,
         // })
-        let opendeLnb;
-        menu.addEventListener('mouseover', (e)=>{
-            if(e.target.tagName !== 'A')return;
-            console.dir(e.target.parentNode.children)
-            let nodeLits = e.target.parentNode.children;
-            Array.prototype.forEach.call(nodeLits, nodeLits => {
-                if(nodeLits.classList.contains('main_lnb')){
-                    opendeLnb = nodeLits.parentNode;
-                    opendeLnb.classList.add('on')
-                }
-                console.log(opendeLnb);
-            });
-            // e.target.children.classList.add('on')
+        timeline
+        .to('.left', 3, { x: 1})
+        .to('.right', 3, { x: -1}, '-=3');
+        timeline2
+        .to('.items_3', 2, { y: 0, opacity: 1})
+        .to('.items_2', 3, { y: 20, opacity: 1})
+        .to('.items_1', 4, { y: 30, opacity: 1})
+        .to('.bottom_bg', 4, { y: 0, opacity: 1})
+
+        // timeline3
+        // .fromTo('.one', 1, { x: '-100%' }, { x: '0%' })
+        // .fromTo('.two', 1, { y: 20, opacity: 1})
+        // .fromTo('.three', 1, { y: 30, opacity: 1})    
+        // .fromTo('.four', 1, { y: 30, opacity: 1});      
+
+        let scene = new ScrollMagic.Scene({
+            triggerElement: "#primary_04",
+            duration: "100%",
+            // triggerHook:0,
+        }).setTween(timeline).addTo(controller);
+
+        let scene2 = new ScrollMagic.Scene({
+            triggerElement: "#primary_05",
+            duration: "100%",
+            // offset: -100,
+            // triggerHook: onLeave,
+            // triggerHook: onEnter,
+            // triggerHook: onCenter,
+            // triggerHook: 0,
+        }).setTween(timeline2).addTo(controller);
+       
+
+        // let scene3 = new ScrollMagic.Scene({
+        //     triggerElement: "#primary_06",
+        //     duration: "100%",
+        //     triggerHook: onLeave,
+        // }).setTween(timeline2).addTo(controller);
+      
+        console.log(controller);
+        console.log(TweenMax);
+
+
+
+
+
+        var wipeAnimation = new TimelineMax()
+        .fromTo(".two", 1, {x:"-100%"}, {x:"0%"} )
+        .fromTo(".three", 1, {y:"-100%"}, {y:"0%"} )
+        .fromTo(".four", 1, {x:"100%"}, {x:"0%"} )
+
+        var scene3 = new ScrollMagic.Scene({
+            triggerElement: "#primary_07",
+            triggerHook: "onLeave",
+            duration: "500%" //이 값이 클 수록 천천히 덮어씀
         })
-
-        menu.addEventListener('mouseout', (e)=>{
-            // 시작
-            console.log(e.target);
-            // 도착
-            console.log(opendeLnb);
-            console.log('나간다');
-            let preEl = e.target;
-            let crrEl = e.relatedTarget;
-
-            if(!checkOpened()){
-                console.log('지워')
-                opendeLnb.classList.remove('on');
-            }
-
-            function checkOpened(){
-                if(crrEl == null)return;
-                while(crrEl.tagName != 'HTML'){
-                    if(crrEl === opendeLnb){
-                        return true;
-                    }
-                    crrEl = crrEl.parentNode;
-                }
-                return false;
-            }
-            
-            
-            // for(let i = 0; i < lnbMenuEls.length; i++){
-            //     lnbMenuEls[i].classList.remove('on');
-            // }
-            
-            // e.target.children.classList.add('on')
-        })
+        .setPin("#primary_07")
+        .setTween(wipeAnimation)
+        // .addIndicators() 
+        .addTo(controller);
     </script>
 </body>
 </html>
