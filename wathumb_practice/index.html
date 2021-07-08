@@ -460,6 +460,50 @@
         transform: scaleX(1);
         transition: transform .5s;
     }
+    .svg_wrap{
+        position: relative;
+        width: fit-content;
+        /* border: 1px solid white; */
+    }
+    .svg_wrap > .txt{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rect_shape{
+        /* animation: draw 1.5s linear infinite; */
+        stroke-width: 0;
+         
+    }
+    .svg_wrap:hover .rect_shape{
+        animation: draw 1.5s linear infinite;
+        stroke-width: 2px;
+    }
+
+    @keyframes draw {
+        0%{
+            stroke-dasharray: 840;
+            stroke-dashoffset: 840;
+        }
+        /* 50%{
+            stroke-dasharray: 380;
+            stroke-dashoffset: 380;
+        } */
+        100%{
+            stroke-dasharray: 840;
+        }
+    }
+
+
+
+
     /* .btn_2:hover {
         background-color: white;
     } */
@@ -894,6 +938,15 @@
                         <div class="btn_3">
                             <a href="">버튼 애니메이션<!--쓸모없이 힘들고 논리적인 사고는 없다--></a>
                         </div>
+                        <!-- svg는 머리 부서진다 도형은 어려워 -->
+                        <div class="svg_wrap">
+                            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                              <rect class="rect_shape" height="60" width="320" stroke="#018EBA" stroke-width="20"/>
+                              Sorry, your browser does not support inline SVG.
+                            </svg>
+                             <div class="txt">this is button hoverme</div>
+                        </div>
+                       
                     </div>
                 </div>
             </section>
