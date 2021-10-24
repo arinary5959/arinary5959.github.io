@@ -41,12 +41,12 @@ function outWork(e){
         menuList.classList.remove('on');
     }
     function checkLnbOpended(){
-        if(crrTarElem == null)return
+        if(crrTarElem == null)return;
         while(crrTarElem.tagName !== "HTML"){
             if(menuList === crrTarElem ){
                 return true;
             }
-            crrTarElem = crrTarElem.parentNode
+            crrTarElem = crrTarElem.parentNode;
         }
         return false;
         }

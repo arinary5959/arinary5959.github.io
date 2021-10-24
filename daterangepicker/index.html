@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DateRangePicker</title>
+</head>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.content_wrap{
+    width: 100%;
+}
+.daterange_wrap{
+    position: relative;
+}
+.daterange_btn{
+    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    box-shadow:  -20px -20px 60px #c5c5c5,
+                20px 20px 60px #ffffff;
+    width: 600px;
+    height: 50px;
+    padding: 0 10px;
+    margin: 10% auto 0;
+    vertical-align: middle;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calendar{
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    font-size: 14px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all .8s;
+}
+.calendar.on{
+    max-height: 1000px;
+    box-shadow: 3px 3px 5px 1px rgba(0,0,0,.1);
+}
+.calendar_inner{
+    padding: 20px;
+}
+.month{
+    text-align: center;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.month > button{
+    padding: 0 8px;
+}
+.month > button > i{
+    pointer-events: none;
+    font-size: 14px;
+    color: black;
+}
+.count_wrap{
+    display: inline-block;
+    width: 100px;
+}
+.dayofweek{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.dayofweek > div{
+    width: 100%;
+    padding: 8px 4px;
+    text-align: center;
+}
+.days > div.on{
+    background-color: rgba(0, 68, 255, 0.2);
+}
+.days > div.thismonth:hover{
+    background-color: rgba(0, 68, 255, 0.2);
+    cursor: pointer;
+}
+.days > div.nextmonth, .days > div.prevmonth{
+    color: rgb(214, 214, 214);
+}
+.days > div{
+    width: calc(100% / 7);
+    /* justify-items: stretch; */
+    text-align: center;
+    padding: 8px 4px;
+}
+.days{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+</style>
+<body>
+    
+    <div class="content_wrap">
+
+
+        <div class="daterange_wrap">
+            <div class="daterange_btn">
+                <div class="btns_txt">
+
+                    DateRangePicker Click!
+
+                </div>    
+            
+            </div>
+            <div class="calendar">
+                            
+                <div class="calendar_inner">
+                    <div class="month">
+                        <button type="button" class="prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button type="button">
+                        <span class="count_wrap">
+                            <span class="year_count"></span>
+                            <span>
+                                <span class="month_count"></span>
+                                <span>월</span>
+                            </span>
+                        </span>
+                        
+                        <button type="button" class="next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="date">
+                        <div class="dayofweek">
+                            <div class="sun">일</div>
+                            <div class="mon">월</div>
+                            <div class="tue">화</div>
+                            <div class="wed">수</div>
+                            <div class="thu">목</div>
+                            <div class="fri">금</div>
+                            <div class="sat">토</div>
+                        </div>
+                        <div class="days">
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+        
+        
+        
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+            // Date Range Picker
+            const daysContent = document.querySelector('.days');
+            const monthName = document.querySelector('.month_count');
+            const yearName = document.querySelector('.year_count');
+
+            const daterangeBtn = document.querySelector('.daterange_btn');
+            const calendarBox = document.querySelector('.calendar');
+            daterangeBtn.addEventListener('click', () => {
+                console.log(1);
+                calendarBox.classList.toggle('on')
+                daterangeBtn.classList.toggle('on')
+                for(let i = 0; i < daysElBtn.children.length; i++ ){
+                    // console.log( daysElBtn.children[i])
+                    daysElBtn.children[i].classList.remove('on');
+                }
+            });
+
+            let inner;
+            window.onload = drawCalendar(null, null);
+
+            function drawCalendar(year, month){
+                let today;
+
+                if(year && month){
+                    today = new Date(year, month -1);
+                }else{
+                    today = new Date();
+                }
+                let nowYear = today.getFullYear();
+                let nowMonth = today.getMonth() + 1;
+                let nowDate = today.getDate();
+                let nowDayWeek = today.getDay();
+            
+                // 이번 달의 날짜 구하기
+                let lastDate = new Date(nowYear, nowMonth, 0).getDate();
+                let firstDayIndex = new Date(nowYear, nowMonth - 1, 1).getDay();
+                let lastDayIndex = new Date(nowYear, nowMonth, 0).getDay();
+            
+                // 이전 달의 마지막 날
+                let prevhDate = new Date(nowYear, (nowMonth - 1), 0).getDate();
+                let nextDate = 1;
+                let prevDateStart = (prevhDate - firstDayIndex + 1);
+                let calendarDays = [];
+            
+                for(let i = firstDayIndex; i > 0; i-- ){
+                    calendarDays.push(prevDateStart++)
+                }    
+                for(let i = 1; i <= lastDate ; i++ ){
+                    calendarDays.push(i);
+                }
+                
+                let num = calendarDays.length;
+                while(num < 42){
+                    calendarDays.push(nextDate++);
+                    num++;
+                }
+            
+                let i = 0;
+                while(i < calendarDays.length){
+                    let dateDiv = document.createElement('div')
+                    daysContent.appendChild(dateDiv);
+                    dateDiv.innerText = `${calendarDays[i]}`;
+                    i++;
+                }
+
+                let daysEls = daysContent.querySelectorAll('div');
+                console.log(daysEls)
+                if(calendarDays.indexOf(1) !== 0){
+                    // console.log('이전달인데용?');
+                    for(let i = 0; i < calendarDays.indexOf(1); i++){
+                        // console.log('헤이욥');
+                        daysEls[i].classList.add('prevmonth');
+                    }
+                }
+                if(calendarDays.lastIndexOf(1) > 28){
+                    // console.log('다음달여기란말야');
+                    for(let i = calendarDays.lastIndexOf(1); i < 42; i++){
+                        daysEls[i].classList.add('nextmonth');
+                    }
+                }
+                for(let i = calendarDays.indexOf(1); i < calendarDays.lastIndexOf(1); i++){
+                    daysEls[i].classList.add('thismonth');
+                }
+                // console.log(`1의 인덱스${calendarDays.lastIndexOf(1)}`);
+
+                monthName.innerText = `${nowMonth}`;
+                yearName.innerText = `${nowYear}`;
+
+                // 클로저개념
+                function innerWork(direction){
+                    console.log("이너함수에요");
+                    // console.log(direction);
+                    if(direction == "prev"){
+                        if(nowMonth == 1){
+                            nowMonth = 12;
+                            nowYear--;
+                        }else{
+                            nowMonth--;
+                        }                
+                        daysContent.innerHTML = '';
+                        // monthName.innerText = `${nowMonth}`
+                        // yearName.innerText = `${nowYear}`
+                        console.log(nowMonth)
+                        drawCalendar(nowYear, nowMonth)
+                    }else if(direction == "next"){
+                        console.log('next');
+                        if(nowMonth == 12){
+                            nowMonth = 1;
+                            nowYear++;
+                        }else{
+                            nowMonth++
+                        }
+                        daysContent.innerHTML = '';
+                        // monthName.innerText = `${nowMonth}`
+                        // yearName.innerText = `${nowYear}`
+                        drawCalendar(nowYear, nowMonth);
+                    }
+                }
+
+                return inner = innerWork;
+            }
+
+            const monthbtnWrap = document.querySelector('.month');
+            const daysElBtn = document.querySelector('.days');
+            monthbtnWrap.addEventListener('click', (e) => {
+
+                if(e.target.tagName !== 'BUTTON')return;
+
+                if(e.target.classList.contains('prev')){
+                    console.log('prev');
+                    inner('prev');
+                }else if(e.target.classList.contains('next')){
+                    console.log('next');
+                    inner('next');
+                }
+            });
+
+            let rangeStart;
+            let rangeEnd;
+            let rangeSet;
+            daysElBtn.addEventListener('click', (e) => {
+                if(e.target.classList.contains('prevmonth') || e.target.classList.contains('nextmonth'))return
+                if(rangeStart && rangeEnd){
+                    rangeStart = undefined;
+                    rangeEnd = undefined;
+                    rangeSet = undefined;
+                    for(let i = 0; i < daysElBtn.children.length; i++ ){
+                        // console.log( daysElBtn.children[i])
+                        daysElBtn.children[i].classList.remove('on');
+                    }
+                    rangeStart = new Date(`${yearName.innerText}-${monthName.innerText}-${e.target.innerText}`);
+                    e.target.classList.add('on');
+                }else if(!rangeStart && !rangeStart){
+                    rangeStart = new Date(`${yearName.innerText}-${monthName.innerText}-${e.target.innerText}`);
+                    e.target.classList.add('on');
+                }else if(rangeStart){
+                    rangeEnd = new Date(`${yearName.innerText}-${monthName.innerText}-${e.target.innerText}`);
+                    e.target.classList.add('on');
+                    if(rangeStart >= rangeEnd){
+                        rangeStart = undefined;
+                        rangeEnd = undefined;
+                        for(let i = 0; i < daysElBtn.children.length; i++ ){
+                            // console.log( daysElBtn.children[i])
+                            daysElBtn.children[i].classList.remove('on');
+                        }
+                        alert('선행하는 날짜보다 후행하는 날짜가 더 빠릅니다. 날짜를 다시 선택해 주세요.')
+                        daterangeBtn.querySelector('.btns_txt').innerText= 'DateRangePicker Click!';
+                    }
+
+                   
+
+                }
+                // rangeSet = {
+                //     start:{
+                //         year: rangeStart.getFullYear(),
+                //         date: rangeStart.getDate(),
+                //         monthIndex: rangeStart.getMonth(),
+                //     },
+                //     end:{
+                //         year: rangeEnd.getFullYear(),
+                //         date: rangeEnd.getDate(),
+                //         monthIndex: rangeEnd.getMonth(),
+                //     }
+                // }
+                if(rangeStart && rangeEnd){
+                    console.log('둘다있음')
+                    rangeSet = {
+                        start:{
+                            year: rangeStart.getFullYear(),
+                            date: rangeStart.getDate(),
+                            monthIndex: rangeStart.getMonth(),
+                        },
+                        end:{
+                            year: rangeEnd.getFullYear(),
+                            date: rangeEnd.getDate(),
+                            monthIndex: rangeEnd.getMonth(),
+                        }
+                    }
+                    // console.log(`${rangeSet.start.year}`);
+                    // console.log(`${rangeSet.end.year}`);
+                    console.log(rangeSet);
+                    daterangeBtn.querySelector('.btns_txt').innerText=`${rangeSet.start.year}-${rangeSet.start.monthIndex + 1}-${rangeSet.start.date} ~ ${rangeSet.end.year}-${rangeSet.end.monthIndex + 1}-${rangeSet.end.date}`;
+                    // daterangeBtn.querySelector('.btns_txt').innerText=`${rangeSet.satrt.year} ${rangeSet.satrt.monthIndex + 1}-${rangeSet.satrt.date} ~ ${rangeSet.end.year}-${rangeSet.end.monthIndex + 1}-${rangeSet.end.date}`;
+                }
+
+                console.log(`start new Date: ${rangeStart}`);
+                console.log(`end new Date: ${rangeEnd}`);
+                // console.log(rangeSet.start.year);
+            });
+
+
+</script>
+</html>
