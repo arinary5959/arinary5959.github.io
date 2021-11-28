@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <script src="https://kit.fontawesome.com/abfc3aa8c4.js" crossorigin="anonymous"></script>
     <title>DateRangePicker</title>
 </head>
 
@@ -103,10 +105,104 @@
     justify-content: space-between;
 }
 
+/* 서머리 */
+.summary{
+  transition: all 0.5s linear;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -340px;
+  width: 300px;
+  padding: 10% 20px 0;
+  background-color: rgba(238, 238, 238, 0.9);;
+  z-index: 10000;
+  min-width: 340px;
+}
+.summary.on{
+  transition: all 0.5s linear;
+  left: 0;
+}
+.summarybtn{
+  width: 45px;
+  height: 120px;
+  background-color: rgba(238, 238, 238, 0.9);
+  position: absolute;
+  right: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0 10px 10px 0;
+}
+.summarybtn i{
+  font-size: 30px;
+  color: rgb(87, 87, 87);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+}
+.blinktxt {
+  position: absolute;
+  top: calc(50% - 60px);
+  left: calc(340px + 8px);
+  transform: translateY(calc(-100% - 8px));
+  width: max-content;
+  animation: blinkAni 2s infinite;
+}
+@keyframes blinkAni {
+ 0%{
+     opacity: 1;
+ }
+ 50%{
+     opacity: 0.5;
+ }
+ 100%{
+     opacity: 0;
+ }
+}
+.summary h2{
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.summary p{
+  text-indent: 5px;
+  margin-bottom: 20px;
+}
+.summary strong{
+  text-indent: 5px;
+  margin-bottom: 20px;
+  font-weight: bold;
+
+}
 
 </style>
 <body>
-    
+    <div class="summary">
+        <h2>기간 선택 UI</h2>
+        <p>선행하는 날짜와 후행하는 날짜를 선택하여 기간을 정할 수 있는 기능의 UI입니다.</p>
+        <strong>전달받은 정보로 내부적으로 객체를 구성하였습니다.</strong>
+        <pre>
+rangeSet = {
+    start:{
+        year: rangeStart.getFullYear(),
+        date: rangeStart.getDate(),
+        monthIndex: rangeStart.getMonth(),
+    },
+    end:{
+        year: rangeEnd.getFullYear(),
+        date: rangeEnd.getDate(),
+        monthIndex: rangeEnd.getMonth(),
+    }
+}
+        </pre>
+        <!-- <strong>프롭스 활용: 컴포넌트 간 데이터를 전달</strong><br/> -->
+        <!-- <strong>템플릿, 이벤트버스 활용</strong> -->
+        <div class="blinktxt">Read More!</div>
+        <div class="summarybtn">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
     <div class="content_wrap">
 
 
@@ -373,7 +469,23 @@
                 console.log(`end new Date: ${rangeEnd}`);
                 // console.log(rangeSet.start.year);
             });
-
-
+        const summary = document.querySelector('.summary')
+        const summaryBtn = document.querySelector('.summarybtn')
+        const btnIcon = document.querySelector('.summarybtn > i')
+        const blinkTxt = document.querySelector('.blinktxt')
+        summaryBtn.addEventListener('click', openSummary)
+        // console.dir(btnIcon)
+        function openSummary(e){
+            console.log(e.target)
+            if(summary.classList.contains('on')){
+                summary.classList.remove('on')
+                btnIcon.style.transform = `translate(-50%, -50%) rotate(0deg)`
+                blinkTxt.style.visibility = 'visible'
+            }else{
+                summary.classList.add('on')
+                btnIcon.style.transform = `translate(-50%, -50%) rotate(180deg)`
+                blinkTxt.style.visibility = 'hidden'
+            }
+        }
 </script>
 </html>
