@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image zoom</title>
+    <style>
+        *{margin:0;padding:0;}
+        .img-container{margin:0 auto;width:800px;height:600px;overflow: hidden;}
+        /*
+        .img-container > img{transform-origin: center;object-fit: cover;width: 100%;height: 100%;}
+        */
+        .img-container > img{transform-origin: center;transition:all 0.1s;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="img-container">
+            <img src="https://placeimg.com/800/600/animals" alt="이미지" />
+        </div>
+    </div>
+</body>
+
+<script>
+    const imgContainer = document.querySelector('.img-container');
+    const targetImg= document.querySelector('.img-container > img');
+    imgContainer.addEventListener('mousemove', (e)=>{
+        let x = e.clientX - e.target.offsetLeft;
+        let y = e.clientY - e.target.offsetTop;
+        // 마우스 포인트의 위치값 (이동하는) 좌표
+        console.log(e.clientX );
+        // 이벤트 대상(이미지)가 브라우저에서 차지하는 위치 값. 좌표
+        console.log(e.target.offsetLeft);
+        // 스케일 변형 폼하되, 크기가 증가하는 변형 중점을 옮김. 마우스가 있는 좌표를 중심으로 이미지가 커지고 나머지는 잘려나간다.
+       // targetImg.style.transformOrigin = `${x}px ${y}px`;
+        targetImg.style.transformOrigin = `${x}px ${y}px`;
+        targetImg.style.transform = 'scale(2)';
+    });
+    imgContainer.addEventListener('mouseleave', (e)=>{
+        targetImg.style.transformOrigin = `center`;
+        targetImg.style.transform = 'scale(1)';
+
+    });
+    imgContainer.addEventListener('touchmove', (e)=>{
+        let x = e.clientX - e.target.offsetLeft;
+        let y = e.clientY - e.target.offsetTop;
+        // 마우스 포인트의 위치값 (이동하는) 좌표
+        console.log(e.clientX );
+        // 이벤트 대상(이미지)가 브라우저에서 차지하는 위치 값. 좌표
+        console.log(e.target.offsetLeft);
+        // 스케일 변형 폼하되, 크기가 증가하는 변형 중점을 옮김. 마우스가 있는 좌표를 중심으로 이미지가 커지고 나머지는 잘려나간다.
+       // targetImg.style.transformOrigin = `${x}px ${y}px`;
+        targetImg.style.transformOrigin = `${x}px ${y}px`;
+        targetImg.style.transform = 'scale(2)';
+    });
+    
+</script>
+</html>
