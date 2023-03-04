@@ -7,85 +7,168 @@
     <title>lightbox</title>
     <style>
         *{margin:0;padding:0;}
-        .slider_container{margin:0 auto;width:100%;max-width:1200px;}
+        button{background: transparent;border: 0; color:#fff; font-size:24px;}
+        img{vertical-align: top;}
+        /* body{height:100vh;background-color:#000;} */
+        .wrap{display: flex;height: 100vh;align-items: center;}
+        .lightbox_wrap{margin:0 auto;width:100%;max-width:1200px;}
+        .slider_container{position:relative;width:100%;}
         .slider_container .slider_viewport{position: relative;padding-bottom:50%;overflow: hidden;}
-        .slider_container .slider_viewport .item{position:absolute;width:100%;transition:opacity 0.5s;top:50%;left: 50%;transform: translate(-50%,-50%);}
+        .slider_container .slider_viewport .item{position:absolute;width:100%;opacity:0;transition:opacity 0.8s;top:50%;left: 50%;transform: translate(-50%,-50%);}
         .slider_container .slider_viewport .item.active{opacity: 1;}
+        /* .slider_container .slider_viewport .item.active+.item {opacity: 1;} */
         .slider_container .slider_viewport .item > img{width: 100%;}
+        
+        .slider_container:hover .btn_slider_box{opacity: 1;}
+        .btn_slider_box{opacity:0;transition: opacity 0.3s;position: absolute;display: flex;padding:0 10px;width: calc(100% - 20px);justify-content: space-between;top: 50%;z-index: 10;left: 0;}
+        .btn_slider_box > button{padding: 5px 8px;border: 4px solid #fff;text-shadow: 2px 1px #5f5f5f;cursor: pointer;background-color: rgba(255,255,255,0.3);border-radius: 30px;}
+
+        .slider_container:hover .pagenum_box{opacity: 1;}
+        .pagenum_box{position: absolute; left:50%;bottom: 20px;transform: translateX(-50%);color: #fff;font-size: 18px;z-index: 100;opacity:0;transition: opacity 0.3s;}
+
+        /* .pagenum_box{color:#fff;} */
+        /* .slider_caption {position: relative;} */
+        /* .slider_caption .item{position:absolute;top:0;left:0;width:100%; text-align:center;opacity: 0;transition:opacity 0.8s;} */
+        .slider_caption .item{display: none;}
+        .slider_caption .item.active{display: block;}
+        .slider_caption .item > p{padding: 24px 0 20px;opacity:0;transition:opacity 0.8s;text-align: center;font-size: 24px;font-weight: 600;}
+        .slider_caption .item > p.active{opacity:1;}
+        /* .slider_caption .item.active > p{opacity: 1;} */
+        /* .slider_caption .item.active{opacity: 1;} */
+
+        .slide_thum{display:flex;justify-content: space-between; align-items:top;gap:10px;width:100%;}
+        .slide_thum .item {position:relative;width:25%;cursor:pointer;}
+        .slide_thum .item:hover:after{opacity: 0;}
+        .slide_thum .item > img{width:100%;pointer-events: none;}
+        .slide_thum .item:after{content:'';display:block;position: absolute;top:0;bottom: 0;left: 0;right:0;background-color: rgba(0,0,0,0.3);pointer-events: none;}
+
+
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="slider_container mySlider">
-            <div class="slider_viewport">
+        <div class="lightbox_wrap">
+            <div class="slider_container mySlider">
+                <div class="slider_viewport">
+                    <div class="item"><img src="../resource/img/benjamin-voros-phIFdC6lA4E-unsplash.jpg" alt="copyright benjamin-voros" /></div>
+                    <div class="item"><img src="../resource/img/jerry-zhang-ePpaQC2c1xA-unsplash.jpg" alt="copyright jerry-zhang" /></div>
+                    <div class="item"><img src="../resource/img/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg" alt="copyright kalen-emsley" /></div>
+                    <div class="item"><img src="../resource/img/tim-stief-YFFGkE3y4F8-unsplash.jpg" alt="copyright tim-stief" /></div>
+                </div>
+                <div class="pagenum_box">
+                    <span class="crr_num">1</span><span>/</span><span class="total_num">4</span>
+                </div>
+                <div class="btn_slider_box">
+                    <button type="button" class="btn_prev">prev</button>
+                    <button type="button" class="btn_next">next</button>
+                </div>
+            </div>
+            <div class="slider_caption">
+                <div class="item">
+                    <p>떠나요 아름다운 산 풍경 1</p>
+                </div>
+                <div class="item">
+                    <p>트래킹 아름다운 산 풍경 2</p>
+                </div>
+                <div class="item">
+                    <p>여행 아름다운 산 풍경 3</p>
+                </div>
+                <div class="item">
+                    <p>아름다운 산 풍경 4</p>
+                </div>
+            </div>
+            <div class="slide_thum">
                 <div class="item"><img src="../resource/img/benjamin-voros-phIFdC6lA4E-unsplash.jpg" alt="copyright benjamin-voros" /></div>
                 <div class="item"><img src="../resource/img/jerry-zhang-ePpaQC2c1xA-unsplash.jpg" alt="copyright jerry-zhang" /></div>
                 <div class="item"><img src="../resource/img/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg" alt="copyright kalen-emsley" /></div>
                 <div class="item"><img src="../resource/img/tim-stief-YFFGkE3y4F8-unsplash.jpg" alt="copyright tim-stief" /></div>
             </div>
-            <div class="pagenum_box">
-                <span>1</span><span>/</span><span>4</span>
-            </div>
-            <div class="btn_slider_box">
-                <button type="button" class="btn_prev">prev</button>
-                <button type="button" class="btn_next">next</button>
-            </div>
-        </div>
-        <div class="slider_caption">
-            <p><strong>아름다운 산 풍경 1</strong></p>
-        </div>
-        <div class="slide_thum">
-            <div class="item"><img src="../resource/img/benjamin-voros-phIFdC6lA4E-unsplash.jpg" alt="copyright benjamin-voros" /></div>
-            <div class="item"><img src="../resource/img/jerry-zhang-ePpaQC2c1xA-unsplash.jpg" alt="copyright jerry-zhang" /></div>
-            <div class="item"><img src="../resource/img/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg" alt="copyright kalen-emsley" /></div>
-            <div class="item"><img src="../resource/img/tim-stief-YFFGkE3y4F8-unsplash.jpg" alt="copyright tim-stief" /></div>
         </div>
     </div>
 
+
     <script>
         
-        sliderWork();
-        function sliderWork (){
+        mySliderWork();
+        function mySliderWork (){
+            //slide;
             const sliderContainer = document.querySelector('.mySlider');
             const sliderViewPort = document.querySelector('.slider_viewport');
             const slideItems = document.querySelectorAll('.mySlider .slider_viewport .item');
             const btnBox = document.querySelector('.btn_slider_box');
             const btnNext = document.querySelector('.btn_next');
             const btnPrev = document.querySelector('.btn_prev');
-            //odering
+            // img caption
+            const imgCaptions = document.querySelectorAll('.slider_caption .item');
+            const imgCaptionTxts = document.querySelectorAll('.slider_caption .item > p');
+
+            //z-index odering
             Array.prototype.forEach.call(slideItems, (target, index)=> {
-                console.log(target, index);
-                console.log(slideItems.length);
-                console.dir(target.style);
                 target.style.zIndex = `${slideItems.length - index}`
-                if(index == 0){
-                    let clonedFirstItem = target.cloneNode(true);
-                    sliderViewPort.appendChild(clonedFirstItem);
-                    clonedFirstItem.classList.add('clonedFirst');
-                    //clonedFirstItem.style.zIndex = `${slideItems.length}`
-
-                }else if(index == slideItems.length - 1){
-                    let clonedLastItem = target.cloneNode(true);
-                    sliderViewPort.prepend(clonedLastItem);
-                    clonedLastItem.classList.add('clonedLast');
-
-
-                }
-
             });
-            let counter = 1;
+            // 페이지넘
+            const crrNum = document.querySelector('.mySlider .pagenum_box .crr_num');
+            const totlaNum = document.querySelector('.mySlider .pagenum_box .total_num');
+            let counter = 0;
+            // 초기 로드 active;
+            slideItems[counter].classList.add('active');
+            imgCaptions[counter].classList.add('active');
+            imgCaptionTxts[counter].classList.add('active');
+            totlaNum.textContent = slideItems.length;
+
             btnBox.addEventListener('click', (e)=>{
-                let clonedSliderItems = document.querySelectorAll('.mySlider .slider_viewport .item');
                 if(e.target.classList.contains('btn_next')){
-                    Array.prototype.forEach.call(clonedSliderItems, target =>{
+                    counter++;
+                    counter <= slideItems.length -1? counter : counter = 0;
+                    slidingWork();
+
+                }else if(e.target.classList.contains('btn_prev')){
+                    counter--;
+                    counter < 0? counter = slideItems.length -1 : counter;
+                    slidingWork();
+                }
+            });
+            // Thumnail img;
+            const thumWrap = document.querySelector('.slide_thum');
+            const thums = document.querySelectorAll('.slide_thum .item');
+
+            thumWrap.addEventListener('click', (e)=>{
+                if (!e.target.classList.contains('item'))return;
+                counter = Array.prototype.indexOf.call(thums, e.target);
+                slidingWork();
+            });
+
+            // img sliding work;
+            function slidingWork(){
+                let el = [slideItems, imgCaptions, imgCaptionTxts];
+                el.forEach((target)=>{
+                    Array.prototype.forEach.call(target, target =>{
                         target.classList.remove('active');
                     });
-                    clonedSliderItems[counter].classList.add('active');
-                    counter < clonedSliderItems.length -1? counter++ : counter = 0;
-                }else if(e.target.classList.contains('btn_prev')){
+                });
+                slideItems[counter].classList.add('active');
+                crrNum.textContent = counter + 1;
+                imgCaptions[counter].classList.add('active');
+                setTimeout(()=>{
+                        imgCaptionTxts[counter].classList.add('active');
+                }, 10);
 
-                }
-            });
+                // Array.prototype.forEach.call(slideItems, target =>{
+                //     target.classList.remove('active');
+                // });
+                // Array.prototype.forEach.call(imgCaptions, target =>{
+                //     target.classList.remove('active');
+                // });
+
+                // Array.prototype.forEach.call(imgCaptionTxts, target =>{
+                //     setTimeout(()=>{
+                //         target.classList.remove('active')
+                //     }, 10);
+                // });
+                // css 텍스트를 모두 리셋하는 코드.
+                // imgCaptions[counter].style.cssText = 'display:block; opacity:1;';
+
+            }
 
         }
 
