@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lightbox</title>
+    <style>
+        *{margin:0;padding:0;}
+        .slider_container{margin:0 auto;width:100%;max-width:1200px;}
+        .slider_container .slider_viewport{position: relative;padding-bottom:50%;overflow: hidden;}
+        .slider_container .slider_viewport .item{position:absolute;width:100%;transition:opacity 0.5s;top:50%;left: 50%;transform: translate(-50%,-50%);}
+        .slider_container .slider_viewport .item.active{opacity: 1;}
+        .slider_container .slider_viewport .item > img{width: 100%;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="slider_container mySlider">
+            <div class="slider_viewport">
+                <div class="item"><img src="../resource/img/benjamin-voros-phIFdC6lA4E-unsplash.jpg" alt="copyright benjamin-voros" /></div>
+                <div class="item"><img src="../resource/img/jerry-zhang-ePpaQC2c1xA-unsplash.jpg" alt="copyright jerry-zhang" /></div>
+                <div class="item"><img src="../resource/img/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg" alt="copyright kalen-emsley" /></div>
+                <div class="item"><img src="../resource/img/tim-stief-YFFGkE3y4F8-unsplash.jpg" alt="copyright tim-stief" /></div>
+            </div>
+            <div class="pagenum_box">
+                <span>1</span><span>/</span><span>4</span>
+            </div>
+            <div class="btn_slider_box">
+                <button type="button" class="btn_prev">prev</button>
+                <button type="button" class="btn_next">next</button>
+            </div>
+        </div>
+        <div class="slider_caption">
+            <p><strong>아름다운 산 풍경 1</strong></p>
+        </div>
+        <div class="slide_thum">
+            <div class="item"><img src="../resource/img/benjamin-voros-phIFdC6lA4E-unsplash.jpg" alt="copyright benjamin-voros" /></div>
+            <div class="item"><img src="../resource/img/jerry-zhang-ePpaQC2c1xA-unsplash.jpg" alt="copyright jerry-zhang" /></div>
+            <div class="item"><img src="../resource/img/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg" alt="copyright kalen-emsley" /></div>
+            <div class="item"><img src="../resource/img/tim-stief-YFFGkE3y4F8-unsplash.jpg" alt="copyright tim-stief" /></div>
+        </div>
+    </div>
+
+    <script>
+        
+        sliderWork();
+        function sliderWork (){
+            const sliderContainer = document.querySelector('.mySlider');
+            const sliderViewPort = document.querySelector('.slider_viewport');
+            const slideItems = document.querySelectorAll('.mySlider .slider_viewport .item');
+            const btnBox = document.querySelector('.btn_slider_box');
+            const btnNext = document.querySelector('.btn_next');
+            const btnPrev = document.querySelector('.btn_prev');
+            //odering
+            Array.prototype.forEach.call(slideItems, (target, index)=> {
+                console.log(target, index);
+                console.log(slideItems.length);
+                console.dir(target.style);
+                target.style.zIndex = `${slideItems.length - index}`
+                if(index == 0){
+                    let clonedFirstItem = target.cloneNode(true);
+                    sliderViewPort.appendChild(clonedFirstItem);
+                    clonedFirstItem.classList.add('clonedFirst');
+                    //clonedFirstItem.style.zIndex = `${slideItems.length}`
+
+                }else if(index == slideItems.length - 1){
+                    let clonedLastItem = target.cloneNode(true);
+                    sliderViewPort.prepend(clonedLastItem);
+                    clonedLastItem.classList.add('clonedLast');
+
+
+                }
+
+            });
+            let counter = 1;
+            btnBox.addEventListener('click', (e)=>{
+                let clonedSliderItems = document.querySelectorAll('.mySlider .slider_viewport .item');
+                if(e.target.classList.contains('btn_next')){
+                    Array.prototype.forEach.call(clonedSliderItems, target =>{
+                        target.classList.remove('active');
+                    });
+                    clonedSliderItems[counter].classList.add('active');
+                    counter < clonedSliderItems.length -1? counter++ : counter = 0;
+                }else if(e.target.classList.contains('btn_prev')){
+
+                }
+            });
+
+        }
+
+    </script>
+</body>
+</html>
