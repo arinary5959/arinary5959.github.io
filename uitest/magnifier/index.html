@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnifier</title>
+    <style>
+        *{margin:0;padding:0;box-sizing: border-box;}
+        img{max-width:100%;vertical-align: top;}
+        .magnifier_container{position: relative;margin:100px auto;width:100%;max-width: 800px;}
+        .magnifier_glass {pointer-events:none;position: absolute;border: 6px solid rgba(255,255,255,0.8);border-radius: 50%;cursor: none;width: 160px;height: 160px;background: url('../resource/img/irene-kredenets-tcVH_BwHtrc-unsplash.jpg') no-repeat;}
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <div class="magnifier_container">
+            <div class="magnifier_glass"></div>
+            <img class="target_img" src="../resource/img/irene-kredenets-tcVH_BwHtrc-unsplash.jpg" alt="copyright irene-kredenets">
+        </div>
+
+    </div>
+
+    <script>
+        const magniContainer = document.querySelector('.magnifier_container');
+        const magniGlass = document.querySelector('.magnifier_glass');
+        const targetImg = document.querySelector('.magnifier_container > .target_img');
+        console.dir(magniGlass.style);
+        console.dir(magniGlass);
+
+        targetImg.addEventListener('mousemove', (e)=>{
+
+            //backgroundSize
+            
+            // backgroundPosition
+            
+            
+         
+            
+           
+            // 페이지 내에서의 위치값.
+            console.log(e.pageX, e.pageY);
+            
+            // 절대 좌표, 좌표대지 리셋
+            let glassX = magniGlass.getBoundingClientRect().left;
+            let glassY = magniGlass.getBoundingClientRect().top
+            let imgY = targetImg.getBoundingClientRect().top
+            let imgX = targetImg.getBoundingClientRect().left
+            let posX = e.pageX - imgX - window.pageXOffset;
+            let posY = e.pageY - imgY - window.pageYOffset;
+
+            magniGlass.getBoundingClientRect().top = `${e.pageX}px`;
+            magniGlass.getBoundingClientRect().left = `${e.pageY}px`;
+            console.log('corsur', e.pageX, e.pageY);
+            console.log('glassY', magniGlass.getBoundingClientRect().top );
+            console.log('imgX', targetImg.getBoundingClientRect().left );
+            console.log('imgY', targetImg.getBoundingClientRect().top );
+            // magniGlass.style.top = `${imgY}px`;
+            // magniGlass.style.left = `${imgX}px`;
+            let w = magniGlass.offsetWidth / 2;
+            let h = magniGlass.offsetHeight / 2;
+            magniGlass.style.top = `${posY  - (h / 2) }px `;
+            magniGlass.style.left = `${posX  - (w / 2) }px`;
+
+            targetImg.style.cursor = 'none';
+
+            let bw = 6;
+            let zoom = 3;
+            // targetImg.style.backgroundSize 
+            // 1배수 일떄 동일한 이미지 확인
+            // magniGlass.style.backgroundSize = `${targetImg.width * 1}px ${targetImg.height * 1}px`;
+            // magniGlass.style.backgroundPosition = `-${ (posX * 1) - (w /2) + bw}px -${(posY * 1) - (h/2) + bw}px`
+            // 배수가 있는 경우
+            magniGlass.style.backgroundSize = `${targetImg.width * zoom}px ${targetImg.height * zoom}px`;
+            magniGlass.style.backgroundPosition = `-${(posX * zoom) + (w / 2) + bw}px -${(posY * zoom) + (h / 2) + bw}px`
+            // magniGlass.style.backgroundPosition = `${ (posX * 3)}px ${(posY * 3)}px`
+
+
+
+        });
+
+
+        // mousemove , touchmove
+
+        //*마우스 이벤트에 따른 마우스 위치 (좌표)
+        // clientX/clientY , pageX/pageY, offsetX/offsetY
+        //
+
+        //* 전체 페이지 내부에서 element의 절대값좌표(Y) 찾기
+        //1. 윈도우 스크롤 위치 Y좌표. window.pageYOffset 
+        //2. 윈도우 (페이지) 내부에서 현재 스크롤된 위치에서 부터의 좌표 element.getBoundingClientRect()
+        // 스크롤탑 0 일때window.pageYOffset =0 , (페이지 최상단. 스크롤 없음) 2번은 페이지 내부에서 자기 위치
+        // 스크롤이 움직일 때 window.pageYOffset 은 점점 증가하고, element.getBoundingClientRect().top의 값은 점점 줄어든다.
+        // 스크롤이 움직여 스크롤 위치 = 돔 위치 동일할 때 element.getBoundingClientRect().top (Y)이 0이 됨.
+        // element의 절대값은(Y좌표) window.pageYOffset + element.getBoundingClientRect().top
+
+
+
+    </script>
+</body>
+</html>
