@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <div class="append-box">
+          <div class="classified-box">
+            <div class="append-box">
+              <input type="text" placeholder="대분류" style="display: block" />
+              <div class="lists-box">
+                <input type="text" placeholder="내용" />
+                <input class="btn-ctrol" type="button" value="+" />
+              </div>
+            </div>
+            <input class="btn-ctrol classified" type="button" value="+" />
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+    <script>
+      var work = (function () {
+        var $originEl = $(".classified-box");
+        var $originChildEl = $(".classified-box .lists-box");
+        var $btnInput = $(".btn-ctrol");
+        var cloneEl;
+        return {
+          init: function () {
+            var self = this;
+            $(document).on("click", ".btn-ctrol", function (e) {
+              var targetEl = $(this);
+              var cloned = targetEl.parent().clone();
+
+              if (targetEl.val() == "-") {
+                self.erase(targetEl);
+              } else if (targetEl.val() == "+") {
+                self.write(targetEl, cloned);
+              }
+            });
+          },
+          write: function (targetEl, cloned) {
+            targetEl.parent().parent().append(cloned);
+            var els;
+
+            if (targetEl.parent().hasClass("classified-box")) {
+              els = targetEl.parent().parent().find(".btn-ctrol.classified");
+              cloned.find(".btn-ctrol").val("+");
+              //   $(".classified-box")
+              //     .last()
+              //     .append(cloned.find(".btn-ctrol").eq(1).val("-"));
+              $(".classified-box")
+                .last()
+                .find(".lists-box")
+                .not(":first-of-type")
+                .remove();
+            } else if (targetEl.parent().hasClass("lists-box")) {
+              els = targetEl.parent().parent().find(".btn-ctrol");
+            }
+            els.val("-");
+            els.last().val("+");
+          },
+          erase: function (targetEl) {
+            console.log("지우세요");
+            targetEl.parent().remove();
+          },
+        };
+      })();
+      work.init();
+    </script>
+  </body>
+</html>
